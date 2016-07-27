@@ -1,0 +1,2 @@
+class CheckoutsController < ApplicationController
+end
