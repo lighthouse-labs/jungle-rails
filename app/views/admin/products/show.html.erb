@@ -1,0 +1,18 @@
+<%# TODO: Fix style / HTML - KV %>
+
+<h1><%= @product.name %></h1>
+
+<p> PRODUCT DETAILS HERE (LATER) </p>
+
+<div class="row">
+  <h2>
+    Images
+    (<%= link_to "Add Image", new_admin_product_image_path(@product) %>)
+  </h2>
+
+  <% @product.images.each do |image| %>
+    <%= image_tag image.file.tiny.url %>
+  <% end %>
+</div>
+
+
