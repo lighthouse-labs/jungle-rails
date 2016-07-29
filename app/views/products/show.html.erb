@@ -26,9 +26,8 @@
 
         <div class="images">
           <% @images.each do |image| %>
-            Image: <%= image.id %><br>
+            <%= image_tag image.file.url %>
           <% end %>
-            <%#= image_tag image, class: 'main-img' %>
         </div>
 
       </div>

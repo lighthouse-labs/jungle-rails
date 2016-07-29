@@ -7,7 +7,7 @@
 <div class="row">
   <h2>
     Images
-    (<%= link_to "Add Image", new_admin_product_image_path(@product) %>)
+    (<%= link_to "Add Image", "/admin/products/#{@product.id}/new" %>)
   </h2>
 
   <% @product.images.each do |image| %>
