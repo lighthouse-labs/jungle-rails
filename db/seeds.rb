@@ -17,9 +17,11 @@ end
 raise "Development seeds only (for now)!" unless Rails.env.development?
 
 # Let's do this ...
+##Users
+Users.destroy_all
 
 ## CATEGORIES
-
+Category.destroy_all
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Apparel'
