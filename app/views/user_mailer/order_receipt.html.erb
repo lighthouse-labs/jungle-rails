@@ -6,12 +6,17 @@
   <body>
     <h1>Welcome to example.com, <%= @user.first_name %> <%= @user.last_name %></h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: .<br>
+      You have successfully made a purchase!<br>
     </p>
     <p>
-      To login to the site, just follow this link: .
+      Order details:
+        <% @order.line_items.each do |item| %>
+          <% product = Product.find(item.product_id) %>
+          Name: <%= product.name %> <br>
+          Quantity: <%= item.quantity %> <br> <br>
+        <% end %>
+        Total: <%= @order.total %>
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thanks for shopping and have a great day!</p>
   </body>
 </html>

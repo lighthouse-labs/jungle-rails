@@ -1,9 +1,15 @@
 Welcome to example.com, <%= @user.first_name %> <%= @user.last_name %>
 ===============================================
 
-You have successfully signed up to example.com,
-your username is: .
+You have successfully made a purchase!
 
-To login to the site, just follow this link: .
+Order details:
+  <% @order.line_items.each do |item| %>
+    <% product = Product.find(item.product_id) %>
+    Name: <%= product.name %>
+    Quantity: <%= item.quantity %>
+  <% end %>
 
-Thanks for joining and have a great day!
+  Total: <%= @order.total %>
+
+Thanks for shopping and have a great day!
