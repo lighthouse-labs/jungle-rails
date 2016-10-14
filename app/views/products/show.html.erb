@@ -50,8 +50,8 @@
 
         <%= form.submit 'Create Review', class: 'btn btn-primary' %>
       <% end %>
-
-        <% if @product.review.length != 0 %>
+        <% puts @reviews %>
+        <% if @reviews != nil %>
           <table class="table table-bordered">
           <caption>User Reviews</caption>
             <thead>
@@ -61,20 +61,19 @@
               </tr>
             </thead>
             <tbody>
-              <% @product.review.each do |review| %>
+              <% @reviews.each do |review| %>
                 <tr>
                   <td>
                     <%= review.description %>
                   </td>
                   <td>
-                    <% count = 0 %>
                     <% review.rating.times do %>
                       <%= fa_icon ('star') %>
-                      <% count += 1 %>
                     <% end %>
-                    <% while count < 5 do %>
-                      <%= fa_icon('star-o') %>
-                      <% count += 1 %>
+                    <% if review.rating < 5 %>
+                      <% (5 - review.rating).times do %>
+                        <%= fa_icon('star-o') %>
+                      <% end %>
                     <% end %>
                   </td>
                 </tr>
