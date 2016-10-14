@@ -17,11 +17,21 @@ end
 raise "Development seeds only (for now)!" unless Rails.env.development?
 
 # Let's do this ...
-##Users
-Users.destroy_all
+## Users
+
+User.destroy_all
+
+User.create!({
+  first_name: 'afasdf',
+  last_name: 'ssfsf',
+  email: 'blah',
+  password: 'great'
+  })
 
 ## CATEGORIES
+
 Category.destroy_all
+
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Apparel'
@@ -131,5 +141,28 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+##Reviews
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: 'Great Product!',
+  rating: 5
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: 'Fantastic!',
+  rating: 4
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: 'Not so good.',
+  rating: 2
+})
 
 puts "DONE!"

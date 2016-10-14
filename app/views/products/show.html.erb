@@ -23,6 +23,58 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+
+        <%= form_for [@product, @review] do |form| %>
+
+          <% if form.object.errors.any? %>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented saving:</strong>
+              <ul>
+                <% form.object.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_field :description, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :rating %>
+            <%= form.text_field :rating, class: 'form-control' %>
+          </div>
+
+        <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+      <% end %>
+
+        <% if @product.review.length != 0 %>
+          <table class="table table-bordered">
+          <caption>User Reviews</caption>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Rating / 5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @product.review.each do |review| %>
+                <tr>
+                  <td>
+                    <%= review.description %>
+                  </td>
+                  <td>
+                    <%= review.rating %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+        <p> No reviews yet! </p>
+        <% end %>
       </div>
     </div>
 
