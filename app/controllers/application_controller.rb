@@ -19,4 +19,17 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
+
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
+  def basic_authorize
+    http_basic_authenticate_with name: ENV['ADMIN_NAME'], password: ENV['ADMIN_PASS']
+  end
+
 end

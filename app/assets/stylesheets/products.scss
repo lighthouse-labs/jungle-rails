@@ -50,6 +50,17 @@ main section.categories-show {
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
       }
+      aside.sold_out {
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: #d99;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 0.8em;
+      }
 
       &:hover {
 
@@ -61,6 +72,25 @@ main section.categories-show {
       }
 
     }
+  }
+}
+
+#reviews{
+  margin-top: 20px;
+  margin-left: 20px;
+
+  #review_delete{
+    float: right;
+  }
+}
+#create_review{
+  margin-top: 50px;
+
+  h4 {
+    margin-bottom: 20px;
+  }
+  select{
+    width: 100px;
   }
 }
 

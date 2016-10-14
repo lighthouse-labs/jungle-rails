@@ -24,6 +24,74 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-7" id="create_review">
+        <h4> Create a review </h4>
+        <%= form_for [@product, @review] do |form| %>
+
+            <% if form.object.errors.any? %>
+              <div class="alert alert-danger">
+                <strong>The following errors prevented saving:</strong>
+                <ul>
+                  <% form.object.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.label :description %>
+              <%= form.text_field :description, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :rating %> <br>
+              <%= select_tag :rating, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]) %>
+            </div>
+          <%= form.submit 'Create Review', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+
+      <div class="col-sm-12" id="reviews">
+        <% if @reviews != nil %>
+          <table class="table table-bordered">
+          <h2>User Reviews</h2>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reviews.each do |review| %>
+                <tr>
+                  <td>
+                    <%= review.description %>
+                  </td>
+                  <td>
+                    <% review.rating.times do %>
+                      <%= fa_icon ('star') %>
+                    <% end %>
+                    <% if review.rating < 5 %>
+                      <% (5 - review.rating).times do %>
+                        <%= fa_icon('star-o') %>
+                      <% end %>
+                    <% end %>
+
+                  <% if @current_user.id === review.user_id %>
+                    <%= link_to fa_icon('trash'), [review], class: 'btn btn-sm btn-danger', id: 'review_delete', method: :delete, data: { confirm: "Are you sure?" } %>
+                  <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+        <p> No reviews yet! </p>
+        <% end %>
+      </div>
     </div>
 
   </article>

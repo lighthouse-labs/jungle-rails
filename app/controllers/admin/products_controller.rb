@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  :basic_authorize
 
   def index
     @products = Product.order(id: :desc).all
@@ -12,7 +13,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to [:admin, products], notice: 'Product created!'
+      redirect_to [:admin, :products], notice: 'Product created!'
     else
       render :new
     end

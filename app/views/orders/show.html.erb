@@ -6,7 +6,24 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Qty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
+        <% end %>
+        <tr><td colspan="5">Total: <%= @order.total %> </td> </tr>
+      </tbody>
+    </table>
   </div>
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 

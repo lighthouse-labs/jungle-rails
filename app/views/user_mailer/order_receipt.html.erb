@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p>
+      You have successfully made a purchase!<br>
+    </p>
+    <p>
+      Order details:
+        <% @order.line_items.each do |item| %>
+          <% product = Product.find(item.product_id) %>
+          Name: <%= product.name %> <br>
+          Quantity: <%= item.quantity %> <br> <br>
+        <% end %>
+        Total: <%= @order.total %>
+    </p>
+    <p>Thanks for shopping and have a great day!</p>
+  </body>
+</html>
