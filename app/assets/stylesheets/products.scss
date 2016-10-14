@@ -75,6 +75,25 @@ main section.categories-show {
   }
 }
 
+#reviews{
+  margin-top: 20px;
+  margin-left: 20px;
+
+  #review_delete{
+    float: right;
+  }
+}
+#create_review{
+  margin-top: 50px;
+
+  h4 {
+    margin-bottom: 20px;
+  }
+  select{
+    width: 100px;
+  }
+}
+
 main section.products-show {
 
   .product-detail {
