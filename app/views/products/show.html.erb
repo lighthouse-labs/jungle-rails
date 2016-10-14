@@ -25,6 +25,7 @@
         </dl>
 
         <%= form_for [@product, @review] do |form| %>
+        <h3> Create a review </h3>
 
           <% if form.object.errors.any? %>
             <div class="alert alert-danger">
@@ -47,7 +48,7 @@
             <%= form.text_field :rating, class: 'form-control' %>
           </div>
 
-        <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+        <%= form.submit 'Create Review', class: 'btn btn-primary' %>
       <% end %>
 
         <% if @product.review.length != 0 %>
@@ -56,7 +57,7 @@
             <thead>
               <tr>
                 <th>Description</th>
-                <th>Rating / 5</th>
+                <th>Rating</th>
               </tr>
             </thead>
             <tbody>
@@ -66,7 +67,15 @@
                     <%= review.description %>
                   </td>
                   <td>
-                    <%= review.rating %>
+                    <% count = 0 %>
+                    <% review.rating.times do %>
+                      <%= fa_icon ('star') %>
+                      <% count += 1 %>
+                    <% end %>
+                    <% while count < 5 do %>
+                      <%= fa_icon('star-o') %>
+                      <% count += 1 %>
+                    <% end %>
                   </td>
                 </tr>
               <% end %>
