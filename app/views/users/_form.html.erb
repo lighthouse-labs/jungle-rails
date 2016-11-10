@@ -1,7 +1,16 @@
 <!-- form will go here -->
 
-<%= form_for :user, url: '/signup' do |form| %>
-
+<%= form_for :user, url: '/users' do |form| %>
+    <% if @user.errors.any? %>
+    <div class="alert alert-caution">
+      <strong>The following errors prevented saving:</strong>
+      <ul>
+        <% @user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
   <div class="form-group">
@@ -27,7 +36,7 @@
   <div class="form-group">
 
     <%= form.label :confirm_password %>
-    <%= form.password_field :confirm_password, class: 'form-control' %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
   </div>
   <%= form.submit 'Signup', class: 'btn btn-primary' %>
 <% end %>
