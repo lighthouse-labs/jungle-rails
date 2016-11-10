@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+
       respond_to do |format|
         if @user.save
         # Tell the UserMailer to send a welcome email after save
@@ -31,5 +32,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
   end
+
 
 
