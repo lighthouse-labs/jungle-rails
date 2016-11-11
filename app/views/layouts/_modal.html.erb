@@ -1,0 +1,24 @@
+<div class="modal fade loginModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <%= form_for :session, :url => login_path do |form| %>
+      <% if flash[:error] %>
+          <div class="alert alert-danger"><%= flash[:error] %></div>
+      <% end %>
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+
+        <%= form.label :password %>
+        <%= form.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit 'login', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
