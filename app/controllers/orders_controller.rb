@@ -10,9 +10,13 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
-    else
-      redirect_to cart_path, error: order.errors.full_messages.first
+
+      UserMailer.welcome(params['stripeEmail']).deliver_later
+      respond_to do |format|
+        format.html { redirect_to '/', notice: 'Your Order has been placed.' }
+      end
+      else
+        redirect_to cart_path, error: order.errors.full_messages.first
     end
 
   rescue Stripe::CardError => e
@@ -30,7 +34,7 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_total, # in cents
-      description: "Khurram Virani's Jungle Order",
+      description: "",
       currency:    'cad'
       )
   end
