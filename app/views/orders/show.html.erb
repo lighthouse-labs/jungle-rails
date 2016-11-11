@@ -6,9 +6,9 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-    <tbody>
+    <table>
       <%= render 'item', line_items: @order.line_items%>
-    </tbody>
+    </table>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
