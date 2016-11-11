@@ -1,0 +1,18 @@
+<% order.line_items.each do |i| %>
+  <li>
+    <%= i.product.name %>
+  </li>
+
+  <li>
+    <%= i.product.description %>
+  </li>
+
+  <li>
+    <%= i.product.quantity %>
+  </li>
+
+  <li>
+    <%= image_tag i.product.image.tiny %>
+  </li>
+
+  <% end %>
