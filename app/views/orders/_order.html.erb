@@ -1,18 +1,20 @@
-<% order.line_items.each do |i| %>
-  <li>
-    <%= i.product.name %>
-  </li>
-
-  <li>
-    <%= i.product.description %>
-  </li>
-
-  <li>
-    <%= i.product.quantity %>
-  </li>
-
-  <li>
-    <%= image_tag i.product.image.tiny %>
-  </li>
-
-  <% end %>
+<table class="table">
+    <thead>
+      <tr>
+        <th>       </th>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order.line_items.each do |i| %>
+      <tr>
+        <td> <%=image_tag i.product.image.tiny %></td>
+        <td><%=i.product.name %></td>
+        <td><%=i.product.description %></td>
+        <td><%=i.product.quantity %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
