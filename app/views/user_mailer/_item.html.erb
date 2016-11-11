@@ -1,0 +1,3 @@
+ <% line_items.each do |item|  %>
+      <h2> <%= item.quantity %>  <%= item.product.name %> - <%=item.total_price_cents %></h2>
+    <% end%>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your Order Reciept</h1>
+    <p>
+      Thank you for your purchase at jungle.com,<br>  Please find your order details below,
+    </p>
+    <h1><br> Quantity:    Product:</h1>
+    <%= render 'item', line_items: @order.line_items%>
+    <h4>Total Items: <%= @order.line_items.count %> </h4>
+    <h4>Total Sale: <%= @order.total_cents %></h4>
+    <p>Please do not reply to this email!</p>
+  </body>
+</html>
