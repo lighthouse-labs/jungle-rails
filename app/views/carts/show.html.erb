@@ -5,6 +5,7 @@
   </header>
 
   <div class="panel panel-default items">
+   <% if cart.count > 0 %>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -47,6 +48,13 @@
           data-currency="cad">
         </script>
       <% end %>
+    <% else %>
+    <!-- display this if theres 0 items in cart -->
+      <div class="alert alert-info">
+        <h2>Oops! Theres nothing in the cart to purchase...</h2>
+        <h3> Why not go <%= link_to "home?", root_path %></h3>
+      </div>
+    <% end %>
     </div>
   </div>
 
