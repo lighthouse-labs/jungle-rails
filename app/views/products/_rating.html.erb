@@ -1,0 +1,6 @@
+<p class="rating">
+    Rating: <%=rating.rating  %>/5 Comment: <%=rating.content%> <% if (current_user && rating.user_id == current_user.id) %>
+
+    <%= link_to fa_icon('trash'),  [@product,rating], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </p>
