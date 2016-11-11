@@ -7,6 +7,8 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
     <%= render @order %>
+    <h4> Your total is: <%=number_to_currency(@order.total)%>
+    <h5>Check <%=@order.email%> for your confirmation email!</h5>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

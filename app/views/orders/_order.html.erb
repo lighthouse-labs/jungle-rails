@@ -5,6 +5,7 @@
         <th>Product</th>
         <th>Description</th>
         <th>Quantity</th>
+        <th>Total</th>
       </tr>
     </thead>
     <tbody>
@@ -13,7 +14,8 @@
         <td> <%=image_tag i.product.image.tiny %></td>
         <td><%=i.product.name %></td>
         <td><%=i.product.description %></td>
-        <td><%=i.product.quantity %></td>
+        <td><%=i.quantity %></td>
+        <td><%=number_to_currency(i.item_price * i.quantity) %></td>
       </tr>
       <% end %>
     </tbody>
