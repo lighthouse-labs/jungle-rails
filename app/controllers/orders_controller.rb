@@ -3,9 +3,10 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     respond_to do |format|
-       # Tell the UserMailer to send a order reciept after save
+       # Tell the UserMailer to send a order reciept after save (sends to terminal)
       UserMailer.order_receipt(@order).deliver_now
       format.json {render json: @order, status: :created, location: @user}
+      # render order show view
       format.html {@order}
     end
   end
