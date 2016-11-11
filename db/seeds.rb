@@ -18,6 +18,7 @@ raise "Development seeds only (for now)!" unless Rails.env.development?
 
 # Let's do this ...
 
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -129,5 +130,41 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+Review.destroy_all
 
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "Hey i like this",
+  rating: 4,
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 2,
+  description: " Yeah! this is ocol!",
+  rating: 4,
+})
+
+Review.create!({
+  product_id: 3,
+  user_id: 1,
+  description: "I dont like this",
+  rating: 0,
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: "Hey i like this yess!",
+  rating: 5,
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: "Cats!",
+  rating: 4,
+})
 puts "DONE!"
