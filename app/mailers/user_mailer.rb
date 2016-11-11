@@ -5,5 +5,10 @@ class UserMailer < ApplicationMailer
     @user = user
     @url  = 'http://localhost:3000'
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
-end
+  end
+
+  def order_receipt(order)
+    @order = order
+    mail(to: order.email, subject: 'Your order reciept')
+  end
 end
