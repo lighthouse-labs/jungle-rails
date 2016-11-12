@@ -27,10 +27,14 @@
       </div>
     </div>
 
+  <% if (@product.ratings.to_a.length > 0) %>
   <% sorted = @product.ratings.to_a.reverse %>
   <% sorted.each do |rating| %>
   <%= render 'rating', rating:rating %>
   <% end %>
+  <% end %>
+
+
 
   <% if current_user %>
   <div class='add-rating'>
