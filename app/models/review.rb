@@ -17,4 +17,3 @@ class Review < ActiveRecord::Base
   end
 end
 
-# need to check validation on front end

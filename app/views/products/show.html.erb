@@ -32,7 +32,10 @@
   <div class="row">
     <div class="reviews" id="center">
     <div class="col">
-      <%= render 'form', product: @product %>
+    <!-- only displays form if logged in -->
+      <% if current_user %>
+        <%= render 'form', product: @product %>
+      <%>
     </div>
       <% @product.reviews.order(created_at: :desc).each do |review| %>
 
