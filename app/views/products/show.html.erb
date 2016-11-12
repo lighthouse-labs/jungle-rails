@@ -32,7 +32,7 @@
   <div class="row">
     <div class="reviews" id="center">
     <div class="col">
-      <%= render 'form' %>
+      <%= render 'form', product: @product %>
     </div>
       <% @product.reviews.each do |review| %>
 
