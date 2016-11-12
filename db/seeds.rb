@@ -129,10 +129,25 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+## USERS
+puts "Creating Users..."
 
-## REVIEWS
+User.create!({
+  first_name: "Bob",
+  last_name: "Doe",
+  password: "aa",
+  email: "bobdoe@gmail.com"
+})
+
+User.create!({
+  first_name: "John",
+  last_name: "Doe",
+  password: "aa",
+  email: "johndoe@gmail.com"
+})
+## REVIEW
 Review.destroy_all
-
+puts "Creating reviews.."
 Review.create!({
   product_id: 1,
   user_id: 1,

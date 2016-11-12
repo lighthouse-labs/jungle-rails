@@ -22,10 +22,34 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <div>
+          <p>changing this to be an average or something</p>
+            <dd><h2>Total Rating:  <%= @product.reviews.sum("rating") %></h2></dd>
+          </div>
         </dl>
       </div>
     </div>
+  <div class="row">
+    <div class="reviews" id="center">
+    <div class="col">
+      <h1>FORM WILL BE HERE</h1>
+    </div>
+      <% @product.reviews.each do |review| %>
 
+        <%= render 'comments', review: review %>
+        <%= User.find_by({id: review.user_id}).first_name %>
+        <br>
+      <% end %>
+      test
+      test<br>
+      test<br>
+      test<br>
+      test<br>
+      test<br>
+      test<br>
+    </div>
+
+  </div>
   </article>
 
 </section>

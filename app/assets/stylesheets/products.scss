@@ -83,6 +83,12 @@ main section.products-show {
       max-width: 100%;
     }
   }
+
+  .reviews {
+    margin: 0 auto;
+    overflow: auto;
+    width: 60%;
+    height: 500px;
+    border: 1px solid black;
+  }
 }
-
-

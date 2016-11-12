@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
   validates :description, length: {minimum: 1}
   validates :rating, numericality: true, presence: true
   validate :is_there_product?
-  validate :is_logged_in?
+  # validate :is_logged_in?
   private
   def is_there_product?
   # is there a product to attach a review too

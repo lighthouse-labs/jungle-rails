@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 # signups
   get "/signup", to: "users#new"
-  post "/users", to: "users#create"
+  post "/users", to: "users#create", defaults: { format: 'html'}
 
   namespace :admin do
     root to: 'dashboard#show'

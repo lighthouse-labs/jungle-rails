@@ -1,0 +1,13 @@
+<% user = User.find_by({id: review.user_id}) %>
+
+<div class="col-sm-5">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <strong> <%= user.first_name %> <%= user.last_name %> </strong>
+    <span class="text-muted">commented <%= time_tag review.created_at%></span>
+    </div>
+    <div class="panel-body">
+      <%= review.description %>
+    </div><!-- /panel-body -->
+  </div><!-- /panel panel-default -->
+</div><!-- /col-sm-5 -->
