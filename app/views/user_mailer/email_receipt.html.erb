@@ -5,14 +5,17 @@
   </head>
   <body>
     <h1>Thank you for your JUNGLERIFIC order!</h1>
+    <hr>
+    You have successfully placed a fabulous order on Jungle! Please find your order details below...
+    ORDER RECEIPT
+    <hr>
     <p>
-      You have successfully placed a fabulous order!
-      <br>
+    <br>
+    <%= render 'item' %>
+    <h4>Unique Items Purchased: <%= @order.line_items.count %></h4>
+    <h4>Total Price: <%= number_to_currency(@order.total) %></h4>
     </p>
-    <p>
-      To login to the site... Do some stuff!
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thanks for having such great taste, and have a great day!</p>
+    <h6>Please do not reply to this email. If you need assistance, contact us at <%= @url %></h6>
   </body>
 </html>
-
