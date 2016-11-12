@@ -1,17 +1,18 @@
 <div>
   <%= form_for [@product, Review.new] do |form|%>
   <!-- generate error if it exists -->
-    <% if flash[:error] %>
+    <% if flash[:comment_error] %>
       <div class="alert alert-danger">
         <strong>Error!</strong>
         <ul>
-        <% flash[:error].each do |msg| %>
+        <% flash[:comment_error].each do |msg| %>
          <li><%= msg %></li>
         <% end %>
         </ul>
       </div>
     <% end %>
   <div class="form-group">
+    <!-- invisible form field to grab user_id -->
     <%= form.label :rating %>
     <%= form.text_field :rating%>
   </div>
