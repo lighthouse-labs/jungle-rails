@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @product
     else
-      render @review
+      flash[:error] = @review.errors.full_messages
+      redirect_to @product
     end
   end
 

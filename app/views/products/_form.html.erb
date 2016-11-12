@@ -1,6 +1,16 @@
 <div>
   <%= form_for [@product, Review.new] do |form|%>
-
+  <!-- generate error if it exists -->
+    <% if flash[:error] %>
+      <div class="alert alert-danger">
+        <strong>Error!</strong>
+        <ul>
+        <% flash[:error].each do |msg| %>
+         <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   <div class="form-group">
     <%= form.label :rating %>
     <%= form.text_field :rating%>
