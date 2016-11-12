@@ -37,16 +37,8 @@
       <% @product.reviews.each do |review| %>
 
         <%= render 'comments', review: review %>
-        <%= User.find_by({id: review.user_id}).first_name %>
-        <br>
+
       <% end %>
-      test
-      test<br>
-      test<br>
-      test<br>
-      test<br>
-      test<br>
-      test<br>
     </div>
 
   </div>
