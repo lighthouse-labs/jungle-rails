@@ -1,0 +1,24 @@
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Thank you for your order, <%= @order.email %></h1>
+  <p>
+    Here is a list of the hipster items you purchased.
+  </p>
+
+  <h1>Order #<%= @order.id %></h1>
+  <ul>
+    <% @order_total = 0 %>
+    <% @order.line_items.each do |line_item| %>
+      <%= render 'item', :line_item => line_item %>
+    <% end %>
+  </ul>
+
+  <h2>Order Total: <%= @order_total %></h2>
+  <p>
+    Thanks for buying pointless items to keep the economic machine turning. Have a great day!
+  </p>
+</body>
+
+

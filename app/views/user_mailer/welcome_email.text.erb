@@ -1,0 +1,23 @@
+Thank you for your order, <%= @order.email %>
+===============================================
+Here is a list of the hipster items you purchased.
+
+Order #<%= @order.id %>
+
+<% @order_total = 0 %>
+<% @order.line_items.each do |line_item| %>
+  <% quantity = line_item.quantity.to_i %>
+  <% if product = Product.find_by(id: line_item.product_id) %>
+    <% item_total = product.price * quantity %>
+    <% @order_total += item_total %>
+    -Product Name: <%= product.name %>
+        -Product Unit Price: <%= product.price %>
+        -Product Quantity: <%= quantity %>
+        -Product Total Price: <%= item_total %>
+  <% end %>
+<% end %>
+
+Order Total: <%= @order_total %>
+
+Thanks for buying pointless items to keep the economic machine turning. Have a great day!
+
