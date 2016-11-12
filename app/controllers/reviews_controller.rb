@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
     @product = Product.find(params.require(:product_id))
     @review = @product.reviews.new(review_params)
     # @review = Review.new(review_params)
+
+    # as of now there is no filter for a signed in user
     @review.user_id = current_user.id
     if @review.save
       redirect_to @product

@@ -8,7 +8,7 @@
     </div>
     <div class="panel-body">
       <%= review.description %>
-    <h4 class="text-muted">commented <%= time_tag review.created_at%></h4>
+    <h6 class="text-muted"><%= time_ago_in_words review.created_at%> ago..</h6>
     </div><!-- /panel-body -->
   </div><!-- /panel panel-default -->
 </div><!-- /col-sm-5 -->

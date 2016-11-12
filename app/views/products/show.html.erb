@@ -34,7 +34,7 @@
     <div class="col">
       <%= render 'form', product: @product %>
     </div>
-      <% @product.reviews.each do |review| %>
+      <% @product.reviews.order(created_at: :desc).each do |review| %>
 
         <%= render 'comments', review: review %>
 
