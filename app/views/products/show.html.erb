@@ -32,7 +32,10 @@
   <div class="row">
     <div class="reviews" id="center">
     <div class="col">
-      <h1>FORM WILL BE HERE</h1>
+      <div>
+        <% form_for [@product, @reviews] do |f|%>
+
+      </div>
     </div>
       <% @product.reviews.each do |review| %>
 
