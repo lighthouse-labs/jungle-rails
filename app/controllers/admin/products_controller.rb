@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
- extend AdminHelper
+  extend AdminHelper
   Admin::CategoriesController.authenticate_with
   def index
     @products = Product.order(id: :desc).all
@@ -26,7 +26,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
-
   def product_params
     params.require(:product).permit(
       :name,

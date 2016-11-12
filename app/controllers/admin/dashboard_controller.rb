@@ -1,5 +1,5 @@
 class Admin::DashboardController < ApplicationController
-   extend AdminHelper
+  extend AdminHelper
   Admin::CategoriesController.authenticate_with
   def show
   end
