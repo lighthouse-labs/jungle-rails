@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <%= render partial: "shared/flash_messages", flash: flash %>
   <%= render 'layouts/top_nav' %>
 
   <main class="container">
