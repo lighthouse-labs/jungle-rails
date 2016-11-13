@@ -24,7 +24,7 @@
           <dd><%= @product.price %></dd>
           <div>
           <p>changing this to be an average or something</p>
-            <dd><h2>Total Rating: ></h2></dd>
+            <dd><h2>Average Rating <%= @product.reviews.average(:rating) %>/5 </h2></dd>
 
           </div>
           <button id="review-form-toggle">Review</button>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         format.html { redirect_to root_path }
       else
-        render 'new'
+        format.html { render 'new' }
       end
     end
   end

@@ -3,11 +3,16 @@
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
+    <p class="text text-muted" id="product-avg-rating">
+      rated <%= product.reviews.average(:rating) %> out of 5 from <%= product.reviews.count %> reviews
+    </p>
     <% end %>
   </header>
-  <p class="description">
-    <%= product.description %>
-  </p>
+
+    <p class="description">
+      <%= product.description %>
+    </p>
+
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
