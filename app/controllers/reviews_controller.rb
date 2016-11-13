@@ -12,8 +12,6 @@ class ReviewsController < ApplicationController
         redirect_to @product
       else
         send_error(@review.errors.full_messages)
-        # flash[:send_error] = @review.errors.full_messages
-        # redirect_to @product
       end
     else
       send_error(["Must be logged in!"])
@@ -24,7 +22,6 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(
-      :rating,
       :description,
       :user_id
     )
