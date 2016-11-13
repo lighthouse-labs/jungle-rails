@@ -2,9 +2,8 @@ class ReviewsController < ApplicationController
 
   def create
     get_product(params.require(:product_id))
-    if current_user
+    unless current_user.nil?
       @review = @product.reviews.new(review_params)
-
       # as of now there is no filter for a signed in user
       @review.user_id = current_user.id
       if @review.save

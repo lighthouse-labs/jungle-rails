@@ -1,23 +1,23 @@
-  <thead>
-    <tr>
-      <th>#</th>
-      <th></th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Quantity</th>
-    </tr>
-  </thead>
-  <!-- Numbers sequentially each row in table -->
-  <% counter = 0 %>
-  <% line_items.each do |item|  %>
-    <% counter += 1 %>
-  <tbody>
-    <tr>
-      <th scope="row"> <%= counter %> </th>
-      <td><%= image_tag item.product.image.tiny %></td>
-      <td><%= item.product.name %></td>
-      <td><%= item.product.description %></td>
-      <td><%= item.quantity %></td>
-    <% end%>
-    </tr>
-  </tbody>
+<thead>
+  <tr>
+    <th>#</th>
+    <th></th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Quantity</th>
+  </tr>
+</thead>
+<!-- counter indexs each row in table -->
+<% counter = 0 %>
+<% line_items.each do |item|  %>
+  <% counter += 1 %>
+<tbody>
+  <tr>
+    <th scope="row"> <%= counter %> </th>
+    <td><%= image_tag item.product.image.tiny %></td>
+    <td><%= item.product.name %></td>
+    <td><%= item.product.description %></td>
+    <td><%= item.quantity %></td>
+  <% end%>
+  </tr>
+</tbody>

@@ -3,13 +3,15 @@
 <div class="col-md-12">
   <div class="panel panel-default">
     <div class="panel-heading">
-    <strong> <%= user.first_name %> <%= user.last_name %> </strong>
-    <span class="text pull-right"> rated <%= review.rating %>/5 </span>
+      <strong> <%= user.first_name %> <%= user.last_name %> </strong>
+      <span class="text pull-right"> rated <%= review.rating %>/5 </span>
     </div>
     <div class="panel-body">
       <%= review.description %>
-    <h6 class="text-muted"><%= time_ago_in_words review.created_at%> ago..</h6>
+      <h6 class="text-muted"><%= time_ago_in_words review.created_at%> ago..</h6>
+      <!-- check if current_user exists.. -->
       <% unless current_user.nil? %>
+
         <% if current_user.id == user.id %>
            <%= link_to fa_icon('trash'), [@product, review], class: 'text pull-right', method: :delete%>
         <% end %>

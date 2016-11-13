@@ -35,8 +35,6 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
-# for rating
-gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

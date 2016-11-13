@@ -1,17 +1,21 @@
 <article class="product">
+
   <header>
+
     <%= link_to product do %>
+
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
-    <p class="text text-muted" id="product-avg-rating">
-      rated <%= (number_with_precision product.reviews.average(:rating), precision: 2 )|| '0' %> out of 5 from <%= product.reviews.count %> reviews
-    </p>
+      <p class="text text-muted" id="product-avg-rating">
+        rated <%= (number_with_precision product.reviews.average(:rating), precision: 2 )|| '0' %> out of 5 from <%= product.reviews.count %> reviews
+      </p>
+
     <% end %>
   </header>
 
-    <p class="description">
-      <%= product.description %>
-    </p>
+  <p class="description">
+    <%= product.description %>
+  </p>
 
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
@@ -25,9 +29,13 @@
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+
   <% if product.quantity == 0 %>
+
     <aside class="sold-out-badge">
      Sold Out!
     </aside>
+
   <% end %>
+
 </article>

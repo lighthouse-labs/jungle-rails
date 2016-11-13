@@ -22,31 +22,30 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <div>
-          <p>changing this to be an average or something</p>
-            <dd><h2>Average Rating <%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5 </h2></dd>
 
+          <div>
+            <dd>Average Rating <%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5 </dd>
           </div>
           <button id="review-form-toggle">Review</button>
+
         </dl>
       </div>
     </div>
+
   <div class="row">
     <div class="reviews" id="center">
-    <div class="col">
-    <!-- only displays form if logged in -->
-      <% unless current_user.nil? %>
+      <div class="col">
+        <!-- only displays form if logged in -->
+        <% unless current_user.nil? %>
+          <%= render 'form', product: @product %>
+        <% end %>
+      </div>
 
-        <%= render 'form', product: @product %>
-      <% end %>
-    </div>
       <% @product.reviews.order(created_at: :desc).each do |review| %>
-
         <%= render 'comments', review: review %>
-
       <% end %>
     </div>
-
   </div>
+
   </article>
 </section>

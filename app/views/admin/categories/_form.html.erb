@@ -1,21 +1,20 @@
-      <%= form_for [:admin, @category] do |form| %>
+<%= form_for [:admin, @category] do |form| %>
 
-        <% if form.object.errors.any? %>
-          <div class="alert alert-danger">
-            <strong>The following errors prevented saving:</strong>
-            <ul>
-              <% form.object.errors.full_messages.each do |error| %>
-                <li><%= error %></li>
-              <% end %>
-            </ul>
-          </div>
+  <% if form.object.errors.any? %>
+    <div class="alert alert-danger">
+      <strong>The following errors prevented saving:</strong>
+      <ul>
+        <% form.object.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
         <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-        <div class="form-group">
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control',placeholder: 'eg: Sports Equipment' %>
+  </div>
 
-          <%= form.label :name %>
-          <%= form.text_field :name, class: 'form-control',placeholder: 'eg: Sports Equipment' %>
-        </div>
-
-        <%= form.submit 'Create Category', class: 'btn btn-primary' %>
-      <% end %>
+  <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+<% end %>
