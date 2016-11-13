@@ -30,9 +30,9 @@
       </div>
     </div>
 
-  <div class="row">
-    <div class="reviews" id="center">
-      <div class="col">
+  <div class="row reviews">
+
+      <div class="col" id="center">
         <!-- only displays form if logged in -->
         <% if !current_user.nil? %>
           <%= render 'form', product: @product %>
@@ -42,7 +42,6 @@
       <% @product.reviews.order(created_at: :desc).each do |review| %>
         <%= render 'comments', review: review %>
       <% end %>
-    </div>
   </div>
 
   </article>

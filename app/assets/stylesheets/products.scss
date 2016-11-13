@@ -85,10 +85,29 @@ main section.products-show {
     }
   }
   .reviews {
-    margin: 0 auto;
-    overflow: auto;
-    width: 60%;
-    height: 500px;
+    margin-top: 25px;
+    width: 66%;
+    margin: 25px auto;
+    .description {
+      height: 125px;
+      position: relative;
+      word-wrap: break-word;
+    }
+
+    .created-at {
+      position: absolute;
+      width: 25%;
+      bottom: 0;
+      left: 10;
+    }
+
+    .review-delete {
+      position: absolute;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      bottom: 0;
+      right: 0;
+    }
   }
   //review-comments for endpoint /products/:id is toggled on/off with a button
   #product-review {
