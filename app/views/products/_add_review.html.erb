@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <%= form.label :rating %>
-          <%= form.text_field :rating, class: 'form-control' %>
+          <%=form.select :rating, [['Terrible', 1],['Not Great', 2],['OK', 3], ['Good', 4], ['Awesome', 5]], class: 'form-control' %>
         </div>
 
         <%= form.submit 'Submit Review', class: 'btn btn-primary' %>

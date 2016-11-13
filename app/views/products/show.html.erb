@@ -38,16 +38,20 @@
           </tr>
         </thead>
         <tbody>
-          <% @product.reviews.each do |review| %>
+          <% @reviews.each do |review| %>
             <%= render 'review', :review => review %>
           <% end %>
         </tbody>
       </table>
 
-      <h2> Provide a Review! </h2>
-      <%= render 'add_review' %>
     </div>
 
+    <div class="row">
+      <% if logged_in? %>
+        <h2> Provide a Review! </h2>
+        <%= render 'add_review' %>
+      <% end %>
+    </div>
   </article>
 
 </section>

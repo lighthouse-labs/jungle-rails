@@ -8,4 +8,7 @@
   <td>
     <%=review.user_id %>
   </td>
+  <td>
+    <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+  </td>
 </tr>
