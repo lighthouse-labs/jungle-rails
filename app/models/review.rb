@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :product
   belongs_to :user
-  validates :rating, numericality: true
+  validates :rating, numericality: true, length: { in: 1..5 }
   validates :description, length: {minimum: 1, maximum: 255}
   validate :is_there_product?
   validate :is_logged_in?
