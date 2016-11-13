@@ -11,7 +11,7 @@
     <h6 class="text-muted"><%= time_ago_in_words review.created_at%> ago..</h6>
       <% unless current_user.nil? %>
         <% if current_user.id == user.id %>
-           <%= link_to fa_icon('trash'), [@product, review], class: 'text pull-right', method: :delete, data: { confirm: "Are you sure?" } %>
+           <%= link_to fa_icon('trash'), [@product, review], class: 'text pull-right', method: :delete%>
         <% end %>
       <% end %>
     </div><!-- /panel-body -->
