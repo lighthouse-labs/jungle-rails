@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     resources :categories, except: [:edit, :update, :show]
   end
 
+  get '/signup' => 'user#new'
+  get '/users' => 'user#create'
+# resources :users, only: [:index. :new, :create, :show]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
