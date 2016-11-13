@@ -19,7 +19,16 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find params[:id]
+    @product = Product.find(params.require(:product_id))
+    puts params.inspect, "BLLLLLLLLLLLll"
 
+    if @review.user_id == current_user.id
+      @review.destroy
+      redirect_to @product
+    else
+      redirect_to root_path
+    end
   end
 
   private
