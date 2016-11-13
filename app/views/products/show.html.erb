@@ -22,10 +22,8 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-
-          <div>
-            <dd>Average Rating <%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5 </dd>
-          </div>
+          <dt>Avg. Rating</dt>
+          <dd><%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5 </dd>
           <button id="review-form-toggle">Review</button>
 
         </dl>
