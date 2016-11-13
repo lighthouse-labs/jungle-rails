@@ -28,6 +28,10 @@
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-8">
+
+      <% if !current_user %>
+        <h3>Sign up or log in to create your own reviews!</h3>
+      <% else %>
         <h2>Write a review!</h2>
         <%= form_for ([@product, Review.new]) do |f| %>
         <div class="form-group">
@@ -38,11 +42,11 @@
           <%= f.label :rating %>
           <%= f.select :rating,[[1], [2], [3], [4], [5]], class: "form-control" %>
         </div>
-        <%end%>
-
-
-
-
+        <div class="form-group">
+          <%= f.submit "Submit Review", class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+      <% end %>
 
         <h2>People Like You Say Things About Things!</h2>
         <%= render 'review', :review => @review %>

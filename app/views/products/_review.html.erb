@@ -9,7 +9,7 @@
     <tbody>
       <% review.each do |i| %>
       <tr>
-        <td>User goes here</td>
+        <td><%=current_user.first_name%></td>
         <td><%=i.rating %>/5</td>
         <td><%=i.description %></td>
       </tr>
