@@ -35,7 +35,7 @@
     <div class="reviews" id="center">
     <div class="col">
     <!-- only displays form if logged in -->
-      <% if current_user %>
+      <% unless current_user.nil? %>
 
         <%= render 'form', product: @product %>
       <% end %>
