@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
 
   def create
-    puts "SUCCESS"
-    @product = Product.find(params.require(:product_id))
+    get_product(params.require(:product_id))
     if current_user
       @review = @product.reviews.new(review_params)
 
@@ -19,7 +18,15 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
+    @review = Review.find params[:id]
+    get_product(params.require(:product_id))
+    # only destroy if session user matches the review
+    if @review.user_id == current_user.id
+      @review.destroy
+      redirect_to @product
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -35,5 +42,9 @@ class ReviewsController < ApplicationController
   def send_error(msg)
     flash[:comment_error] = msg
     redirect_to @product
+  end
+
+  def get_product(params)
+    @product = Product.find(params)
   end
 end
