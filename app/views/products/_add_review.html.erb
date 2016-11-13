@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for [@product, Review.new ] do |form| %>
+
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :rating %>
+          <%=form.select :rating, [['Terrible', 1],['Not Great', 2],['OK', 3], ['Good', 4], ['Awesome', 5]], class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
