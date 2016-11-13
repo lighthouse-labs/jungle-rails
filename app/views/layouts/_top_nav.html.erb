@@ -49,12 +49,17 @@
         </li>
         <!-- only displays login button if not logged in -->
         <li class='navbar-brand'>
-        <% if !current_user %>
-          <a href="#" data-toggle="modal" data-target=".loginModal">login </a>
-        <% else %>
-         Hi, <%=current_user.first_name %>
-        <span id='logout'><%= link_to 'Logout', logout_path %> </span>
-        <% end %>
+          <% if !current_user %>
+            <a id="btn-login" href="#" data-toggle="modal" data-target=".loginModal">login </a>
+            <script type="text/javascript">
+              $('.loginModal').on('shown.bs.modal', function() {
+                 $('.email-login').focus();
+              });
+            </script>
+          <% else %>
+            Hi, <%=current_user.first_name %>
+            <span id='logout'><%= link_to 'Logout', logout_path %> </span>
+          <% end %>
         </li>
       </ul>
     </div>
