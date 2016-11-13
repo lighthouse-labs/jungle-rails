@@ -24,17 +24,23 @@
           <dd><%= @product.price %></dd>
           <div>
           <p>changing this to be an average or something</p>
-            <dd><h2>Total Rating:  <%= @product.reviews.sum("rating") %></h2></dd>
+            <dd><h2>Total Rating: ></h2></dd>
+
           </div>
+          <button id="review-form-toggle">Review</button>
         </dl>
       </div>
     </div>
   <div class="row">
     <div class="reviews" id="center">
     <div class="col">
-      <%= render 'form', product: @product %>
+    <!-- only displays form if logged in -->
+      <% if current_user %>
+
+        <%= render 'form', product: @product %>
+      <% end %>
     </div>
-      <% @product.reviews.each do |review| %>
+      <% @product.reviews.order(created_at: :desc).each do |review| %>
 
         <%= render 'comments', review: review %>
 
@@ -43,5 +49,4 @@
 
   </div>
   </article>
-
 </section>

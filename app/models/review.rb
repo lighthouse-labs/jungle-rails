@@ -2,10 +2,9 @@ class Review < ActiveRecord::Base
   belongs_to :product
   belongs_to :user
 
-  validates :description, length: {minimum: 1}
-  validates :rating, numericality: true, presence: true
+  validates :description, length: {minimum: 1, maximum: 255}
   validate :is_there_product?
-  # validate :is_logged_in?
+  validate :is_logged_in?
   private
   def is_there_product?
   # is there a product to attach a review too
@@ -17,4 +16,3 @@ class Review < ActiveRecord::Base
   end
 end
 
-# need to check validation on front end

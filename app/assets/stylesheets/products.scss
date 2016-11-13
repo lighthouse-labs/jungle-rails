@@ -83,12 +83,14 @@ main section.products-show {
       max-width: 100%;
     }
   }
-
   .reviews {
     margin: 0 auto;
     overflow: auto;
     width: 60%;
     height: 500px;
-    border: 1px solid black;
+  }
+  //review-comments for endpoint /products/:id is toggled on/off with a button
+  #product-review {
+    display: none;
   }
 }
