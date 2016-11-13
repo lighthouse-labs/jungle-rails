@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Rating</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% review.each do |i| %>
+      <tr>
+        <td>User goes here</td>
+        <td><%=i.rating %>/5</td>
+        <td><%=i.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
