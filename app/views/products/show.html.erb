@@ -25,7 +25,9 @@
           <div>
           <p>changing this to be an average or something</p>
             <dd><h2>Total Rating:  <%= @product.reviews.sum("rating") %></h2></dd>
+
           </div>
+          <button id="review-form-toggle">Review</button>
         </dl>
       </div>
     </div>
@@ -34,8 +36,9 @@
     <div class="col">
     <!-- only displays form if logged in -->
       <% if current_user %>
+
         <%= render 'form', product: @product %>
-      <%>
+      <% end %>
     </div>
       <% @product.reviews.order(created_at: :desc).each do |review| %>
 
@@ -46,5 +49,4 @@
 
   </div>
   </article>
-
 </section>
