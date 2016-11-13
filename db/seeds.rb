@@ -13,6 +13,12 @@ def open_asset(file_name)
   File.open(Rails.root.join('db', 'seed_assets', file_name))
 end
 
+def User.digest(string)
+  cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                BCrypt::Engine.cost
+  BCrypt::Password.create(string, cost: cost)
+end
+
 # Only run on development (local) instances not on production, etc.
 raise "Development seeds only (for now)!" unless Rails.env.development?
 
@@ -129,5 +135,76 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+###### USERS ########
+puts "Recreating users..."
+User.destroy_all
+
+User.create!({
+  first_name: "Count",
+  last_name: "Rugen",
+  email: "6-Finger-Fashion@Florian.pb",
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+User.create!({
+  first_name: "Clark",
+  last_name: "Kent",
+  email: "S-is-for-Sleeping@yahoo.ca",
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+User.create!({
+  first_name: "Bob",
+  last_name: "Beltcher",
+  email: "Burgers4You@bobsburgers.com",
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+User.create!({
+  first_name: "Pac",
+  last_name: "Man",
+  email: "Not-Puck-Man@arcade.ca",
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+###### REVIEWS ######
+
+puts "Recreating reviews..."
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "Wowzers!!!",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 4,
+  user_id: 3,
+  description: "Worst decision I ever made was not buying all 84 of these bad boys",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 6,
+  user_id: 2,
+  description: "Bought so I could look like a hobbit. Was not disappointed",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 3,
+  user_id: 2,
+  description: "Well capitalism says I have to spend money on something...",
+  rating: 2
+  })
+
+Review.create!({
+  product_id: 7,
+  user_id: 2,
+  description: "Even my disappointments are disappointed :(",
+  rating: 1
+  })
 
 puts "DONE!"
