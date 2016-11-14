@@ -1,17 +1,19 @@
 <table class="table">
     <thead>
       <tr>
-        <th>Customer</th>
         <th>Rating</th>
         <th>Description</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
       <% review.each do |i| %>
       <tr>
-        <td><%=current_user.first_name%></td>
         <td><%=i.rating %>/5</td>
         <td><%=i.description %></td>
+        <% if current_user && i.user_id == current_user.id %>
+        <td><%= link_to fa_icon('trash'), [@product, i], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %><td>
+  <% end %>
       </tr>
       <% end %>
     </tbody>
