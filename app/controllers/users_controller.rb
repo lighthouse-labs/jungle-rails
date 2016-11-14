@@ -7,8 +7,10 @@ class UsersController < ApplicationController
        if @user.save
           redirect_to '/'
        else
+        flash[:error] = @user.errors.full_messages
         redirect_to '/signup'
        end
+
   end
 
 

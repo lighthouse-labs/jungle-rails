@@ -22,17 +22,37 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Average Rating:</dt>
+          <dd><%=number_with_precision(@product.reviews.average(:rating), precision: 2)%> / 5</dd>
         </dl>
       </div>
     </div>
     <div class="row">
-      <%@reviews.each do |r|%>
-      <div class="review">
-        <strong>Rating: <%=r.rating%>/5 </strong><br>
-        <strong>Review:</strong><br>
-        <%=r.description%>
-      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-8">
+
+      <% if !current_user %>
+        <h3>Sign up or log in to create your own reviews!</h3>
+      <% else %>
+        <h2>Write a review!</h2>
+        <%= form_for ([@product, Review.new]) do |f| %>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :rating %>
+          <%= f.select :rating,[[1], [2], [3], [4], [5]], class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Submit Review", class: 'btn btn-primary' %>
+        </div>
+        <% end %>
       <% end %>
+
+        <h2>People Like You Say Things About Things!</h2>
+        <%= render 'review', :review => @review %>
+      </div>
     </div>
 
   </article>
