@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>       </th>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order.line_items.each do |i| %>
+      <tr>
+        <td> <%=image_tag i.product.image.tiny %></td>
+        <td><%=i.product.name %></td>
+        <td><%=i.product.description %></td>
+        <td><%=i.quantity %></td>
+        <td><%=number_to_currency(i.item_price * i.quantity) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
