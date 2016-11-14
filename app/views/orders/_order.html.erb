@@ -1,0 +1,24 @@
+ <table>
+  <thead>
+    <tr>
+      <br>
+      <th>Item Purchased</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+</table>
+
+<tbody>
+  <% @order.line_items.each do |item| %>
+  <tr>
+  <td> Item Purchased <%=image_tag item.product.image.tiny %></td>
+  <td> Description <%=item.product.name %></td>
+  <td><%=item.product.description %></td>
+  <td><%=item.quantity %></td>
+  <td><%=number_to_currency(item.item_price * item.quantity) %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
