@@ -2,6 +2,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    respond_to do |format|
+      UserMailer.welcome_email(@order).deliver_later
+      format.html { @order }
+      format.json { render json: @order, status: :created, location: @order }
+    end
   end
 
   def create
@@ -41,6 +46,7 @@ class OrdersController < ApplicationController
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
+
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
         quantity = details['quantity'].to_i

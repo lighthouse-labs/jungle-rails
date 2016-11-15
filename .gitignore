@@ -55,3 +55,7 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#my own notes
+fixes.txt
+lecture-notes.txt
