@@ -8,9 +8,22 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @product
     else
+      flash[:error] = @review.errors.full_messages[0]
+      redirect_to @product
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    get_product(params.require(:product_id))
+    if @review.user_id == current_user.id
+      @review.destroy
+      redirect_to @product
+    else
       redirect_to root_path
     end
   end
+
 
   private
     def review_params

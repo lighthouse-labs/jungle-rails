@@ -7,51 +7,49 @@
   <article class="product-detail">
 
     <div class="row">
+    <div class="col-sm-4">
+      <%= image_tag @product.image.url, class: 'main-img' %>
+    </div>
 
-      <div class="col-sm-4">
-        <%= image_tag @product.image.url, class: 'main-img' %>
-      </div>
-
-      <div class="col-sm-8">
-        <dl class="dl-horizontal">
-          <dt>Name</dt>
-          <dd><%= @product.name %></dd>
-          <dt>Description</dt>
-          <dd><%= @product.description %></dd>
-          <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
-          <dt>Price</dt>
-          <dd><%= humanized_money_with_symbol @product.price %></dd>
-          <dt>Avg. Rating</dt>
-          <dd><%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5</dd>
-        </dl>
-      </div>
+    <div class="col-sm-8">
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd><%= @product.name %></dd>
+        <dt>Description</dt>
+        <dd><%= @product.description %></dd>
+        <dt>Quantity</dt>
+        <dd><%= @product.quantity %></dd>
+        <dt>Price</dt>
+        <dd><%= humanized_money_with_symbol @product.price %></dd>
+        <dt>Avg. Rating</dt>
+        <dd><%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5</dd>
+      </dl>
+    </div>
     </div>
 
     <div class="row-reviews">
-      <div class="col" id="center">
+    <div class="col" id="center">
       <h4>Product Reviews</h4>
-      <div> <% @product.reviews.order(created_at: :desc).each do |review| %>
+      <div><% @product.reviews.order(created_at: :desc).each do |review| %>
         <%= render 'review', review: review %>
       <% end %>
       </div>
     </div>
-
+    <br>
     <div class="form-group">
-    <br><h4>Write a Review: </h4>
-      <%= form_for [@product, Review.new] do |f| %>
-        <div>
+      <% if !current_user.nil? %>
+        <h4>Write a Review: </h4>
+        <%= form_for [@product, Review.new] do |f| %>
           <%= f.label "Rate me!" %><br>
           <%= number_field(:review, :rating, in: 0.5..5.0, step: 0.5) %>
-          <br>
+        <br>
           <%= f.text_area :description %>
         <div>
-      <%= f.submit 'Post review!' %>
-    </div>
+          <%= f.submit 'Post review!' %>
+        <% end %>
       <% end %>
+        </div>
     </div>
-
-</div>
-</article>
+  </article>
 </section>
 
