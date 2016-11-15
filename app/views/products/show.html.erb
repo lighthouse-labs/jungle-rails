@@ -48,12 +48,12 @@
         </div>
         <% end %>
       <% end %>
-        <div class="col-sm-4">
-          <h4>Product Reviews</h4>
-          <% @product.reviews.reverse_each do |review| %>
-            <%= render 'review', review: review %>
-          <% end %>
-        </div>
+      <div class="col-sm-4">
+        <h4>Product Reviews</h4>
+        <% @product.reviews.reverse_each do |review| %>
+          <%= render 'review', review: review %>
+        <% end %>
+      </div>
   </article>
 </section>
 
