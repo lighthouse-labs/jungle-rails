@@ -32,7 +32,7 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
-product1 = cat1.products.create!({
+cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -40,7 +40,7 @@ product1 = cat1.products.create!({
   price: 64.99
 })
 
-product2 = cat1.products.create!({
+cat1.products.create!({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
@@ -105,7 +105,7 @@ cat2.products.create!({
   price: 2_026.29
 })
 
-product3 = cat3.products.create!({
+cat3.products.create!({
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
@@ -113,7 +113,7 @@ product3 = cat3.products.create!({
   price: 3_052.00
 })
 
-product4 = cat3.products.create!({
+cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -121,7 +121,7 @@ product4 = cat3.products.create!({
   price: 987.65
 })
 
-product5 = cat3.products.create!({
+cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
@@ -132,46 +132,87 @@ product5 = cat3.products.create!({
 
 puts "PRODUCTS DONE!"
 
+puts "Re-creating USERS ..."
+
+User.destroy_all
+
+User.create!({
+  firstname: "Stevie",
+  lastname: "Wonder",
+  email: "1@1",
+  password: "12"
+  })
+
+User.create!({
+  firstname: "Mae",
+  lastname: "West",
+  email: "1@1",
+  password: "12"
+  })
+
+User.create!({
+  firstname: "Richard",
+  lastname: "Gere",
+  email: "3@1",
+  password: "12"
+  })
+
+puts "USERS DONE!"
+
+
 ## REVIEWS
 
 puts "Re-creating Reviews ..."
 
 Review.destroy_all
 
-product1.reviews.create!({
+Review.create!({
   user_id: 1,
+  product_id: 2,
   description: "I love this fabric, I think it's tres chic, and flattering as can be.",
   rating: 5
 })
 
-product2.reviews.create!({
-  user_id: 1,
-  description: "Not bad, would like to see different colours though.",
-  rating: 3
+Review.create!({
+  user_id: 2,
+  product_id: 9,
+  description: "Looks okay on my wrist, but would look better on my floor HEY! Wowwweeeeeokayokayokay who says, ya dirty rat!.",
+  rating: 2
 })
 
-product3.reviews.create!({
-  user_id: 3,
+Review.create!({
+  user_id: 1,
+  product_id: 11,
   description: "This bed is sooo optimal!! I luv it!! Wish I had 1 for all my guests and all the friends in the world.",
   rating: 5
 })
 
-product3.reviews.create!({
-  user_id: 1,
+Review.create!({
+  user_id: 3,
+  product_id: 10,
   description: "OMG I am ObSeSsEd with dis bed!!1! eeeek!!",
   rating: 5
 })
 
-product4.reviews.create!({
-  user_id: 1,
-  description: "This chair hurt my butt. Would prefer the Iron Throne.",
+Review.create!({
+  user_id: 2,
+  product_id: 11,
+  description: "This chair hurt my butt, but I like it hard ohhhhhwowwwwkay! Would prefer the Iron Throne. xo",
   rating: 1
 })
 
-product5.reviews.create!({
+Review.create!({
   user_id: 2,
-  description: "I love this bookshelf it's so red.",
-  rating: 4
+  product_id: 12,
+  description: "I love this bookshelf it's so red. I think...",
+  rating: 4.5
+})
+
+Review.create!({
+  user_id: 3,
+  product_id: 12,
+  description: "Not sure why this bed is so uncomfy. Also what are boox??",
+  rating: 1.5
 })
 
 puts "REVIEWS DONE!"
