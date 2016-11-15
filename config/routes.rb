@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products, only: [:index, :show] do
-    resources :ratings, only: [:create,:destroy]
+    resources :ratings, only: [:create]
     end
   resources :categories, only: [:index, :show]
   resources :users, only: [  :new, :create]
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show]
+  resources :ratings, only: [:destroy]
 
   namespace :admin do
     root to: 'dashboard#show'

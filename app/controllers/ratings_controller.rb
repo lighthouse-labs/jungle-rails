@@ -15,7 +15,8 @@ class RatingsController < ApplicationController
   def destroy
     @rating = Rating.find(params[:id])
     @rating.destroy
-    id = params['product_id']
+
+    id = @rating.product_id
     redirect_to "/products/#{id}" , notice: "goodbye"
   end
 end
