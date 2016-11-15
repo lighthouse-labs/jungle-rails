@@ -35,7 +35,7 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
-cat1.products.create!({
+product1 = cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -43,7 +43,7 @@ cat1.products.create!({
   price: 64.99
 })
 
-cat1.products.create!({
+product2 = cat1.products.create!({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
@@ -108,15 +108,15 @@ cat2.products.create!({
   price: 2_026.29
 })
 
-cat3.products.create!({
+product3 = cat3.products.create!({
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
-  quantity: 320,
+  quantity: 0,
   price: 3_052.00
 })
 
-cat3.products.create!({
+product4 = cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -124,7 +124,7 @@ cat3.products.create!({
   price: 987.65
 })
 
-cat3.products.create!({
+product5 = cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
@@ -133,4 +133,49 @@ cat3.products.create!({
 })
 
 
-puts "DONE!"
+puts "PRODUCTS DONE!"
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+product1.reviews.create!({
+  user_id: 1,
+  description: "I love this fabric, I think it's tres chic, and flattering as can be.",
+  rating: 5
+})
+
+product2.reviews.create!({
+  user_id: 1,
+  description: "Not bad, would like to see different colours though.",
+  rating: 3
+})
+
+product3.reviews.create!({
+  user_id: 3,
+  description: "This bed is sooo optimal!! I luv it!! Wish I had 1 for all my guests and all the friends in the world.",
+  rating: 5
+})
+
+product3.reviews.create!({
+  user_id: 1,
+  description: "OMG I am ObSeSsEd with dis bed!!1! eeeek!!",
+  rating: 5
+})
+
+product4.reviews.create!({
+  user_id: 1,
+  description: "This chair hurt my butt. Would prefer the Iron Throne.",
+  rating: 1
+})
+
+product5.reviews.create!({
+  user_id: 2,
+  description: "I love this bookshelf it's so red.",
+  rating: 4
+})
+
+puts "REVIEWS DONE!"
+
