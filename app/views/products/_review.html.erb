@@ -1,6 +1,4 @@
 <div>
-    <div><% review.product.name %></div>
-    <div>Description: <%= review.product.description %></div>
-    <div><h6>Posted: <%= review.product.created_at %></h6></div>
-  </div>
+  <div>Review: <%= review.description %></div>
+  <div><h6>Posted: <%= time_ago_in_words review.created_at %> ago...</h6></div>
 </div>
