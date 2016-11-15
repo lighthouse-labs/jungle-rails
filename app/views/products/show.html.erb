@@ -22,18 +22,36 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= humanized_money_with_symbol @product.price %></dd>
+          <dt>Avg. Rating</dt>
+          <dd><%= (number_with_precision @product.reviews.average(:rating), precision: 2) || '0' %>/5</dd>
         </dl>
       </div>
     </div>
 
     <div class="row-reviews">
       <div class="col" id="center">
-      <dt> <%= @product.reviews.order(created_at: :desc).each do |review| %>
-      <% render 'review', review: review %>
+      <h4>Product Reviews</h4>
+      <div> <% @product.reviews.order(created_at: :desc).each do |review| %>
+        <%= render 'review', review: review %>
       <% end %>
-      </dt>
+      </div>
     </div>
 
-  </article>
+    <div class="form-group">
+    <br><h4>Write a Review: </h4>
+      <%= form_for [@product, Review.new] do |f| %>
+        <div>
+          <%= f.label "Rate me!" %><br>
+          <%= number_field(:review, :rating, in: 0.5..5.0, step: 0.5) %>
+          <br>
+          <%= f.text_area :description %>
+        <div>
+      <%= f.submit 'Post review!' %>
+    </div>
+      <% end %>
+    </div>
 
+</div>
+</article>
 </section>
+
