@@ -14,16 +14,11 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
-    get_product(params.require(:product_id))
-    if @review.user_id == current_user.id
-      @review.destroy
-      redirect_to @product
-    else
-      redirect_to root_path
-    end
+    @product = Product.find(params[:product_id])
+    @review = @product.reviews.find(params[:id])
+    @review.destroy
+    redirect_to product_path(@product)
   end
-
 
   private
     def review_params
