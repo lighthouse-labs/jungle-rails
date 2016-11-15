@@ -1,0 +1,8 @@
+<div>
+  <p>
+    <p><%= lineitem.product.name %></p>
+    <p><%= image_tag lineitem.product.image.tiny %>
+    <p>Description: <%= lineitem.product.description %></p>
+    <p>Quantity: <%= lineitem.product.quantity %> | Total Price: <%= humanized_money_with_symbol lineitem.total_price_cents %></p>
+  </p>
+</div>

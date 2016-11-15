@@ -2,6 +2,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    respond_to do |format|
+    UserMailer.email_receipt(@order).deliver_now
+
+    format.json{render json: @order, status: :created, location: @user}
+    format.html{@order}
+    end
   end
 
   def create

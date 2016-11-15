@@ -112,7 +112,7 @@ cat3.products.create!({
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
-  quantity: 320,
+  quantity: 0,
   price: 3_052.00
 })
 
@@ -133,4 +133,90 @@ cat3.products.create!({
 })
 
 
-puts "DONE!"
+puts "PRODUCTS DONE!"
+
+puts "Re-creating USERS ..."
+
+User.destroy_all
+
+User.create!({
+  firstname: "Stevie",
+  lastname: "Wonder",
+  email: "1@1",
+  password: "12"
+  })
+
+User.create!({
+  firstname: "Mae",
+  lastname: "West",
+  email: "1@1",
+  password: "12"
+  })
+
+User.create!({
+  firstname: "Richard",
+  lastname: "Gere",
+  email: "3@1",
+  password: "12"
+  })
+
+puts "USERS DONE!"
+
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create!({
+  user_id: 1,
+  product_id: 2,
+  description: "I love this fabric, I think it's tres chic, and flattering as can be.",
+  rating: 5
+})
+
+Review.create!({
+  user_id: 2,
+  product_id: 9,
+  description: "Looks okay on my wrist, but would look better on my floor HEY! Wowwweeeeeokayokayokay who says, ya dirty rat!.",
+  rating: 2
+})
+
+Review.create!({
+  user_id: 1,
+  product_id: 11,
+  description: "This bed is sooo optimal!! I luv it!! Wish I had 1 for all my guests and all the friends in the world.",
+  rating: 5
+})
+
+Review.create!({
+  user_id: 3,
+  product_id: 10,
+  description: "OMG I am ObSeSsEd with dis bed!!1! eeeek!!",
+  rating: 5
+})
+
+Review.create!({
+  user_id: 2,
+  product_id: 11,
+  description: "This chair hurt my butt, but I like it hard ohhhhhwowwwwkay! Would prefer the Iron Throne. xo",
+  rating: 1
+})
+
+Review.create!({
+  user_id: 2,
+  product_id: 12,
+  description: "I love this bookshelf it's so red. I think...",
+  rating: 4.5
+})
+
+Review.create!({
+  user_id: 3,
+  product_id: 12,
+  description: "Not sure why this bed is so uncomfy. Also what are boox??",
+  rating: 1.5
+})
+
+puts "REVIEWS DONE!"
+
