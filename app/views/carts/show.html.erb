@@ -4,7 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
-  <% if cart %>
+  <% if cart && current_user %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -41,7 +41,7 @@
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
       data-amount="<%= @cart_total * 100 %>"
-      data-name="<%= current_user.first %><%= current_user.last %>"
+      data-name="<%= current_user.first %> <%= current_user.last %>"
       data-description="Jungle Booty"
       data-locale="auto"
       data-email= "<%= current_user.email  %>"
@@ -53,5 +53,8 @@
 <% end %>
 <% if !cart %>
 <div> Please add something to your cart</div>
+<% end %>
+<% if !current_user %>
+<div> Please Login :)</div>
 <% end %>
 </section>
