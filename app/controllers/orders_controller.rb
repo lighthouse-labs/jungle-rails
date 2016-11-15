@@ -10,9 +10,13 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
-    else
-      redirect_to cart_path, error: order.errors.full_messages.first
+
+      UserMailer.welcome(params['stripeEmail']).deliver_later
+      respond_to do |format|
+        format.html { redirect_to '/', notice: 'Your Order has been placed.' }
+      end
+      else
+        redirect_to cart_path, error: order.errors.full_messages.first
     end
 
   rescue Stripe::CardError => e
@@ -30,9 +34,9 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_total, # in cents
-      description: "Khurram Virani's Jungle Order",
+      description: "",
       currency:    'cad'
-    )
+      )
   end
 
   def create_order(stripe_charge)
@@ -40,7 +44,7 @@ class OrdersController < ApplicationController
       email: params[:stripeEmail],
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
-    )
+      )
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
         quantity = details['quantity'].to_i
@@ -49,11 +53,12 @@ class OrdersController < ApplicationController
           quantity: quantity,
           item_price: product.price,
           total_price: product.price * quantity
-        )
+          )
       end
     end
     order.save!
-    order
+    @order = order
+
   end
 
   # returns total in cents not dollars (stripe uses cents as well)

@@ -1,4 +1,4 @@
-<section class="products-show">
+  <section class="products-show">
 
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
@@ -22,10 +22,32 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+
         </dl>
       </div>
     </div>
+    <div class="col-sm-12">
+      <dl class="dl-horizontal">
+        <% if (@product.ratings.to_a.length > 0) %>
+        <% sorted = @product.ratings.to_a.reverse %>
+        <% sorted.each do |rating| %>
+       <%= render 'rating', rating:rating %>
+        <% end %>
+        <% end %>
 
+
+
+       <% if current_user %>
+       <div class='add-rating'>
+          <%= form_for [@product, @rating] do |f| %>
+          <%= f.number_field(:rating, in: 1..5, step: 1) %>
+          <%= f.text_area :content %>
+          <%= f.submit %>
+          <% end %>
+      </div>
+    <% end %>
+    </dl>
+    </div>
   </article>
 
 </section>
