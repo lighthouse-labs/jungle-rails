@@ -27,29 +27,33 @@
     </div>
     </div>
 
-    <div class="row-reviews">
-    <div class="col" id="center">
-      <h4>Product Reviews</h4>
-      <div><% @product.reviews.order(created_at: :desc).each do |review| %>
-        <%= render 'review', review: review %>
-      <% end %>
-      </div>
-    </div>
+
+    <% if !current_user %>
+      <h4>Login or Sign Up to leave a review!</h4>
+    <% else %>
     <br>
-    <div class="form-group">
-      <% if !current_user.nil? %>
-        <h4>Write a Review: </h4>
-        <%= form_for [@product, Review.new] do |f| %>
-          <%= f.label "Rate me!" %><br>
-          <%= number_field(:review, :rating, in: 0.5..5.0, step: 0.5) %>
-        <br>
+      <h4>Write a Review: </h4>
+    <br>
+      <%= form_for [@product, Review.new] do |f| %>
+        <div class="form-group">
+          <%= f.label :description %>
           <%= f.text_area :description %>
-        <div>
-          <%= f.submit 'Post review!' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :rating %>
+          <%= f.select :rating,[[1], [2], [3], [4], [5]], class: "form-control" %>
+        </div>
+        <div class="form-group">
+           <%= f.submit 'Post review!', class: 'btn btn-primary' %>
+        </div>
         <% end %>
       <% end %>
+      <div class="col-sm-4">
+        <h4>Product Reviews</h4>
+        <% @product.reviews.reverse_each do |review| %>
+          <%= render 'review', review: review %>
+        <% end %>
       </div>
-    </div>
   </article>
 </section>
 

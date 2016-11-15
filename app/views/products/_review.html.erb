@@ -1,5 +1,22 @@
-<div>
-  <div><%= review.user.firstname %></div>
-  <div>Review: <%= review.description %></div>
-  <div><h6>Posted: <%= time_ago_in_words review.created_at %> ago...</h6></div>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>*</th>
+      <th>Review</th>
+      <h6><th>Posted</th></h6>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= review.user.firstname %></td>
+      <td><%= review.rating %></td>
+      <td><%= review.description %></td>
+      <td><%= time_ago_in_words review.created_at %> ago..</td>
+      <td><% if current_user && current_user.id == review.user.id %>
+        <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
