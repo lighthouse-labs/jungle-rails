@@ -4,7 +4,7 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
     ##TRUE CHECKS
 
-    it "is valid with valid attributes" do
+    it "is true with valid attributes" do
       @category = Category.new
       @product = Product.new({
         name: "Name",
