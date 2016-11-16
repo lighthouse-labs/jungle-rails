@@ -142,22 +142,22 @@ User.destroy_all
 User.create!({
   firstname: "Stevie",
   lastname: "Wonder",
-  email: "1@1",
-  password: "12"
+  email: "1@1.com",
+  password: "1111"
   })
 
 User.create!({
   firstname: "Mae",
   lastname: "West",
-  email: "1@1",
-  password: "12"
+  email: "2@1.com",
+  password: "2222"
   })
 
 User.create!({
   firstname: "Richard",
   lastname: "Gere",
-  email: "3@1",
-  password: "12"
+  email: "3@1.com",
+  password: "3333"
   })
 
 puts "USERS DONE!"
