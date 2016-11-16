@@ -21,6 +21,7 @@ scenario "They can click on a product and see the details" do
 
     page.find("a#productbox_1").trigger('click')
     expect(page).to have_content('Quantity')
+    expect(page).to have_css '.products-show'
     puts page.html
 
 
