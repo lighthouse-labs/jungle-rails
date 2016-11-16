@@ -2,8 +2,37 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+    <h1> <%= User.find(session[:user_id]).email %></h1>
   </header>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
 
+        <% @order_total=0 %>
+        <% @order.line_items.each do |product_id, details| %>
+        <%= render 'item', product_id: product_id, details: details %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            <%= @order_total %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
@@ -11,3 +40,4 @@
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
+<!-- description: product.product.description, quantity: product.quantity, iprice: product.item_price, tprice: product.total_price -->

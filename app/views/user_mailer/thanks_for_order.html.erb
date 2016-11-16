@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Thanks, <%= @email %></h1>
+  <p>
+    You have successfully put an order in, congrats <br>
+  </p>
+  <p>
+    To view your order , just follow this link: <%= "#{@url}/orders/#{@orderNumber}" %>.
+  </p>
+  <p>Thanks for ordering and have a great day!</p>
+</body>
+</html>

@@ -1,23 +1,38 @@
-<article class="product">
+<article class='product'>
   <header>
     <%= link_to product do %>
-      <%= image_tag product.image.thumb, alt: product.name %>
-      <h4><%= product.name %></h4>
+    <%= image_tag product.image.thumb, alt: product.name %>
+    <h4><%= product.quantity %></h4>
     <% end %>
   </header>
   <p class="description">
     <%= product.description %>
   </p>
-  <footer class="actions">
-    <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
-      <%= fa_icon "shopping-cart", text: 'Add' %>
+  <p class="description">
+    <% @overall = product.ratings.average(:rating) %>
+    <% if @overall == nil %>
+    This item has yet to be reviewed
+    Please write one
+    <% else %>
+    <%= @overall %> / 5.0 Overall Rating
+    <% end%>
+  </p>
+  <footer class="actions" >
+    <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary',id: "addToCart_#{product.id}", method: :put do %>
+    <%= fa_icon "shopping-cart", text: 'Add' %>
     <% end %>
-    <%= link_to product, class: 'btn btn-default pull-right' do %>
-      Details &raquo;
+    <%= link_to product, class: 'btn btn-default pull-right', id: "product_#{product.id}"  do %>
+    Details &raquo;
     <% end %>
   </footer>
 
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+
+  <% if product.quantity == 0 %>
+  <aside class="soldout">
+    <div class="one">SOLD OUT!</div>
+  </aside>
+  <% end %>
 </article>

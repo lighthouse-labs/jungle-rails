@@ -1,0 +1,14 @@
+<h1>Signup!</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+First Name: <%= f.text_field :first %>
+Last Name: <%= f.text_field :last %>
+Email: <%= f.text_field :email %> <br>
+Password must be atleast 8 characters long<br>
+
+Password: <%= f.password_field :password %>
+Password Confirmation: <%= f.password_field :password_confirmation %>
+<%= f.submit "Submit" %>
+
+<% end %>

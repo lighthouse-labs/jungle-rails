@@ -4,6 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if (cart.length > 0 && current_user) %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -17,7 +18,7 @@
       <tbody>
         <% @cart_total = 0 %>
         <% cart.each do |product_id, details| %>
-          <%= render 'item', product_id: product_id, details: details %>
+        <%= render 'item', product_id: product_id, details: details %>
         <% end %>
       </tbody>
       <tfoot>
@@ -36,18 +37,24 @@
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
-        <script
-          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-amount="<%= @cart_total * 100 %>"
-          data-name="Jungle"
-          data-description="Khurram Virani's Jungle Order"
-          data-locale="auto"
-          data-email="kvirani@gmail.com"
-          data-currency="cad">
-        </script>
-      <% end %>
-    </div>
+      <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-amount="<%= @cart_total * 100 %>"
+      data-name="<%= current_user.first %> <%= current_user.last %>"
+      data-description="Jungle Booty"
+      data-locale="auto"
+      data-email= "<%= current_user.email  %>"
+      data-currency="cad">
+    </script>
+    <% end %>
   </div>
-
+</div>
+<% end %>
+<% if cart.length == 0 %>
+<div> Please add something to your cart</div>
+<% end %>
+<% if !current_user %>
+<div> Please login :)</div>
+<% end %>
 </section>
