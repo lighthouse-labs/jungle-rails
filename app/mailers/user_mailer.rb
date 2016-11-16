@@ -7,9 +7,10 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
 
-  def welcome(email)
+  def thanks_for_order(email,orderNumber)
     @email = email
-    @url  = 'http://example.com/login'
-    mail(to: @email, subject: 'Welcome to My Awesome Site')
+    @url  = 'http://localhost:3000'
+    @orderNumber = orderNumber
+    mail(to: @email, subject: "Order # #{orderNumber}")
   end
 end

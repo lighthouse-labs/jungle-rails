@@ -15,6 +15,7 @@
         </tr>
       </thead>
       <tbody>
+
         <% @order_total=0 %>
         <% @order.line_items.each do |product_id, details| %>
         <%= render 'item', product_id: product_id, details: details %>

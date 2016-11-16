@@ -9,11 +9,12 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
+      @cart = cart
       empty_cart!
 
-      UserMailer.welcome(params['stripeEmail']).deliver_later
+      UserMailer.thanks_for_order(params['stripeEmail'],order.id).deliver_later
       respond_to do |format|
-        format.html { redirect_to '/', notice: 'Your Order has been placed.' }
+        format.html { redirect_to "/orders/#{order.id}", notice: 'Your Order has been placed.' }
       end
       else
         redirect_to cart_path, error: order.errors.full_messages.first

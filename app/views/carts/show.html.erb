@@ -4,7 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
-  <% if cart && current_user %>
+  <% if (cart.length > 0 && current_user) %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -51,10 +51,10 @@
   </div>
 </div>
 <% end %>
-<% if !cart %>
+<% if cart.length == 0 %>
 <div> Please add something to your cart</div>
 <% end %>
 <% if !current_user %>
-<div> Please Login :)</div>
+<div> Please login :)</div>
 <% end %>
 </section>
