@@ -112,7 +112,7 @@ cat3.products.create!({
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
-  quantity: 320,
+  quantity: 0,
   price: 3_052.00
 })
 
