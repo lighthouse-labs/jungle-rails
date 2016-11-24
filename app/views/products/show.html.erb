@@ -26,6 +26,33 @@
       </div>
     </div>
 
+    <div class="row">
+
+      <h2> Reviews </h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Reviews</th>
+            <th>Rating</th>
+            <th>Reviewer</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <%= render 'review', :review => review %>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="row">
+      <% if logged_in? %>
+        <h2> Provide a Review! </h2>
+        <%= render 'add_review' %>
+      <% end %>
+    </div>
   </article>
 
 </section>

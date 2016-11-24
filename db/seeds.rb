@@ -13,6 +13,14 @@ def open_asset(file_name)
   File.open(Rails.root.join('db', 'seed_assets', file_name))
 end
 
+# Returns the hash digest of the given string.
+# source: http://stackoverflow.com/questions/31026248/encrypt-users-password-in-seed-file
+def User.digest(string)
+  cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                BCrypt::Engine.cost
+  BCrypt::Password.create(string, cost: cost)
+end
+
 # Only run on development (local) instances not on production, etc.
 unless Rails.env.development?
   puts "Development seeds only (for now)!"
@@ -29,6 +37,7 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
@@ -39,7 +48,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0,
   price: 64.99
 })
 
@@ -128,9 +137,82 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,
   price: 2_483.75
 })
 
+## USERS
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+User.create!({
+  first_name: 'foo',
+  last_name: 'foo',
+  email: 'foo@foo.com',
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+User.create!({
+  first_name: 'foo',
+  last_name: 'bar',
+  email: 'foo@bar.com',
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+User.create!({
+  first_name: 'foo',
+  last_name: 'baz',
+  email: 'foo@baz.com',
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+User.create!({
+  first_name: 'foo',
+  last_name: 'qux',
+  email: 'foo@qux.com',
+  password_digest: "#{User.digest('foobar')}"
+  })
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: 'Turbo Hipster!',
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: 'Woah, lame...',
+  rating: 1
+  })
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: 'another exciting review!',
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 3,
+  user_id: 2,
+  description: 'another exciting review!',
+  rating: 3
+  })
+
+Review.create!({
+  product_id: 3,
+  user_id: 3,
+  description: 'yet another exciting review!',
+  rating: 4
+  })
 
 puts "DONE!"
