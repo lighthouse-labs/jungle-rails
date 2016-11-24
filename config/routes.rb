@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create, :destroy]
+  end
+
   resources :categories, only: [:show]
 
   resource :cart, only: [:show] do
@@ -11,10 +14,17 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show]
+# login/logout
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+# signups
+  get "/signup", to: "users#new"
+  post "/users", to: "users#create", defaults: { format: 'html'}
 
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, only: [:index, :new, :create, :edit]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -34,7 +44,7 @@ Rails.application.routes.draw do
 
   # Example resource route with options:
   #   resources :products do
-  #     member do
+  #       member do
   #       get 'short'
   #       post 'toggle'
   #     end

@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+  extend AdminHelper
+  Admin::CategoriesController.authenticate_with
 
   def index
     @products = Product.order(id: :desc).all

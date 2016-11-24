@@ -8,6 +8,7 @@ main section.categories-show {
     justify-content: space-around;
 
     .product {
+
       // flex:      1;
       max-width: 260px;
       // so that footer within can be positioned absolutely
@@ -50,7 +51,19 @@ main section.categories-show {
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
       }
+      aside.sold-out-badge {
+        background: #f44336;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        color: white;
+        font-size: 1em;
+        left: 0;
+        position: absolute;
+        padding: 10px;
+        top: 0;
 
+        // using jquery to toggle if count is zero;
+      }
       &:hover {
 
         border-color: #999;
@@ -71,6 +84,33 @@ main section.products-show {
       max-width: 100%;
     }
   }
+  .reviews {
+    margin-top: 25px;
+    width: 66%;
+    margin: 25px auto;
+    .description {
+      height: 125px;
+      position: relative;
+      word-wrap: break-word;
+    }
+
+    .created-at {
+      position: absolute;
+      width: 25%;
+      bottom: 0;
+      left: 10;
+    }
+
+    .review-delete {
+      position: absolute;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  //review-comments for endpoint /products/:id is toggled on/off with a button
+  #product-review {
+    display: none;
+  }
 }
-
-

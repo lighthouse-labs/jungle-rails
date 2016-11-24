@@ -5,6 +5,7 @@
   </header>
 
   <div class="panel panel-default items">
+   <% if cart.count > 0 %>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -41,12 +42,19 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-amount="<%= @cart_total * 100 %>"
           data-name="Jungle"
-          data-description="Khurram Virani's Jungle Order"
+          data-description="Your Order"
           data-locale="auto"
-          data-email="kvirani@gmail.com"
+          data-email="<%= current_user.email %>"
           data-currency="cad">
         </script>
       <% end %>
+    <% else %>
+    <!-- display this if theres 0 items in cart -->
+      <div class="alert alert-info">
+        <h2>Oops! There's nothing in the cart to purchase...</h2>
+        <h3> Why not go <%= link_to "home?", root_path %></h3>
+      </div>
+    <% end %>
     </div>
   </div>
 

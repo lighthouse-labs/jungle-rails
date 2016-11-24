@@ -1,0 +1,19 @@
+<section class="admin-categories-new">
+
+  <header class="page-header">
+    <h1>Admin &raquo; New Category</h1>
+  </header>
+
+  <div class="well">
+    <%= link_to 'All Products', [:admin, :products], class: 'btn btn-info' %>
+    <%= link_to 'All Categories', [:admin, :categories], class: 'btn btn-info' %>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <h3>current: <%=@category.name %></h3>
+      <%= render 'form' %>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,42 @@
+<!-- form will go here -->
+
+<%= form_for :user, url: '/users' do |form| %>
+    <% if @user.errors.any? %>
+    <div class="alert alert-caution">
+      <strong>The following errors prevented saving:</strong>
+      <ul>
+        <% @user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: 'form-control',placeholder: 'Bob' %>
+  </div>
+  <div class="form-group">
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: 'form-control',placeholder: 'Doe' %>
+  </div>
+  <div class="form-group">
+
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control',placeholder: 'bob.doe@email.com' %>
+  </div>
+  <div class="form-group">
+
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+
+    <%= form.label :confirm_password %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <%= form.submit 'Signup', class: 'btn btn-primary' %>
+<% end %>
