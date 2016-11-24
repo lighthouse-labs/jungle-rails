@@ -39,9 +39,9 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0,
   price: 64.99
-})
+  })
 
 cat1.products.create!({
   name:  'Women\'s Zebra pants',
@@ -49,7 +49,7 @@ cat1.products.create!({
   image: open_asset('apparel2.jpg'),
   quantity: 18,
   price: 124.99
-})
+  })
 
 cat1.products.create!({
   name:  'Hipster Hat',
@@ -57,7 +57,7 @@ cat1.products.create!({
   image: open_asset('apparel3.jpg'),
   quantity: 4,
   price: 34.49
-})
+  })
 
 cat1.products.create!({
   name:  'Hipster Socks',
@@ -65,7 +65,7 @@ cat1.products.create!({
   image: open_asset('apparel4.jpg'),
   quantity: 8,
   price: 25.00
-})
+  })
 
 cat1.products.create!({
   name:  'Russian Spy Shoes',
@@ -73,7 +73,7 @@ cat1.products.create!({
   image: open_asset('apparel5.jpg'),
   quantity: 8,
   price: 1_225.00
-})
+  })
 
 cat1.products.create!({
   name:  'Human Feet Shoes',
@@ -81,7 +81,7 @@ cat1.products.create!({
   image: open_asset('apparel6.jpg'),
   quantity: 82,
   price: 224.50
-})
+  })
 
 
 cat2.products.create!({
@@ -90,7 +90,7 @@ cat2.products.create!({
   image: open_asset('electronics1.jpg'),
   quantity: 40,
   price: 164.49
-})
+  })
 
 cat2.products.create!({
   name:  'Hotdog Slicer',
@@ -98,7 +98,7 @@ cat2.products.create!({
   image: open_asset('electronics2.jpg'),
   quantity: 3,
   price: 26.00
-})
+  })
 
 cat2.products.create!({
   name:  'World\'s Largest Smartwatch',
@@ -106,7 +106,7 @@ cat2.products.create!({
   image: open_asset('electronics3.jpg'),
   quantity: 32,
   price: 2_026.29
-})
+  })
 
 cat3.products.create!({
   name:  'Optimal Sleeping Bed',
@@ -114,7 +114,7 @@ cat3.products.create!({
   image: open_asset('furniture1.jpg'),
   quantity: 320,
   price: 3_052.00
-})
+  })
 
 cat3.products.create!({
   name:  'Electric Chair',
@@ -122,7 +122,7 @@ cat3.products.create!({
   image: open_asset('furniture2.jpg'),
   quantity: 2,
   price: 987.65
-})
+  })
 
 cat3.products.create!({
   name:  'Red Bookshelf',
@@ -130,7 +130,7 @@ cat3.products.create!({
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
-})
+  })
 
 
 puts "DONE!"
