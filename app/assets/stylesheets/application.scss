@@ -5,7 +5,12 @@
 
 // App
 @import "products";
-
+//in admin styles
+@import "./admin/categories";
+//navbar
+@import "nav";
+//order-summary
+@import "order_summary";
 // Global
 body {
   padding-top: 70px;

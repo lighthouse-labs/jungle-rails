@@ -27,6 +27,9 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li id="signup">
+          <%=link_to 'Signup', signup_path %>
+        </li>
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
@@ -36,14 +39,26 @@
           <ul class="dropdown-menu">
             <li><%= link_to 'Dashboard', [:admin, :root] %></li>
             <li><%= link_to 'Products',  [:admin, :products] %></li>
+            <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
+
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
+        <!-- only displays login button if not logged in -->
+        <li class='navbar-brand'>
+        <% if !current_user %>
+          <a href="#" data-toggle="modal" data-target=".loginModal">login </a>
+        <% else %>
+         Hi, <%=current_user.first_name %>
+        <span id='logout'><%= link_to 'Logout', logout_path %> </span>
+        <% end %>
+        </li>
       </ul>
     </div>
   </div>
+
 </nav>
