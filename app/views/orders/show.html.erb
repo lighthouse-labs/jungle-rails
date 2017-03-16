@@ -22,12 +22,11 @@
        </tr>
      </thead>
      <tbody>
-    <!-- <%= @order_total= 0%> -->
-    <% @order.line_items.each do |li| %>
-    <%= render 'item', product_id: li.product_id, quantity: li.quantity %>
-    <% end %>
-
-  </tbody>
+      <% @order_total= 0%>
+      <% @order.line_items.each do |li| %>
+      <%= render 'item', product_id: li.product_id, quantity: li.quantity %>
+      <% end %>
+    </tbody>
     <tfoot>
       <tr>
         <th colspan="4">
