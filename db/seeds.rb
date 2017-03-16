@@ -20,9 +20,11 @@ unless Rails.env.development?
 end
 
 # Let's do this ...
+##Users
+Users.destroy_all
 
 ## CATEGORIES
-
+Category.destroy_all
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Apparel'
@@ -104,7 +106,7 @@ cat2.products.create!({
   name:  'World\'s Largest Smartwatch',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics3.jpg'),
-  quantity: 32,
+  quantity: 0,
   price: 2_026.29
 })
 
