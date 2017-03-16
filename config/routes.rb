@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     put    :add_item
     delete :remove_item
   end
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   resources :orders, only: [:create, :show]
 
@@ -18,7 +23,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :new, :show, :create]
   end
 
-  
+
 
 
 
