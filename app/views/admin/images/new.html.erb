@@ -1,0 +1,10 @@
+<h1><%= @product.name %> &gt; New Image</h1>
+
+<%= form_for [:admin, @product, @image] do |form| %>
+  <div class="form-group">
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+  </div>
+
+  <%= form.submit 'Upload Image' %>
+<% end %>
