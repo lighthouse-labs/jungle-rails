@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show, :index, :new]
 
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
+
   resource :cart, only: [:show] do
     put    :add_item
     delete :remove_item
@@ -22,6 +26,8 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :show, :create]
   end
+
+
 
 
 

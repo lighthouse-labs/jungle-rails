@@ -25,6 +25,21 @@
         </dl>
       </div>
     </div>
+    <div class="row">
+
+    <%= form_for [@product, @review]  do |f| %>
+             <dt>
+             Comments:
+             </dt>
+             <dd><%= f.text_area :description %></dd>
+             <dt></dt>
+             <dd>
+               <%= f.submit "Submit" %>
+               <%= f.select(:rating, [[1],[2],[3],[4],[5]])%>
+             </dd>
+           <% end %>
+    </div>
+
 
     <div class="row">
       <dl class="dl-vertical">
