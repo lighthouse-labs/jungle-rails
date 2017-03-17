@@ -133,20 +133,31 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-# User.create!{
-#   first_name:
-# }
+User.create!({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.safe_email,
+  password: Faker::Internet.password(8)
+})
+
+User.create!({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.safe_email,
+  password: Faker::Internet.password(8)
+})
+
 
 Review.create!({
   product_id: 3,
-  user_id: Faker::Internet.user_name,
+  user_id: 1,
   description: 'This is awesome',
   rating: 4
   })
 
 Review.create!({
   product_id: 2,
-  user_id: Faker::Internet.user_name,
+  user_id: 2,
   description: 'This is awful',
   rating: 2
     })
