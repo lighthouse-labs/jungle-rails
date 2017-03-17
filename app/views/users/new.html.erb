@@ -1,0 +1,38 @@
+
+<h1>Signup!</h1>
+
+<%= form_for :user, method: :post, url: '/register' do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <div class="input-container">
+       <%= f.text_field :name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <div class="input-container">
+       <%= f.email_field :email, class: "input", placeholder: "Email" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <div class="input-container">
+       <%= f.password_field :password, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <div class="input-container">
+       <%= f.password_field :password_confirmation, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>
