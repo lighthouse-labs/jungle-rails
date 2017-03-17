@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Hi <%= @user.name %></h1>
+  <p>
+  Sample mail sent using smtp.
+  </p>
+  <ul>
+    <li>Order #: <%= @order.id %></li>
+    <li>Placed by: <%= @order.email %></li>
+  </ul>
+  <table>
+    <thead>
+    <th></th>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Item Total</th>
+  </thead>
+    <tbody>
+      <%= render @order.line_items %>
+    </tbody>
+  </table>
+  <h4>Order total: <%= @order.order_total %> </h4>
+</body>
+</html>
