@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-
+  http_basic_authenticate_with username: "Jungle", password: "book"
   def index
     @products = Product.order(id: :desc).all
   end
@@ -17,7 +17,7 @@ class Admin::ProductsController < ApplicationController
       render :new
     end
 
-    
+
   end
 
   def destroy
