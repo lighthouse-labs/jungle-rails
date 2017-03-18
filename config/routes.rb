@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index, :new]
 
   resources :products, only: [:index, :show] do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:show, :create, :destroy]
+
   end
 
   resource :cart, only: [:show] do
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
 
   resources :orders, only: [:create, :show]
 
