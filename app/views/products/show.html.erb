@@ -25,6 +25,40 @@
         </dl>
       </div>
     </div>
+    <div class="row">
+      <% if session[:user_id] %>
+        <%= form_for [@product, @review]  do |f| %>
+          <dt>What do you think about this product?</dt>
+            <dd><%= f.text_area :description %></dd>
+              <dt></dt>
+               <dd>
+                 <%= f.submit "Submit" %>
+                 <%= f.select(:rating, [[1],[2],[3],[4],[5]])%>
+               </dd>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <div class="row">
+      <dl class="dl-vertical">
+        <dt>
+        <h4>Reviews</h4>
+        </dt>
+        <% @product.reviews.reverse.each do |review| %>
+          <dt>Name</dt>
+          <dd><%= review.user.first_name %> </dd>
+          <dt>Description</dt>
+          <dd><%= review.description %></dd>
+          <dt>Vote from 1 to 5:</dt>
+          <dd><%= review.rating %></dd>
+            <% if review.user_id == session[:user_id] %>
+              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
+            <% end %>
+        <% end %>
+
+      </dl>
+    </div>
 
   </article>
 
