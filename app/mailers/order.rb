@@ -1,0 +1,2 @@
+class Order < ApplicationMailer
+end
