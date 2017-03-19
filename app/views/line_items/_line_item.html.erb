@@ -1,0 +1,10 @@
+<tr>
+  <td><%= image_tag Product.find(line_item.product_id).image.tiny %></td>
+  <td>
+    <h4><%= Product.find(line_item.product_id)[:name] %></h4>
+    <br>
+    <p><%= Product.find(line_item.product_id)[:description] %></p>
+  </td>
+  <td><% line_item.quantity %></td>
+  <td><% line_item.total_price %></td>
+</tr>
