@@ -16,7 +16,9 @@
       Details &raquo;
     <% end %>
   </footer>
-
+  <% if product.reviews.average(:rating) %>
+  <strong>  <%= "Average rating: #{product.reviews.average(:rating)}" %></strong>
+  <%end-%>
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
