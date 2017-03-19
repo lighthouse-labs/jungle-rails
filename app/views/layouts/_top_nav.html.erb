@@ -36,8 +36,25 @@
           <ul class="dropdown-menu">
             <li><%= link_to 'Dashboard', [:admin, :root] %></li>
             <li><%= link_to 'Products',  [:admin, :products] %></li>
+            <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
+        <li>
+        <% if current_user %>
+          <a>Signed in as <%= current_user.first_name %> 
+          </a>
+        </li>
+        <li>
+        <%= link_to "Logout", '/logout' %>
+        </li>
+        <% else %>
+        <li>
+        <%= link_to "Login", '/login' %>
+        </li>
+        <li>
+        <%= link_to "Signup", '/signup' %>
+        </li>
+        <% end %>
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
