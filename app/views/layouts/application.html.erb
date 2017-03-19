@@ -14,17 +14,6 @@
     <%= yield %>
   </main>
 
-    <ul class="nav navbar-nav">
-      <li>
-        <%= link_to 'Login', :login %>
-      </li>
-      <% if session[:user_id] -%>
-        Signed in as <%= current_user.email %> | <%= link_to "Logout", :logout %>
-          <% end -%>
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to 'Signup', :signup %>
-          </li>
   <%= yield :end_of_body %>
 
 </html>

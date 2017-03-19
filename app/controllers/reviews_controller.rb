@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_filter :authorize
+
   def new
     @review = Review.new
   end

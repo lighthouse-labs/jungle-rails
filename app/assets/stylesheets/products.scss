@@ -18,6 +18,7 @@ main section.categories-show {
       padding:       15px;
       padding-bottom: 80px;
       margin-top:    20px;
+      background-color: white;
       // margin:        10px;
 
       header img {
@@ -74,11 +75,29 @@ main section.categories-show {
     }
   }
 }
+.regLog{
+  padding: 0.5em;
+}
+
+.btn{
+  background-color: #458B74;
+  border-color:#458B00;
+}
+
+.btn:hover{
+  background-color: #eee;
+  color: black;
+}
+
+#helloUser{
+  padding: 1em;
+}
 
 main section.products-show {
 
   .product-detail {
     img.main-img {
+      border-color:black;
       max-width: 100%;
     }
   }
