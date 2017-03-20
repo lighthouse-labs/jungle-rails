@@ -20,8 +20,11 @@ body:before {
   top: 0;
   bottom: 0;
   -webkit-filter: blur(4px);
-  background: url('./background.jpg');
-  background-size: 100%;
+  background: url('./background.jpg')no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h1{

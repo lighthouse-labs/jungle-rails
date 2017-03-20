@@ -6,12 +6,16 @@ main section.categories-show {
     flex-direction:  row;
     flex-wrap:       wrap;
     justify-content: space-around;
+    position: relative;
+    transform-style: inherit;
+    z-index: 1;
+    position: relative;
+    background-attachment: fixed;
 
     .product {
       // flex:      1;
       max-width: 260px;
       // so that footer within can be positioned absolutely
-      position:  relative;
 
       border:        1px solid #ccc;
       border-radius: 5px;
@@ -19,6 +23,12 @@ main section.categories-show {
       padding-bottom: 80px;
       margin-top:    20px;
       background-color: white;
+      position: relative;
+      z-index: 1;
+      background-attachment: fixed;
+
+
+
       // margin:        10px;
 
       header img {
@@ -74,6 +84,24 @@ main section.categories-show {
 
     }
   }
+}
+
+
+.products-parallax{
+  content: '';
+  z-index: -1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-filter: blur(4px);
+  background: url('./background.jpg')no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:100vw;
 }
 .regLog{
   padding: 0.5em;
