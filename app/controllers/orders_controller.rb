@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
 
+  before_filter :authorize
+
   def show
     @order = Order.find(params[:id])
+    @line_items = LineItem.where('order_id = ?', params[:id])
   end
 
   def create
@@ -17,6 +20,15 @@ class OrdersController < ApplicationController
 
   rescue Stripe::CardError => e
     redirect_to cart_path, error: e.message
+    # advise the OrderMailer to send a welcome email after save
+    respond_to do |format|
+    if @order.save
+    OrderMailer.conf_email(@order).deliver_later
+    format.html{redirect_to(@order, notice:'Order was successfully created.')}
+    format.json{render json: @order, status: created:, location: @order}
+    else
+    format.html { render action: 'new' }
+    format.json { render json: @order.errors, status: unprocessable_entity }
   end
 
   private
