@@ -1,6 +1,7 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
 
   def index
+    # might want to order to (name: :asc) 
     @categories = Category.order(id: :desc).all
   end
 
