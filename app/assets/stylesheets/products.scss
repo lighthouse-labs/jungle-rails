@@ -1,5 +1,5 @@
 main section.products-index,
-main section.categories-show {
+main section.products-show {
 
   .products {
     display:         flex;
@@ -8,9 +8,7 @@ main section.categories-show {
     justify-content: space-around;
 
     .product {
-      // flex:      1;
       max-width: 260px;
-      // so that footer within can be positioned absolutely
       position:  relative;
 
       border:        1px solid #ccc;
@@ -18,7 +16,6 @@ main section.categories-show {
       padding:       15px;
       padding-bottom: 80px;
       margin-top:    20px;
-      // margin:        10px;
 
       header img {
         max-width: 100%;
@@ -49,6 +46,19 @@ main section.categories-show {
         border-top-right-radius: 4px;
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
+      }
+
+      aside.sold-out {
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: #f00;
+        opacity: 0.5;
+        font-weight: 800;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
       }
 
       &:hover {

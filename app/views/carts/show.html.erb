@@ -4,6 +4,13 @@
     <h1>My Cart</h1>
   </header>
 
+  <%if cart.size.zero %>
+  <div class="container">
+    <h1 class="text center">Cart is currently empty!!!</h1>
+    <img src="http://i.giphy.com/3o6UB5RrlQuMfZp82Y.gif" alt="" class="center-block">
+    <div class="text center"><%= link_to "Resume Shopping", root_path, class:'btn btn-lg btn-primary' %></div>
+  </div>
+  <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -49,5 +56,5 @@
       <% end %>
     </div>
   </div>
-
+  <% end %>
 </section>

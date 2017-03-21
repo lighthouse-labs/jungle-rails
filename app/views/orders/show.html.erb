@@ -4,9 +4,54 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+<div class="panel panel:default items">
+  <table class="table table-bordered">
+    <thread>
+      <tr>
+        <th colspan="2">Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thread>
+    <tbody>
+      <% @order_total = 0 %>
+      <% @line_items.each do |line| %>
+      <%= render 'order', product_id: line_item[:product_id], quantity: line_item[:quantity] %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4">
+        TOTAL:
+        </th>
+        <th>
+          <%= order_total %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+
+div.panel.panel-default>(<div>
+  <h2>Order summary</h2>
+  <p>Placed by <%= @order.email %></p>
+  <div class="panel-body">
+    <table class="table table-borded">
+      <thread>
+        <th>Item</th>
+        <th>Quatity</th>
+        <th>Item Total</th>
+      </thread>
+      <tbody><%= render @order.line_items%></tbody>
+    </table>
+    <h4>Order total: <%= @order.order_total %></h4>
+  </div>
+</div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
