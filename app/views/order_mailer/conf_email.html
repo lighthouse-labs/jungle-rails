@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        th {
+            text-align: left
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Thankyou for purchase. Order Confirmed</h2>
+    <ul>
+        <li>Order#
+            <%= @order.id %>
+        </li>
+        <li>Ordered by
+            <%= @order.email %>
+        </li>
+    </ul>
+</body>
+
+</html>

@@ -37,6 +37,22 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+div.panel.panel-default>(<div>
+  <h2>Order summary</h2>
+  <p>Placed by <%= @order.email %></p>
+  <div class="panel-body">
+    <table class="table table-borded">
+      <thread>
+        <th>Item</th>
+        <th>Quatity</th>
+        <th>Item Total</th>
+      </thread>
+      <tbody><%= render @order.line_items%></tbody>
+    </table>
+    <h4>Order total: <%= @order.order_total %></h4>
+  </div>
+</div>
+
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
