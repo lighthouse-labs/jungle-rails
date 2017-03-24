@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your order, <%= @order.id %> was successuly completed.</h1>
+
+    <p>You have purchased the following items :
+      <tbody>
+       <% @order_total= 0%>
+       <% @order.line_items.each do |li| %>
+       <%= render 'item', product_id: li.product_id, quantity: li.quantity %>
+       <% end %>
+     </tbody>
+   </p>
+   <p>
+     Thank you for shopping with us!
+   </p>
+  </body>
+</html>

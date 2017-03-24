@@ -1,8 +1,6 @@
-
-
-<article class="product">
+<article class="category">
   <header>
-    <%= link_to product do %>
+    <%= link_to category do %>
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
@@ -18,9 +16,7 @@
       Details &raquo;
     <% end %>
   </footer>
-  <% if product.reviews.average(:rating) %>
-  <strong>  <%= "Average rating: #{product.reviews.average(:rating)}" %></strong>
-  <%end-%>
+
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>

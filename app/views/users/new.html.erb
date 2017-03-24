@@ -1,0 +1,29 @@
+<h1>Signup!</h1>
+
+
+
+  <%= form_for :user, url: '/users' do |f| %>
+<div class= "regLog">
+    <dt><h4 class='white'>Name: </h4></dt>
+    <dd><%= f.text_field :first_name %></dd>
+</div>
+  <div class= "regLog">
+    <dt><h4 class='white'>Last Name:</h4></dt>
+    <dd><%= f.text_field :last_name %></dd>
+  </div>
+    <div class= "regLog">
+      <dt><h4 class='white'>Email:</h4></dt>
+      <dd><%= f.text_field :email %></dd>
+    </div>
+      <div class= "regLog">
+        <dt><h4 class='white'>Password:</h4></dt>
+        <dd><%= f.password_field :password %></dd>
+      </div>
+      <div class= "regLog">
+        <dt><h4 class='white'>Password Confirmation:</h4></dt>
+        <dd><%= f.password_field :password_confirmation %></dd>
+      </div>
+        <div class= "regLog">
+          <dd><%= f.submit "Submit", class: 'btn btn-lg btn-primary' %></dd>
+        </div>
+  <% end %>

@@ -1,3 +1,5 @@
+<div class='products-parallax'>
+</div>
 <section class="products-show">
 
   <header class="page-header">
@@ -14,16 +16,45 @@
 
       <div class="col-sm-8">
         <dl class="dl-horizontal">
-          <dt>Name</dt>
-          <dd><%= @product.name %></dd>
-          <dt>Description</dt>
-          <dd><%= @product.description %></dd>
-          <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
-          <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dt class=txt>Name</dt>
+          <dd class=grid><%= @product.name %></dd>
+          <dt class=txt>Description</dt>
+          <dd class=grid><%= @product.description %></dd>
+          <dt class=txt>Quantity</dt>
+          <dd class=grid><%= @product.quantity %></dd>
+          <dt class=txt>Price</dt>
+          <dd class=grid><%= @product.price %></dd>
         </dl>
       </div>
+    </div>
+    <div class="row">
+      <dl class="dl-vertical">
+      <% if session[:user_id] %>
+        <%= form_for [@product, @review]  do |f| %>
+          <dt class=grid>What do you think about this product?</dt>
+            <dd class=grid><%= f.text_area :description %></dd>
+               <dd class=grid>
+                 <%= f.submit "Submit" %>
+                 <%= f.select(:rating, [[1],[2],[3],[4],[5]])%>
+        <% end %>
+      <% end %>
+      </dd>
+       <dt class=grid>
+        <h4>Reviews</h4>
+        </dt>
+        <% @product.reviews.reverse.each do |review| %>
+          <dt class=grid>Name</dt>
+          <dd class=grid><%= review.user.first_name %> </dd>
+          <dt class=grid >Description</dt>
+          <dd class=grid><%= review.description %></dd>
+          <dt class=grid>Vote from 1 to 5:</dt>
+          <dd class=grid><%= review.rating %>
+            <% if review.user_id == session[:user_id] %>
+              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %></dd>
+            <% end %>
+        <% end %>
+
+      </dl>
     </div>
 
   </article>
