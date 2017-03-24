@@ -64,3 +64,9 @@ end
 group :development, :test do
   gem 'sqlite3', '1.3.12'
 end
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+end
