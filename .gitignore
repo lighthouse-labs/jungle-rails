@@ -10,17 +10,15 @@
 /tmp
 
 # Ignore carrier wave uploads for development
-/public/uploads
+
 
 # Ignore db creds / settings
-/config/database.yml
 
 *.rbc
 capybara-*.html
 .rspec
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/public/system
 /coverage/
 /spec/tmp
 **.orig
@@ -28,8 +26,7 @@ rerun.txt
 pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
-config/secrets.yml
+
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed

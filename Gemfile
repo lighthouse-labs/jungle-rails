@@ -4,7 +4,7 @@ ruby "2.3.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg' , '0.18.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -41,7 +41,7 @@ gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '9.0.0', platform: :mri
   gem 'quiet_assets'
   gem 'dotenv-rails'
 end
@@ -52,9 +52,21 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'pry'
 end
 
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+
+end
+group :development, :test do
+  gem 'sqlite3', '1.3.12'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end

@@ -1,3 +1,5 @@
+
+
 <article class="product">
   <header>
     <%= link_to product do %>
@@ -16,8 +18,15 @@
       Details &raquo;
     <% end %>
   </footer>
-
+  <% if product.reviews.average(:rating) %>
+  <strong>  <%= "Average rating: #{product.reviews.average(:rating)}" %></strong>
+  <%end-%>
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+<% if product.quantity == 0 -%>
+  <aside class="sold_out">
+    <p>SOLD OUT!</p>
+  </aside>
+  <% end -%>
 </article>

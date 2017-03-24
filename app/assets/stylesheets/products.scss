@@ -6,18 +6,32 @@ main section.categories-show {
     flex-direction:  row;
     flex-wrap:       wrap;
     justify-content: space-around;
+    position: relative;
+    transform-style: inherit;
+    z-index: 1;
+    position: relative;
+    background-attachment: fixed;
+
 
     .product {
       // flex:      1;
       max-width: 260px;
       // so that footer within can be positioned absolutely
-      position:  relative;
 
       border:        1px solid #ccc;
       border-radius: 5px;
       padding:       15px;
       padding-bottom: 80px;
-      margin-top:    20px;
+      margin-top:    10px;
+      background-color: white;
+      position: relative;
+      z-index: 1;
+      background-attachment: fixed;
+      margin-bottom: 20px;
+
+
+
+
       // margin:        10px;
 
       header img {
@@ -50,6 +64,17 @@ main section.categories-show {
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
       }
+      aside.sold_out {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: #ff0000;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 0.9em;
+        color: white;
+      }
 
       &:hover {
 
@@ -64,13 +89,56 @@ main section.categories-show {
   }
 }
 
+
+.products-parallax{
+  content: '';
+  z-index: -1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-filter: blur(4px);
+  background: url('https://raw.githubusercontent.com/Lucia416/jungle-rails/master/app/assets/images/background.jpg')no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:100vw;
+}
+.regLog{
+  padding: 0.5em;
+}
+
+.btn{
+  background-color: #458B74;
+  border-color:#458B00;
+}
+
+.btn:hover{
+  background-color: #eee;
+  color: black;
+}
+
+#helloUser{
+  padding: 1em;
+}
+
 main section.products-show {
 
   .product-detail {
     img.main-img {
+      border-color:black;
       max-width: 100%;
     }
   }
 }
 
+.catProd{
+  color:white;
 
+}
+
+.page-header{
+  color:white;
+}
