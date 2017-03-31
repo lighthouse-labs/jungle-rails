@@ -1,0 +1,10 @@
+
+<% product = line_item.product %>
+  <% item_total = line_item.product.price * line_item.quantity %>
+
+  <tr>
+    <td><%= line_item.product.name %></td>
+    <td class="text-center"><%= line_item.product %></td>
+    <td class="text-center"><%= line_item.quantity.to_i %></td>
+    <td class="text-right"><%= humanized_money_with_symbol item_total %></td>
+  </tr>
