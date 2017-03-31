@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+
+  <table class="table table-bordered">
+    <col style="width:30%">
+    <col style="width:20%">
+    <col style="width:10%">
+    <thead>
+      <tr>
+        <th>Review</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <h4> <%=  current_user.first_name %> </h4>
+        <br>
+        <p><%= review.description %></p>
+      </td>
+      <td>
+        <p><%= review.rating %></p>
+      </td>
+      <td>
+        <%= link_to "Delete Review", product_review_path(@product, review), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
