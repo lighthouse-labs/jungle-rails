@@ -18,7 +18,7 @@
       <p><%= product.description %></p>
     </td>
     <td>
-      <%= product.price %>
+      $<%= product.price %>
     </td>
           <%@li = LineItem.where(:product_id =>(product.id)) %>
     <p>qty: <%=@li[0].quantity %> </p>
@@ -28,7 +28,7 @@
 
   </tr>
   </tbody> <% end %>
-  <p> Total = $<%=@order.total_cents / 100 %>  </p>
+  <p> Total = $<%=@order.total_cents / 100.00 %>  </p>
   <br>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 

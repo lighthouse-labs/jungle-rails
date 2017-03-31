@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
       @order_items.push(item.product_id)
     end
     @products = Product.where(:id => (@order_items))
-
+    UserMailer.receipt_email(@order).deliver_now
   end
 
   def create
@@ -60,6 +60,8 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
+
     order
   end
 

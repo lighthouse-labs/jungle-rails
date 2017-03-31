@@ -4,6 +4,10 @@
     <h1>My Cart</h1>
   </header>
 
+    <% if cart.blank? %>
+      <div class="jumbotron">Stop Clicking that until you've bought some stuff! <%= link_to "Home", root_path %> </div>
+    <% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -15,9 +19,10 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_total = 0 %>
+        <%  if @cart_total = 0 %>
         <% cart.each do |product_id, details| %>
           <%= render 'item', product_id: product_id, details: details %>
+        <%end%>
         <% end %>
       </tbody>
       <tfoot>
@@ -41,13 +46,13 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-amount="<%= @cart_total * 100 %>"
           data-name="Jungle"
-          data-description="Khurram Virani's Jungle Order"
+          data-description="Jungle Order"
           data-locale="auto"
-          data-email="kvirani@gmail.com"
+          data-email="<%= current_user.present? ? current_user.email : '' %>"
           data-currency="cad">
         </script>
       <% end %>
     </div>
   </div>
-
+  <%end%>
 </section>
