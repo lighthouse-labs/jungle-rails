@@ -1,0 +1,22 @@
+<% if the_item = LineItem.find_by(id: id) %>
+  <% the_product = Product.find_by(id: the_item.product_id) %>
+  <% quantity = the_item.quantity %>
+  <tr>
+    <td>
+      <h4><%= the_product.name %></h4>
+    </td>
+    <td>
+      <h5>Quantity: <%= the_item.quantity %></h5>
+    </td>
+    <td>
+      <%= image_tag the_product.image.tiny %>
+    </td>
+    <td>
+      <br>
+      <p><%= the_product.description %></p>
+    </td>
+    <td>
+      <h5>Price: $<%= ((the_item.item_price_cents.to_i / 100.0) * quantity).to_s %></h5>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your purchase</h1>
+    <p>
+      You have successfully purchased the following items:
+      <br>
+    </p>
+    <% line_items = LineItem.where(order_id: @order.id) %>
+    <tbody>
+      <% line_items.each do |line_item| %>
+        <%= render 'item', id: line_item.id %>
+      <% end %>
+    </tbody>
+    <p>
+      Total: $<%= @order.total_cents.to_i/100.0 %>
+    </p>
+    <p>Thanks for visiting Jungle and have a great day!</p>
+  </body>
+</html>
