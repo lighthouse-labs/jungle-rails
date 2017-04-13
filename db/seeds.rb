@@ -128,9 +128,20 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,
   price: 2_483.75
 })
 
+Review.create(product_id: 1,
+              user_id: 1,
+              description: "this shirt is soooo hip",
+              rating: 4
+
+  )
+User.create(first_name: "test",
+            last_name: "test",
+            email: "test@test.com",
+            password_digest: "test"
+            )
 
 puts "DONE!"

@@ -2,6 +2,13 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @line_items = LineItem.where(:order_id => (params[:id]))
+    @order_items = []
+    @line_items.each do |item|
+      @order_items.push(item.product_id)
+    end
+    @products = Product.where(:id => (@order_items))
+    UserMailer.receipt_email(@order).deliver_now
   end
 
   def create
@@ -53,6 +60,8 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
+
     order
   end
 
