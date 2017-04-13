@@ -9,6 +9,8 @@
 !/log/.keep
 /tmp
 
+*.DS_Store
+
 # Ignore carrier wave uploads for development
 /public/uploads
 
