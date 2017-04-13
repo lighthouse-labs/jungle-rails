@@ -1,0 +1,24 @@
+<% if order = LineItem.find_by(id: id) %>
+<% product = Product.find_by(id: order.product_id) %>
+
+  <tr>
+    <td>
+      <%= image_tag product.image.tiny %>
+    </td>
+    <td>
+      <h4><%= product.name %></h4>
+      <br>
+      <p><%= product.description %></p>
+    </td>
+      <td>
+      $<%= product.price %>
+    </td>
+    <td>
+      <%= order.quantity%>
+    </td>
+     <td>
+      $<%= order.total_price%>
+    </td>
+
+  </tr>
+<% end %>
