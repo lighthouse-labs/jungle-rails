@@ -4,12 +4,59 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thanks for your order</h1>
+    <h1>Thanks for your order!</h1>
     <p>
-      Here is your order summary:
+      Here's your order summary:
     </p>
-<%= @order.id %>
 
-    <p>We hope your enjoy your products and have a great day!</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <% quantity = item['quantity'].to_i %>
+
+          <% if product = Product.find_by(id: item.product_id) %>
+            <% item_total = product.price * quantity %>
+            <tr>
+              <td>
+                <strong><%= product.name %></strong>
+                <br>
+                <p><%= product.description %></p>
+              </td>
+              <td>
+                $<%= product.price %>
+              </td>
+              <td>
+                <%= quantity %>
+              </td>
+              <td>
+                $<%= item_total %>
+              </td>
+            </tr>
+            <br>
+          <% end %>
+        <% end %>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th colspan="3">
+            TOTAL:
+          </th>
+          <th>
+            $<%= @order.total_cents / 100.0 %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p>We hope your enjoy your purchase and have a great day!</p>
   </body>
 </html>

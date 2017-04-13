@@ -1,7 +1,20 @@
-Thanks for your order, NAME
+Thanks for your order!
 ===============================================
-Here is your order summary:
+Here's your order summary:
 
+<% @order.line_items.each do |item| %>
+  <% quantity = item['quantity'].to_i %>
+  <% if product = Product.find_by(id: item.product_id) %>
+    <% item_total = product.price * quantity %>
+Name: <%= product.name %>
+Description: <%= product.description %>
+Price: $<%= product.price %>
+  Quantity: <%= quantity %>
+  Item Total: $<%= item_total %>
 
+  <% end %>
+<% end %>
 
-We hope your enjoy your products and have a great day!
+ORDER TOTAL: $<%= @order.total_cents / 100.0 %>
+
+We hope your enjoy your purchase and have a great day!
