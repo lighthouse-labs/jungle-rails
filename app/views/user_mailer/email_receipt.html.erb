@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your order!!</h1>
+    <p>
+      Your order total is:
+      <%= @order.total_cents.to_i/100.0%>
+    </p>
+
+    <table>
+    <% order = LineItem.where(order_id: @order.id) %>
+    <tbody>
+        <% order.each do |order| %>
+          <%= render 'item', id: order.id %>
+        <% end %>
+        </tbody>
+      </table>
+
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thank you!</p>
+  </body>
+</html>
