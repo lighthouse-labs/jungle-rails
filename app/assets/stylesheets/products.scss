@@ -40,6 +40,18 @@ main section.categories-show {
         transition: all 0.3s;
       }
 
+      aside.quantity {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: tomato;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 0.8em;
+        color: white;
+      }
+
       aside.price {
         position: absolute;
         top: 0;
