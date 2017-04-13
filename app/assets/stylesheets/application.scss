@@ -15,3 +15,18 @@ span.login-display {
     padding: 15px;
     line-height: 3.7;
   }
+
+.signup-form {
+  
+  input{
+    margin-top: 10px;
+  }
+  
+  input#user_email {
+    margin-left: 33px;
+  }
+
+  input#user_password {
+    margin-left: 6px;
+  }
+}
