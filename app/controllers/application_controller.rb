@@ -19,4 +19,14 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+  # # TODO optional To send user to login page if they're not logged in
+  # def current_user
+  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  # end
+  # helper_method :current_user
+  #
+  # def authorize
+  #   redirect_to '/login' unless current_user
+  # end
+
 end
