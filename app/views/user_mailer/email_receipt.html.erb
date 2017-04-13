@@ -9,7 +9,33 @@
     Here is a receipt for your awesome order! <br>
     Definitely a choice selection of items, you truly are a connoiseur.
     </p>
-
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.line_items.each do |item| %>
+            <%= render 'item', item: item %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>
+              TOTAL:
+            </th>
+            <th>
+              <%= @order.total_cents %>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
     <p>Have a great day and remember to keep consuming mindlessly!</p>
   </body>
 </html>
