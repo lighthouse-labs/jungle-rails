@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      render :signup
+      redirect_to '/signup'
     end
   end
   private
