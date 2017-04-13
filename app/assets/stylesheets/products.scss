@@ -51,6 +51,15 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      aside.price.sold-out {
+        left: 0;
+        width: 40%;
+        border-radius: 4px 0 15px;
+        font-size: 1.1em;
+        background-color: #e8a49b;
+        color: white;
+      }
+
       &:hover {
 
         border-color: #999;
