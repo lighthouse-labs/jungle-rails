@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-        <% @line_item_total_price_cents = 0%>
+
         <% order = LineItem.where(order_id: @order.id) %>
         <% order.each do |order| %>
           <%= render 'item', id: order.id %>
