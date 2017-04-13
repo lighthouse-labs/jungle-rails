@@ -2,16 +2,15 @@
 
 <h1>Login</h1>
 
-<%= form_for :login, url: '/login' do |f| %>
+<%= form_tag '/login' do %>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    Email: <br />
+    <%= text_field_tag :email %>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    Password: <br />
+    <%= password_field_tag :password %>
   </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= submit_tag "Submit" %>
+
 <% end %>
