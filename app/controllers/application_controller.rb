@@ -12,13 +12,15 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path unless current_user
   end
 
-  private
+  protected
 
   def cart
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
   helper_method :cart
+
+  private
 
   def update_cart(new_cart)
     cookies[:cart] = {
