@@ -52,7 +52,11 @@ class OrdersController < ApplicationController
         )
       end
     end
+
     order.save!
+    p order
+    p order.line_items
+    UserMailer.email_receipt(order).deliver_now
     order
   end
 
