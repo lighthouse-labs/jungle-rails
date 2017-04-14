@@ -30,7 +30,7 @@
               TOTAL:
             </th>
             <th>
-              <%= @order.total_cents %>
+              <%=  number_to_currency((@order.total_cents / 100), :unit => "$") %>
             </th>
           </tr>
         </tfoot>
