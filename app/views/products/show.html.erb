@@ -57,7 +57,13 @@
             <tr>
               <td><%= review.rating %></td>
               <td><%= review.description %></td>
+              <% if current_user.id ==  review.user_id %>
+                <td><%= link_to 'Delete', product_review_path(@product, review),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
             </tr>
+
           <% end %>
         </table>
     </div>

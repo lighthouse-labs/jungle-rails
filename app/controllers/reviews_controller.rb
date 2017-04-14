@@ -15,4 +15,11 @@ class ReviewsController < ApplicationController
       redirect_to :back
     end
   end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    redirect_to :back
+  end
 end
