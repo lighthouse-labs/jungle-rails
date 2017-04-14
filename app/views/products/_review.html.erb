@@ -14,7 +14,7 @@
   <% end %>
 </div>
 
-<% @product.reviews.each do |review| %>
+<% @product.reviews.reverse_each do |review| %>
   <div class='jumbotron'>
     <span>
       Rating: <%= review.rating %>
