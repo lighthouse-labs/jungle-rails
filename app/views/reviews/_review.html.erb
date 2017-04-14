@@ -1,0 +1,6 @@
+<div class="review">
+  <span class="rating"><%= review.rating %></span>
+  <span class="reviewer"><%= review.user.first_name %></span>
+  <span class="review-created-at"><%= review.created_at.to_formatted_s(:long_ordinal) %></span>
+  <div class="review-description"><%= review.description %></div>
+</div>
