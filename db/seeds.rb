@@ -132,5 +132,22 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.destroy_all
+
+User.create!({
+  first_name: 'Dace',
+  last_name: 'Hunter',
+  email: 'dacehunter@gmail.com',
+  password_digest: '$2a$10$axo1c6.Jxrpi4B2u75JeVO84I9rQPgc3uk.oS5wmGkVPlBVTQ6/zG'
+  })
+
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "This shirt keeps me warm and fresh!",
+  rating: 5
+  })
 
 puts "DONE!"
