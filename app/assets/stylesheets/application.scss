@@ -14,3 +14,9 @@ body {
 .signed-in-as {
   margin-left: 15px;
 }
+
+@media (max-width: 768px) {
+  .signed-in-as {
+    display: none !important;
+  }
+}
