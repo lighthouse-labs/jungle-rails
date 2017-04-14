@@ -132,5 +132,20 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# # reviews
+
+# Reviews.destroy_all
+
+# cat1.reviews.create!({
+#   name:  'Men\'s Classy shirt',
+#   description: Faker::Hipster.paragraph(4),
+#   image: open_asset('apparel1.jpg'),
+#   quantity: 0,
+#   price: 64.99
+#   product_id:
+#   user_id
+#   description
+#    rating
+})
 
 puts "DONE!"
