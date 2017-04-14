@@ -29,17 +29,7 @@
   </article>
 
   <article class='review'>
-    <% @reviews.each do |review| %>
-      <div class='jumbotron'>
-        <span>
-          Rating: <%= review.rating %>
-          Date: <%= review.created_at %>
-        </span>
-        <h4>
-          <%= review.description %>
-        </h4>
-      </div>
-    <% end %>
+    <%= render :partial => 'products/review' %>
   </article>
 
 </section>
