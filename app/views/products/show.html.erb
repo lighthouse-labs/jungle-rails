@@ -52,7 +52,7 @@
           <th>
             Description
           </th>
-          <% reviews.each do |review| %>
+          <% reviews.reverse.each do |review| %>
             <tr>
               <td><%= review.rating %></td>
               <td><%= review.description %></td>
