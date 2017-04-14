@@ -149,4 +149,11 @@ Review.create!({
     rating: 3
   })
 
+Review.create!({
+    product_id: 1,
+    user_id: 1,
+    description: 'actually, its great',
+    rating: 5
+  })
+
 puts "DONE!"
