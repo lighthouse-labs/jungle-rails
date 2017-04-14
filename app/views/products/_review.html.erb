@@ -1,18 +1,20 @@
-<div class='new review'>
-  <%= form_for([@product, @review]) do |f| %>
-    <p>
-      <%= f.label :rating %><br />
-      <%= f.select :rating, [1, 2, 3, 4, 5] %>
-    </p>
-    <p>
-      <%= f.label :description %><br />
-      <%= f.text_area :description %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
-</div>
+<% if current_user %>
+  <div class='new review'>
+    <%= form_for([@product, @review]) do |f| %>
+      <p>
+        <%= f.label :rating %><br />
+        <%= f.select :rating, [1, 2, 3, 4, 5] %>
+      </p>
+      <p>
+        <%= f.label :description %><br />
+        <%= f.text_area :description %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+<%end%>
 
 <% @product.reviews.reverse_each do |review| %>
   <div class='jumbotron'>
@@ -24,5 +26,9 @@
     <h4>
       <%= review.description %>
     </h4>
+    <% if review.user == current_user %>
+      <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+
   </div>
 <% end %>

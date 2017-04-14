@@ -23,4 +23,10 @@ class ReviewsController < ApplicationController
       #  supposed to 'render the page where the form resides'
     end
   end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to :back
+  end
 end
