@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+
+  # to redirect users who are not logged in
+  before_filter :authorize
+
   def new
   end
 

@@ -8,11 +8,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  # # TODO optional To send user to login page if they're not logged in
-  # # Will have to add before_filter to blocked pages
-  # def authorize
-  #   redirect_to '/login' unless current_user
-  # end
+  # To send user to login page if they're not logged in
+  def authorize
+    redirect_to '/login' unless current_user
+  end
 
   private
 
