@@ -1,5 +1,22 @@
 class ReviewsController < ApplicationController
+  def new
+  end
+
   def create
-    raise 'yay, i\'m here!'
+    @product = Product.find(params['product_id'])
+    review = Review.new({
+      product_id: params['product_id'],
+      user_id: current_user['id'],
+      description: params['review']['description'],
+      rating: params['review']['rating']
+    })
+
+    if review.save
+      redirect_to :back
+    else
+      redirect_to :back
+      # TODO add a message or something to warn user that review was not saved
+      #  supposed to 'render the page where the form resides'
+    end
   end
 end
