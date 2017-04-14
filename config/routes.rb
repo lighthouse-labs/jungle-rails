@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     delete :remove_item
   end
 
-  resources :prroducts do
-    resources :reviews, only [:create]
+  resources :products do
+    resources :reviews, only: [:create]
   end
 
 
