@@ -25,21 +25,22 @@
         </dl>
       </div>
     </div>
-
-    <div class="row">
-      <h3>Leave a Review</h3>
-      <%= form_for([@product, @review]) do |f| %>
-        <p>
-        <%= label :rating, "Rating:" %> <br />
-        <%= f.select :rating, [5, 4, 3, 2, 1] %>
-        </p>
-        <p>
-        <%= label :description, "Description:" %> <br />
-        <%= f.text_area :description, size: "80x6" %>
-        </p>
-        <%= f.submit "Create" %>
-      <% end %>
-    </div>
+    <% if current_user %>
+      <div class="row">
+        <h3>Leave a Review</h3>
+        <%= form_for([@product, @review]) do |f| %>
+          <p>
+          <%= label :rating, "Rating:" %> <br />
+          <%= f.select :rating, [5, 4, 3, 2, 1] %>
+          </p>
+          <p>
+          <%= label :description, "Description:" %> <br />
+          <%= f.text_area :description, size: "80x6" %>
+          </p>
+          <%= f.submit "Create" %>
+        <% end %>
+      </div>
+    <% end %>
 
     <div class="row">
       <h3>Reviews</h3>
