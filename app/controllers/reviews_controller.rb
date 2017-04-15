@@ -20,12 +20,10 @@ class ReviewsController < ApplicationController
 
     @product = Product.find(params[:product_id])
     @review = Review.find params[:id]
-    # if current_user.id == @review.user.id
+
       @review.destroy
       redirect_to product_path(@product)
-    # else
-    #   redirect_to product_path(@product), error: "you are not the review owner!"
-    # end
+
   end
 
   private

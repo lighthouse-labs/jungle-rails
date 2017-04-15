@@ -25,7 +25,7 @@
         </dl>
       </div>
     </div>
-    <!-- new start -->
+
 
     <% if current_user  %>
       <div class="row">
@@ -60,24 +60,29 @@
       <%= link_to "login to creat a review", new_session_path %>
     <% end %>
 
-    <!-- new end -->
-
     <div class="row">
 
       <h3> Reviews </h2>
+      <dl class="dl-horizontal">
       <% @product.reviews.order("created_at desc").each do |review| %>
         <% if review.id %>
-          <ul>
-            <li>rate: <%= review.rating %></li>
-            <li>comment: <%= review.description %></li>
-            <li>date: <%= review.created_at %></li>
+          <dt>reviewer:</dt>
+          <dd><%= review.user.first_name %></dd>
+          <dt>rate:</dt>
+          <dd><%= review.rating %></dd>
+          <dt>comment:</dt>
+          <dd><%= review.description %></dd>
+          <dt>date:</dt>
+          <dd><%= review.created_at %></dd>
 
           </ul>
           <% if current_user && current_user.id == review.user.id %>
-          <%= link_to "delete", product_review_path(@product, review), :method => :delete, :confirm => "Are you sure?" %>
+          <dt></dt>
+          <dd><%= link_to "delete", product_review_path(@product, review), :method => :delete, :confirm => "Are you sure?" %></dd>
           <% end %>
         <% end %>
       <% end %>
+      </dl>
 
     </div>
 
