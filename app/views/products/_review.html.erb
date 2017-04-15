@@ -1,0 +1,40 @@
+<% if current_user %>
+<h4> Review this product! </h4>
+  <div class='new-review'>
+    <%= bootstrap_form_for([@product, @review]) do |f| %>
+        <%= f.select :rating, ['5 - Perfect', '4 - Great', '3 - Good', '2 - Problematic', '1 - Utter Rubbish'] %>
+        <%= f.text_area :description %>
+        <div class='pull-right'>
+          <%= f.submit %>
+        </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% @product.reviews.reverse_each do |review| %>
+  <div class='jumbotron'>
+    <p>
+      <% review.rating.times do |r| %>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+
+      <% (5-review.rating).times do |r| %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+
+      <% if review.user == current_user %>
+      <span >
+        <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      </span>
+      <% end %>
+    </p>
+
+    <span>
+      Reviewed on <%= review.created_at.to_formatted_s(:long_ordinal) %>
+      by <%= review.user.first_name %>
+    </span>
+
+    <p><%= review.description %></p>
+
+  </div>
+<% end %>

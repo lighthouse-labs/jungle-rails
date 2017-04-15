@@ -1,0 +1,14 @@
+<h1>Signup</h1>
+
+<div class='jumbotron'>
+  <%= bootstrap_form_for :user, url: '/users' do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :email %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
+    <div class='pull-right'>
+      <%= f.submit :Signup %>
+    </div>
+  <% end %>
+</div>
