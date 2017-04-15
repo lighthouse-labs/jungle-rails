@@ -30,7 +30,7 @@
             end
             avg_rate = rate / @product.reviews.length %>
 
-          <dd><%= avg_rate.round(1) %></dd>
+          <dd><%= avg_rate.round(1).to_f.nan? ? "No ratings yet" : avg_rate.round(1) %></dd>
           <dd>
           <div class="reviews">
             <h4>Reviews</h4>
