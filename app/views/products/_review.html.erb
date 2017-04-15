@@ -18,10 +18,18 @@
 
 <% @product.reviews.reverse_each do |review| %>
   <div class='jumbotron'>
+    <p>
+      <% review.rating.times do |n| %>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+
+      <% (5-review.rating).times do |n| %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+  </p>
+
     <span>
-      Rating: <%= review.rating %>
-      Date: <%= review.created_at %>
-      User: <%= review.user.first_name %>
+      Reviewed on <%= review.created_at %> by <%= review.user.first_name %>
     </span>
     <h4>
       <%= review.description %>
@@ -29,6 +37,5 @@
     <% if review.user == current_user %>
       <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
-
   </div>
 <% end %>
