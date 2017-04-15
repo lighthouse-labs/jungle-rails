@@ -21,15 +21,16 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd>$<%= @product.price %></dd>
         </dl>
+
+        <div class='reviews'>
+          <%= render :partial => 'products/review' %>
+        </div>
+
       </div>
     </div>
 
-  </article>
-
-  <article class='review'>
-    <%= render :partial => 'products/review' %>
   </article>
 
 </section>

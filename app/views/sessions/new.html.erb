@@ -1,16 +1,11 @@
-<!-- NOTE THIS IS DIFFERENT THAN THE TUTORIAL -->
-
 <h1>Login</h1>
 
-<%= form_tag '/login' do %>
-  <p>
-    Email: <br />
-    <%= text_field_tag :email %>
-  </p>
-  <p>
-    Password: <br />
-    <%= password_field_tag :password %>
-  </p>
-  <%= submit_tag "Submit" %>
-
-<% end %>
+<div class='jumbotron'>
+  <%= bootstrap_form_tag url: '/login' do |f| %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password %>
+    <div class='pull-right'>
+      <%= f.submit :Login %>
+    </div>
+  <% end %>
+</div>

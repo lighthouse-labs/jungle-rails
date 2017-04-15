@@ -1,27 +1,14 @@
 <h1>Signup</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
-  <p>
-    <%= f.label :first_name %><br />
+<div class='jumbotron'>
+  <%= bootstrap_form_for :user, url: '/users' do |f| %>
     <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
     <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+    <div class='pull-right'>
+      <%= f.submit :Signup %>
+    </div>
+  <% end %>
+</div>

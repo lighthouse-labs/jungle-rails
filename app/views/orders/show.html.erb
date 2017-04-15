@@ -6,7 +6,7 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-    <span>An email with your order summary has been sent to <%= current_user.email %></span>
+    <span>An order summary has been sent to <%= current_user.email %></span>
   </div>
 
   <div class="panel panel-default items">
@@ -30,7 +30,7 @@
             TOTAL:
           </th>
           <th>
-            <%= @order_total %>
+            $<%= @order_total %>
           </th>
         </tr>
       </tfoot>
