@@ -29,14 +29,14 @@
       <div class="row">
         <h3>Leave a Review</h3>
         <%= form_for([@product, @review]) do |f| %>
-          <p>
+          <div class="form-group">
           <%= label :rating, "Rating:" %> <br />
           <%= f.select :rating, [5, 4, 3, 2, 1] %>
-          </p>
-          <p>
+          </div>
+          <div class="form-group">
           <%= label :description, "Description:" %> <br />
           <%= f.text_area :description, size: "80x6" %>
-          </p>
+          </div>
           <%= f.submit "Create" %>
         <% end %>
       </div>
@@ -46,26 +46,18 @@
       <h3>Reviews</h3>
 
       <% reviews = Review.where(product_id: @product.id) %>
-        <table class="table table-bordered">
-          <th>
-            Rating
-          </th>
-          <th>
-            Description
-          </th>
-          <% reviews.reverse.each do |review| %>
-            <tr>
-              <td><%= review.rating %></td>
-              <td><%= review.description %></td>
-              <% if current_user.id ==  review.user_id %>
-                <td><%= link_to 'Delete', product_review_path(@product, review),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tr>
-
-          <% end %>
-        </table>
+        <% reviews.reverse.each do |review| %>
+          <div class="well">
+            <h2><%= review.rating %> / 5</h2>
+            <h4><%= review.description %></h4>
+            <% if current_user.id ==  review.user_id %>
+              <h5 class="text-right"><%= link_to 'Delete', product_review_path(@product, review),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+              </h5>
+            <% end %>
+          </div>
+        <% end %>
     </div>
 
   </article>
