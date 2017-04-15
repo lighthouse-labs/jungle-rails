@@ -9,6 +9,7 @@
       </button>
       <a class="navbar-brand" href="/">Jungle</a>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -46,6 +47,7 @@
         </li>
       </ul>
     </div>
+
     <span class="navbar-text navbar-right">
       <% if current_user %>
         Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
@@ -53,5 +55,6 @@
         <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
       <% end %>
     </span>
+
   </div>
 </nav>
