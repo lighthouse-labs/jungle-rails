@@ -10,6 +10,9 @@
   <%#= render partial: 'layouts/top_nav', locals: {current_user: @current_user}%>
 <%= render 'layouts/top_nav' %>
   <main class="container">
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
     <%= yield %>
   </main>
 
