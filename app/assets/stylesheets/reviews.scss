@@ -1,0 +1,34 @@
+.review {
+  padding: 7px 2px;
+}
+
+.rating {
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 1px 5px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.reviewer {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.review-description {
+  padding: 5px 5px 5px 30px;
+  overflow-wrap: break-word;
+}
+
+.new-review {
+  margin: 15px 0;
+}
+
+#review_rating {
+  max-width: 35px;
+  display: inline-block;
+}
+
+.submit-review {
+  display: inline-block;
+}
