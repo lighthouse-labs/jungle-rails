@@ -25,16 +25,52 @@
         </dl>
       </div>
     </div>
+    <!-- new start -->
+
+    <div class="row">
+      <%= form_for [@product, @product.reviews.new] do |form| %>
+
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :rating %>
+          <%= form.select :rating, options_for_select(1..5), class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Create Product', class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+
+    <!-- new end -->
 
     <div class="row">
 
       <h3> Reviews </h2>
       <% @product.reviews.each do |review| %>
-        <ul>
-          <li>rate: <%= review.rating %></li>
-          <li>comment: <%= review.description %></li>
-          <li>date: <%= review.created_at %></li>
-        </ul>
+        <% if review.id %>
+          <ul>
+            <li>rate: <%= review.rating %></li>
+            <li>comment: <%= review.description %></li>
+            <li>date: <%= review.created_at %></li>
+
+          </ul>
+          <%= link_to "delete", product_review_path(@product, review), :method => :delete, :confirm => "Are you sure?" %>
+        <% end %>
       <% end %>
 
     </div>
