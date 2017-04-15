@@ -4,6 +4,16 @@
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+    <% total_rating = 0 %>
+    <% reviews = Review.where(product_id: product.id) %>
+    <% if reviews.size > 0 %>
+      <% reviews.each do |review| %>
+          <% total_rating += review.rating %>
+      <% end %>
+      <i>Rating: <%= total_rating.to_f / reviews.size.to_f %> / 5</i>
+    <% else %>
+      <i>Not Rated</i>
+    <% end %>
   </header>
   <p class="description">
     <%= product.description %>
@@ -22,7 +32,6 @@
       SOLD OUT!
     </aside>
   <% end %>
-
 
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
