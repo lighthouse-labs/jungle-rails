@@ -22,17 +22,26 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Customer Rating<dt>
+
+          <% rate = 0.0
+            @product.reviews.each do |r|
+              rate += r.rating
+            end
+            avg_rate = rate / @product.reviews.length %>
+
+          <dd><%= avg_rate.round(1) %></dd>
           <dd>
           <div class="reviews">
             <h4>Reviews</h4>
             <% if current_user %>
-              <div class="new-review">
+              <div class="new-review form-group">
                 <%= form_for([@product,@review]) do |f| %>
-                <%= f.text_field :description, placeholder: "How did you like it?" %>
+                <%= f.text_field :description, placeholder: "How did you like it?", class: "form-control", style: 'display: inline-block; max-width: 60%;' %>
 
-                <%= f.select :rating, [1, 2, 3, 4, 5]%>
+                <%= f.select :rating, [5, 4, 3, 2, 1], {}, {class: "form-control"} %>
 
-                <%= f.submit :Submit %>
+                <%= f.submit :Submit, class: 'btn btn-default submit-review' %>
                 <% end %>
               </div>
             <% end %>
