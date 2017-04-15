@@ -22,6 +22,22 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd>$<%= @product.price %></dd>
+          <% if @product.reviews.any? %>
+            <dt>Average Rating</dt>
+            <dd class='rating'>
+              <% @product.reviews.average(:rating).floor.times do |r| %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+
+              <% if @product.reviews.average(:rating).floor != @product.reviews.average(:rating) %>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <% end %>
+
+              <% (5 - @product.reviews.average(:rating).ceil).times do |r| %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            </dd>
+          <% end %>
         </dl>
 
         <div class='reviews'>

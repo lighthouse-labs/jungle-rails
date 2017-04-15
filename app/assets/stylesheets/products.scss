@@ -27,6 +27,10 @@ main section.categories-show {
         display: block;
       }
 
+      .rating {
+        font-style: italic;
+      }
+
       footer {
         position: absolute;
         bottom: 0;
@@ -61,6 +65,7 @@ main section.categories-show {
         border-bottom-right-radius: 20px;
         font-size: 1em;
         color: #fff;
+        transition: all 0.3s;
       }
 
       &:hover {

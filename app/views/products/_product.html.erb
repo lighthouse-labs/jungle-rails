@@ -5,9 +5,29 @@
       <h4><%= product.name %></h4>
     <% end %>
   </header>
+
+  <p class='rating'>
+    <% if product.reviews.any? %>
+      <% product.reviews.average(:rating).floor.times do |r| %>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+
+      <% if product.reviews.average(:rating).floor != product.reviews.average(:rating) %>
+        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+      <% end %>
+
+      <% (5 - product.reviews.average(:rating).ceil).times do |r| %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+    <% else %>
+      Be the first to review this product
+    <% end %>
+  </p>
+
   <p class="description">
     <%= product.description %>
   </p>
+
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
