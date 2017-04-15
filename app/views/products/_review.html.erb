@@ -2,7 +2,7 @@
 <h4> Review this product! </h4>
   <div class='new-review'>
     <%= bootstrap_form_for([@product, @review]) do |f| %>
-        <%= f.select :rating, [1, 2, 3, 4, 5] %>
+        <%= f.select :rating, ['5 - Perfect', '4 - Great', '3 - Good', '2 - Problematic', '1 - Utter Rubbish'] %>
         <%= f.text_area :description %>
         <div class='pull-right'>
           <%= f.submit %>
