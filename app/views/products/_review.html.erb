@@ -11,6 +11,7 @@
   </div>
 <% end %>
 
+
 <% @product.reviews.reverse_each do |review| %>
   <div class='jumbotron'>
     <p>
@@ -18,7 +19,7 @@
         <i class="fa fa-star" aria-hidden="true"></i>
       <% end %>
 
-      <% (5-review.rating).times do |r| %>
+      <% (5 - review.rating).times do |r| %>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       <% end %>
 
