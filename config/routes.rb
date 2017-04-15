@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :destroy]
   end
 
 

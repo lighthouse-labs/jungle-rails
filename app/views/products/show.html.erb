@@ -25,16 +25,18 @@
           <dd>
           <div class="reviews">
             <h4>Reviews</h4>
-            <div class="new-review">
-              <%= form_for([@product,@review]) do |f| %>
-              <%= f.text_field :description, placeholder: "How did you like it?" %>
+            <% if current_user %>
+              <div class="new-review">
+                <%= form_for([@product,@review]) do |f| %>
+                <%= f.text_field :description, placeholder: "How did you like it?" %>
 
-              <%= f.select :rating, [1, 2, 3, 4, 5]%>
+                <%= f.select :rating, [1, 2, 3, 4, 5]%>
 
-              <%= f.submit :Submit %>
-              <% end %>
-            </div>
-            <% @product.reviews.each do |review| %>
+                <%= f.submit :Submit %>
+                <% end %>
+              </div>
+            <% end %>
+            <% @product.reviews.reverse_each do |review| %>
               <%= render review %>
             <% end %>
           </div>
