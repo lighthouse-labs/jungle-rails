@@ -39,7 +39,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0,
   price: 64.99
 })
 
@@ -132,5 +132,28 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.destroy_all
+
+User.create!({
+    name: 'John Cobb',
+    email: 'john@cobb.com',
+    password_digest: 'qwerty'
+  })
+
+Review.destroy_all
+
+Review.create!({
+    product_id: 1,
+    user_id: 1,
+    description: 'its aight',
+    rating: 3
+  })
+
+Review.create!({
+    product_id: 1,
+    user_id: 1,
+    description: 'actually, its great',
+    rating: 5
+  })
 
 puts "DONE!"
