@@ -1,0 +1,26 @@
+ <table class="table table-bordered">
+    <tr>
+      <th>Product</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+    </tr>
+  <% @order.line_items.each do |item| %>
+  <<% product = Product.find(item.product_id) %>
+  <tr>
+    <td>
+      <h4><%= product.name %></h4>
+      <br>
+      <p><%= product.description %></p>
+    </td>
+    <td>
+      $<%= product.price %>
+    </td>
+    <td>
+      <span>x<%= item.quantity %></span>
+    </td>
+    </br>
+  </tr>
+  <% end %>
+  <td>
+    <span>Total: $<%= @order.total %></span>
+</table>
