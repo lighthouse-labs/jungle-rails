@@ -22,6 +22,8 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Overall Rating</dt>
+          <dd><%= @product.reviews.average(:rating) || 'N/A'%></dd>
         </dl>
       </div>
     </div>

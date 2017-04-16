@@ -1,7 +1,7 @@
 <tr>
 
   <td>
-  <%= image_tag("#{line_item.product.image}")%>
+  <%= image_tag("#{line_item.product.image}", :style => "max-width:100%") %>
   </td>
 
   <td>
@@ -24,5 +24,6 @@
   <%= humanized_money_with_symbol line_item.total_price %>
   </td>
 
-
 </tr>
+
+

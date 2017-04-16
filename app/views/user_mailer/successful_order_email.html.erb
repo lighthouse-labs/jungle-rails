@@ -14,9 +14,10 @@
 
       product: <%= item.product.name %>
       quantity: <%= item.quantity %>
-      price: <%= humanized_money_with_symbol item.item_price_cents %>
-      total price: <%= humanized_money_with_symbol item.total_price_cents %>
+      price: <%= humanized_money_with_symbol item.item_price_cents/100 %>
+      total price: <%= humanized_money_with_symbol item.total_price_cents/100 %>
       <% end %>
+      total fee: <%= humanized_money_with_symbol @order.total_cents/100 %>
     </p>
     <p>Thanks for using Jungle and have a great day!</p>
   </body>

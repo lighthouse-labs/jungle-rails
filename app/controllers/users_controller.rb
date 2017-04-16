@@ -6,10 +6,13 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
+      flash[:alert] = nil
       session[:user_id] = user.id
       redirect_to root_path, notice: 'User is created successfully'
     else
-      redirect_to new_user_path, error: user.errors.full_messages.first
+      flash[:alert] = user.errors.full_messages
+
+      redirect_to new_user_path
     end
   end
 
