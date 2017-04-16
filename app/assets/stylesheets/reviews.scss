@@ -1,10 +1,22 @@
+.index-rating {
+  font-size: 70%;
+  font-weight: bold;
+  border: 1px solid #337ab7;
+  padding: 1px 5px;
+  border-radius: 10px;
+  margin-right: 5px;
+  position: relative;
+  float: right;
+}
+
 .review {
   padding: 7px 2px;
 }
 
 .rating {
+  color: #337ab7;
   font-weight: bold;
-  border: 1px solid black;
+  border: 1px solid #337ab7;
   padding: 1px 5px;
   border-radius: 10px;
   margin-right: 5px;
