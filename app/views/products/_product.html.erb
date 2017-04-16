@@ -2,7 +2,15 @@
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
-      <h4><%= product.name %></h4>
+      <h4><%= product.name %>
+        <% rate = 0.0
+            product.reviews.each do |r|
+              rate += r.rating
+            end
+            avg_rate = rate / product.reviews.length %>
+
+          <span class="index-rating"><%= avg_rate.round(1).to_f.nan? ? "N/A" : avg_rate.round(1) %></span>
+          </h4>
     <% end %>
   </header>
   <p class="description">
