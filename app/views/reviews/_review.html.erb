@@ -2,8 +2,10 @@
   <span class="rating"><%= review.rating %></span>
   <span class="reviewer"><%= review.user.first_name %></span>
   <span class="review-created-at"><%= review.created_at.to_formatted_s(:short) %></span>
-  <% if review.user.id == current_user.id %>
-    <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm', method: :delete, data: { confirm: "Are you sure?" } %>
+  <% if current_user %>
+    <% if review.user.id == current_user.id %>
+      <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm', method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
+  <% end %>
   <div class="review-description"><%= review.description %></div>
 </div>
