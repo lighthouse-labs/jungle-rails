@@ -1,2 +1,15 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="admin-dashboard">
+
+  <header class="page-header">
+    <h1>Admin &raquo; Dashboard</h1>
+  </header>
+
+  <h3>Welcome, Admin!</h3>
+  <p>
+    <%= link_to 'View/Add/Delete Products', admin_products_path, class: 'btn btn-info' %>
+  </p>
+  <p>
+    <%= link_to 'View/Add Categories', admin_categories_path, class: 'btn btn-info' %>
+  </p>
+
+</section>
