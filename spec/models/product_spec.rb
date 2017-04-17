@@ -8,7 +8,6 @@ RSpec.describe Product, type: :model do
 
     it 'should save a new @product' do
       @product = @category.products.create(
-        category_id: @category.id,
         name: 'Test Name',
         price: 9999.99,
         quantity: 20
@@ -48,7 +47,7 @@ RSpec.describe Product, type: :model do
 
     it 'should not save without a category' do
       @product = Product.new(
-        category: nil,
+        category_id: nil,
         name: 'test name',
         price: 9999.99,
         quantity: 20
