@@ -1,5 +1,5 @@
-require 'spec_helper'
 require 'rails_helper'
+
 RSpec.describe Product, type: :model do
 
   before do
@@ -11,7 +11,6 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
     it "should be valid" do
         @product.valid?
-        # puts @product.errors.messages
         expect(@product.valid?).to be true
     end
 
@@ -22,7 +21,6 @@ RSpec.describe Product, type: :model do
 
     it "should have a price" do
       @product.price = ""
-      puts @product.errors.messages
       expect(@product.valid?).to be false
     end
 
