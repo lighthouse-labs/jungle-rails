@@ -5,10 +5,13 @@
   </header>
 
   <% if cart.size.zero? %>
-    <p>
-      Your cart is empty! :(
-    </p>
-    <%= link_to 'Home', :root %>
+    <h3>
+      Your cart is empty!
+    </h3>
+    <h3>
+      But you can change this by going to our fancy shmancy
+      <%= link_to 'Products Page', :root %>.
+    </h3>
   <% else %>
 
     <div class="panel panel-default items">
