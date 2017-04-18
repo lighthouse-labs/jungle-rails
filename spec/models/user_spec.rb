@@ -94,7 +94,7 @@ RSpec.describe User, type: :model do
         password_confirmation: 'password'
       })
       result = User.authenticate_with_credentials(u8[:email], "passwrod")
-      expect(result).to be false
+      expect(result).to be nil
     end
 
     it 'returns false if no email exists in the database' do
@@ -106,7 +106,31 @@ RSpec.describe User, type: :model do
         password_confirmation: 'password'
       })
       result = User.authenticate_with_credentials("marmalade@gmail.com", "password")
-      expect(result).to be false
+      expect(result).to be nil
+    end
+
+    it 'returns user if correct email is entered with leading and/or trailing spaces' do
+      u10 = User.create({
+        first_name: 'Jade',
+        last_name: 'Marmalade',
+        email: 'jademarmalade@gmail.com',
+        password: 'password',
+        password_confirmation: 'password'
+      })
+      result = User.authenticate_with_credentials("  jademarmalade@gmail.com  ", "password")
+      expect(result.id).to eql(u10.id)
+    end
+
+     it 'returns user if emails match (case insensitive)' do
+      u11 = User.create({
+        first_name: 'Jade',
+        last_name: 'Marmalade',
+        email: 'jadeMarmalade@gmail.com',
+        password: 'password',
+        password_confirmation: 'password'
+      })
+      result = User.authenticate_with_credentials("Jademarmalade@gmail.com", "password")
+      expect(result.id).to eql(u11.id)
     end
 
   end
