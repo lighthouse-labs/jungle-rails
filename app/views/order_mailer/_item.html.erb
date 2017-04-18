@@ -1,0 +1,16 @@
+<% if product = Product.find_by(id: item.product_id) %>
+  <tr>
+    <td>
+      <h4><%= product.name %></h4>
+    </td>
+    <td>
+      <%= product.price %>
+    </td>
+    <td>
+      <%= item.quantity %>
+    </td>
+    <td>
+      <%= ('%.2f' % (item.total_price_cents.to_i/100.00)) %>
+    </td>
+  </tr>
+<% end %>
