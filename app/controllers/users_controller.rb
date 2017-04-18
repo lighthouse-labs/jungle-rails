@@ -9,6 +9,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
+      puts "errors: #{user.errors.full_messages.to_sentence}"
+      flash[:error] = user.errors.full_messages
       redirect_to '/signup'
     end
   end
