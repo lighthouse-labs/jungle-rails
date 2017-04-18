@@ -34,12 +34,14 @@ cat3 = Category.find_or_create_by! name: 'Furniture'
 puts "Re-creating Products ..."
 
 Product.destroy_all
+Review.destroy_all
+User.destroy_all
 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0,
   price: 64.99
 })
 
@@ -82,7 +84,6 @@ cat1.products.create!({
   quantity: 82,
   price: 224.50
 })
-
 
 cat2.products.create!({
   name:  'Modern Skateboards',
@@ -128,8 +129,50 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,
   price: 2_483.75
+})
+
+User.create!({
+  first_name: 'Katherine',
+  last_name: 'Merlog',
+  email: 'user1@email.com',
+  password_digest: 'asdf'
+})
+
+User.create!({
+  first_name: 'Harvey',
+  last_name: 'Specktor',
+  email: 'user2@email.com',
+  password_digest: 'asdf'
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: 'This product is the best',
+  rating: 4
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 2,
+  description: 'Worst thing I\'ve ever bought. Not for a large man.',
+  rating: 1
+})
+
+Review.create!({
+  product_id: 7,
+  user_id: 1,
+  description: 'Worst!',
+  rating: 2
+})
+
+Review.create!({
+  product_id: 3,
+  user_id: 2,
+  description: 'Meh...',
+  rating: 5
 })
 
 
