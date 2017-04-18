@@ -103,5 +103,25 @@ RSpec.describe User, type: :model do
       login = User.authenticate_with_credentials("tr@gmail.com", "qwerty")
       expect(login).to be(nil)
     end
+    it 'should not login a user whos is not in the system' do
+      user = User.create(
+        name: "Joe",
+        email: "joe_gato@gmail.com",
+        password: "qwerty",
+        password_confirmation: "qwerty"
+        )
+      login = User.authenticate_with_credentials("  joe_gato@gmail.com  ", "qwerty")
+      expect(login).to eq(user)
+    end
+    it 'should not login a user whos is not in the system' do
+      user = User.create(
+        name: "Joe",
+        email: "Joe_gato@gmail.com",
+        password: "qwerty",
+        password_confirmation: "qwerty"
+        )
+      login = User.authenticate_with_credentials("JOE_gato@gmail.com", "qwerty")
+      expect(login).to eq(user)
+    end
   end
 end
