@@ -1,0 +1,31 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/vagrant/.nvm/versions/node/v6.9.5/bin/node',
+1 verbose cli   '/home/vagrant/.nvm/versions/node/v6.9.5/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'phantomjs' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.5
+4 verbose stack Error: EIO: i/o error, read
+4 verbose stack     at Error (native)
+4 verbose stack     at Object.fs.readSync (fs.js:731:19)
+4 verbose stack     at Object.readSync (/home/vagrant/.nvm/versions/node/v6.9.5/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:118:28)
+4 verbose stack     at tryReadSync (fs.js:486:20)
+4 verbose stack     at Object.fs.readFileSync (fs.js:526:19)
+4 verbose stack     at Object.Module._extensions..js (module.js:578:20)
+4 verbose stack     at Module.load (module.js:487:32)
+4 verbose stack     at tryModuleLoad (module.js:446:12)
+4 verbose stack     at Function.Module._load (module.js:438:3)
+4 verbose stack     at Module.require (module.js:497:17)
+5 verbose cwd /vagrant/w6/jungle_rails
+6 error Linux 4.4.0-21-generic
+7 error argv "/home/vagrant/.nvm/versions/node/v6.9.5/bin/node" "/home/vagrant/.nvm/versions/node/v6.9.5/bin/npm" "install" "-g" "phantomjs"
+8 error node v6.9.5
+9 error npm  v3.10.10
+10 error code EIO
+11 error errno -5
+12 error syscall read
+13 error EIO: i/o error, read
+14 error If you need help, you may report this error at:
+14 error     <https://github.com/npm/npm/issues>
+15 verbose exit [ -5, true ]
