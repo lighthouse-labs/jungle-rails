@@ -1,0 +1,22 @@
+<h1>Signup!</h1>
+
+<%= form_for :user, url: '/users', html: {class: "sign-up-form"} do |f| %>
+
+  First Name: <%= f.text_field :first_name %>
+  Last Name: <%= f.text_field :last_name %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+
+<% end %>
+
+<% if flash[:error] %>
+  <div class="error-flash">
+    <ul>
+      <% flash[:error].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
