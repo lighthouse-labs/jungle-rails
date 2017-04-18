@@ -2,6 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "rails_bootstrap_forms";
 
 // App
 @import "products";
@@ -9,4 +10,9 @@
 // Global
 body {
   padding-top: 70px;
+}
+
+.navbar-text {
+  margin-top: 0;
+  padding-right: 15px;
 }
