@@ -27,34 +27,34 @@ RSpec.describe Product, type: :model do
 
     it 'should validate price' do
       cat4 = Category.create! name: 'Food'
-      p2 = cat4.products.new({
+      p3 = cat4.products.new({
         name:  'Falafel Machine',
         description: 'description',
         quantity: 18
       })
-      p2.valid?
-      expect(p2.errors.full_messages).to include("Price can't be blank")
+      p3.valid?
+      expect(p3.errors.full_messages).to include("Price can't be blank")
     end
 
     it 'should validate quantity' do
       cat4 = Category.create! name: 'Food'
-      p2 = cat4.products.new({
+      p4 = cat4.products.new({
         name:  'Falafel Machine',
         description: 'description',
         price: 119.99
       })
-      p2.valid?
-      expect(p2.errors.full_messages).to include("Quantity can't be blank")
+      p4.valid?
+      expect(p4.errors.full_messages).to include("Quantity can't be blank")
     end
 
-        it 'should validate category' do
-      p2 = Product.new({
+    it 'should validate category' do
+      p5 = Product.new({
         name:  'Falafel Machine',
         description: 'description',
         price: 119.99
       })
-      p2.valid?
-      expect(p2.errors.full_messages).to include("Category can't be blank")
+      p5.valid?
+      expect(p5.errors.full_messages).to include("Category can't be blank")
     end
 
   end
