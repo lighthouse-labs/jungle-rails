@@ -14,10 +14,10 @@ def open_asset(file_name)
 end
 
 # Only run on development (local) instances not on production, etc.
-# unless Rails.env.development?
-#   puts "Development seeds only (for now)!"
-#   exit 0
-# end
+unless Rails.env.development?
+  puts "Development seeds only (for now)!"
+  exit 0
+end
 
 # Let's do this ...
 
@@ -134,7 +134,7 @@ cat3.products.create!({
 
 # reviews
 
-u = User.create({first_name: Faker::Name.first_name ,last_name: Faker::Name.last_name , password: 'password', password_confirmation: 'password', email: Faker::Internet.email})
+u = User.create({first_name: Faker::Name.first_name ,last_name: Faker::Name.last_name , password_digest:Faker::Name.last_name , email: Faker::Internet.email})
 
 Review.destroy_all
 
