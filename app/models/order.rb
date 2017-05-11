@@ -7,4 +7,8 @@ class Order < ActiveRecord::Base
 
   validates :stripe_charge_id, presence: true
 
+  def total_order_price
+    line_items.sum(:total_price_cents)
+  end
+
 end
