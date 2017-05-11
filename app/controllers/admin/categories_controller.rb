@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+
   def index
     @categories = Category.order(id: :desc).all
   end
@@ -19,8 +20,13 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find params[:id]
-    @category.destroy
-    redirect_to [:admin, :categories], notice: 'Category deleted!'
+    begin
+      @category.destroy
+      flash[:notice] = 'Category deleted!'
+    rescue => e
+      flash[:error] = "Can't delete category when there are products within it"
+    end
+      redirect_to [:admin, :categories]
   end
 
   private

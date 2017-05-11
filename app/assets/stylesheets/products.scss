@@ -1,6 +1,5 @@
 main section.products-index,
 main section.categories-show {
-
   .products {
     display:         flex;
     flex-direction:  row;
@@ -74,6 +73,10 @@ main section.categories-show {
 
     }
   }
+}
+
+.flash-message {
+  padding: 7px 30px 7px 12px;
 }
 
 main section.products-show {
