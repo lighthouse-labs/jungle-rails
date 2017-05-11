@@ -5,6 +5,6 @@ class UserMailer < ApplicationMailer
   def welcome_email(user, order)
     @order = order
     @user = user
-    mail(to: @user.email, subject: 'Order @order.id Receipt')
+    mail(to: @user.email, subject: 'Order Receipt')
   end
 end
