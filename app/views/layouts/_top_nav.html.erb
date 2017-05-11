@@ -27,7 +27,7 @@
         </li>
       </ul>
       <% if current_user %>
-        Signed in as <%= current_user.name :class => 'navbar-brand' %>  <%= link_to "Logout", '/logout', :class => 'navbar-brand' %>
+        Signed in as <%= current_user.name %>  <%= link_to "Logout", '/logout', :class => 'navbar-brand' %>
       <% else %>
         <%= link_to "Login", '/login', :class => 'navbar-brand' %>  <%= link_to "Signup", '/signup', :class => 'navbar-brand' %>
       <% end %>
