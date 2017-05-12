@@ -34,6 +34,7 @@ config/secrets.yml
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
 .env
+.env.example
 
 ## Environment normalization:
 /.bundle

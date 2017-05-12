@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for placing your order, <%= @user.name %></h1>
+    <p>
+      You will be receiving:
+    </p>
+    <% @order.line_items.each do |li| %>
+      <p><%= li.quantity %> - <%= li.product.name %></p>
+    <% end %>
+    <p>Order Total:</p>
+    <p><%= number_to_currency(@order.total_order_price/100) %></p>
+    <p>Thank you and have a nice day!</p>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+Thank you for placing your order, <%= @user.name %>
+===============================================
+ 
+You will be receiving:
+
+<% @order.line_items.each do |li| %>
+<%= li.quantity %> - <%= li.product.name %>
+<% end %>
+
+Order Total:
+<%= number_to_currency(@order.total_order_price/100) %>
+
+Thank you and have a nice day!

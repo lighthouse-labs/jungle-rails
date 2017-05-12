@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      # redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end
@@ -52,8 +52,17 @@ class OrdersController < ApplicationController
         )
       end
     end
-    order.save!
+    if order.save!
+      respond_to do |format|
+        # Tell the UserMailer to send a welcome email after save
+        puts "------- ${order}"
+        UserMailer.welcome_email(current_user, order).deliver_now
+
+        format.html { redirect_to(order, notice: 'Order placed successfully.') }
+        format.json { render json: order, status: :created, location: order }
+      end
     order
+    end
   end
 
   # returns total in cents not dollars (stripe uses cents as well)
