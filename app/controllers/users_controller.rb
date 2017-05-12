@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-
   def create
     if user.save
       session[:user_id] = user.id
