@@ -12,6 +12,7 @@
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
     <% end %>
+    <span>Rating: <%= Product.average_rating(product.id) %></span>
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;
     <% end %>
@@ -20,4 +21,9 @@
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+  <% if product.quantity === 0 %>
+    <aside class="sold-out">
+      SOLD OUT!
+    </aside>
+  <% end %>
 </article>
