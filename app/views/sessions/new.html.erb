@@ -1,8 +1,8 @@
 <h1>Login</h1>
 
-<%= form_tag session_path do %>
+<%= form_tag session_path, :class => 'form-group' do %>
 
-  Email: <%= text_field_tag :email %>
+  Email: <%= text_field_tag :email %><br>
   Password: <%= password_field_tag :password %>
   <%= submit_tag "Submit" %>
 
