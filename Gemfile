@@ -55,6 +55,10 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
+
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
