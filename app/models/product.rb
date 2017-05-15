@@ -19,7 +19,4 @@ class Product < ActiveRecord::Base
       return 0
     end
   end
-  Product.find(24).reviews.all.sum('rating') / Product.find(24).reviews.count
-
-
 end

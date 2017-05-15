@@ -50,7 +50,7 @@
 
         <div class="row">
           <dl class="dl-vertical">
-              <dt style='font-size:2em'>Customer Reviews</dt>
+              <h2 style='font-size:2em'>Customer Reviews</h2>
               <hr>
               <% @product.reviews.order(created_at: :desc).each do |review| %>
                 <dt>User: </dt>
