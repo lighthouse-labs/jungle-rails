@@ -3,9 +3,9 @@
 <%= form_tag session_path do %>
 
 
-  Email: <%= text_field_tag :email %><br>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+  Email: <%= text_field_tag :email, "", class: 'form-control' %><br>
+  Password: <%= password_field_tag :password, "", class: 'form-control' %><br>
+  <%= submit_tag "Submit", class: 'btn btn-primary' %>
 
 <% end %>
 </div>
