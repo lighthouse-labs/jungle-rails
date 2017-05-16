@@ -3,8 +3,14 @@
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
+      <h5>overall rate: <%= product.reviews.average(:rating) || 'N/A'%> </h5>
     <% end %>
   </header>
+
+    <% if product.quantity == 0 %>
+      <aside class="sold_out"> sold out! </aside>
+    <% end %>
+
   <p class="description">
     <%= product.description %>
   </p>
