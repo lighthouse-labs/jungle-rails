@@ -10,31 +10,30 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
     it 'product should be saved' do
       @product.save
-      p @product  #print out the fields of product
     end
     
     it 'should validate the presence of name' do
       @product.name = nil
-      p @product.valid?
-      p @product.errors.full_messages
+      expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("Name can't be blank")
     end
 
     it 'should validate the presence of price' do
       @product.price_cents = nil
-      p @product.valid?
-      p @product.errors.full_messages
+      expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("Price cents is not a number", "Price is not a number", "Price can't be blank")
     end
 
     it 'should validate the presence of quantity' do
       @product.quantity = nil
-      p @product.valid?
-      p @product.errors.full_messages
+      expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("Quantity can't be blank")
     end
 
     it 'should validate the presence of category' do
       @product.category = nil
-      p @product.valid?
-      p @product.errors.full_messages
+      expect(@product.valid?).to be false
+      expect(@product.errors.full_messages).to include("Category can't be blank")
     end
   end
   # describe 'Validations with shoulda matcher' do
