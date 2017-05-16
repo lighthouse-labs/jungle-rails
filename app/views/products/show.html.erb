@@ -23,6 +23,52 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+
+        <% if current_user %>
+          <%= form_for [@product, @review] do |f| %>
+            <% if f.object.errors.any? %>
+              <div class="alert alert-danger">
+                <strong>The following errors prevented saving:</strong>
+                <ul>
+                  <% f.object.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="row">
+                <%= f.label :description %><br>
+                <%= f.text_area :description %>
+            </div>
+            <div class="row">
+                  <%= fa_icon 'star', text: 'Rating' %>
+                  <%= f.select :rating, options_for_select(1..5) %>
+              <%= f.submit 'Submit'%>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="row">
+          <dl class="dl-vertical">
+              <h2 style='font-size:2em'>Customer Reviews</h2>
+              <hr>
+              <% @product.reviews.order(created_at: :desc).each do |review| %>
+                <dt>User: </dt>
+                <dd><%= review.user.first_name %></dd>
+                <dt>Description: </dt>
+                <dd><%= review.description %></dd>
+                <dt>Rating: </dt>
+                <dd><%= review.rating %></dd>
+                <% if current_user %>
+                  <% if current_user.id === review.user_id %>
+                    <%= button_to "delete", product_review_path(@product.id, review.id), :method => :delete %>
+                  <% end %>
+                <% end %>
+                <hr>
+                
+              <% end %>
+            </dl>
+        </div>
       </div>
     </div>
 

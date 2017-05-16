@@ -1,0 +1,27 @@
+<h1>Signup!</h1>
+
+<div class='form-group'>
+
+<%= form_for @user, url: users_path do |f| %>
+
+
+        <% if f.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% f.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+  Fist Name: <%= f.text_field :first_name, class: 'form-control'%><br>
+  Last Name: <%= f.text_field :last_name, class: 'form-control' %><br>
+  Email: <%= f.text_field :email, class: 'form-control' %><br>
+  Password: <%= f.password_field :password, class: 'form-control' %><br>
+  Password Confirmation: <%= f.password_field :password_confirmation, class: 'form-control' %><br>
+  <%= f.submit "Submit", class: 'btn btn-primary'%>
+
+<% end %>
+</div>
