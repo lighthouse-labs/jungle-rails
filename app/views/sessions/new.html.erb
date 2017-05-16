@@ -1,9 +1,11 @@
 <h1>Login</h1>
+<div class='form-group'>
+<%= form_tag session_path do %>
 
-<%= form_tag session_path, :class => 'form-group' do %>
 
   Email: <%= text_field_tag :email %><br>
   Password: <%= password_field_tag :password %>
   <%= submit_tag "Submit" %>
 
 <% end %>
+</div>
