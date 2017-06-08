@@ -1,3 +1,4 @@
+<% if !cart.length ==0 %>
 <section class="cart-show">
 
   <header class="page-header">
@@ -49,5 +50,9 @@
       <% end %>
     </div>
   </div>
-
 </section>
+<% else %>
+  <h1>Your Cart is Empty</h1>
+  <%= link_to "Home Page",:root, class: "btn btn-primary" %>
+<% end %>
+
