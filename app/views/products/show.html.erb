@@ -27,5 +27,38 @@
     </div>
 
   </article>
+  <article>
+    <% if current_user %>
+      <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for [@product, Review.new], url: product_reviews_path(@product) do |form| %>
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_area :description, size: '30*30', class: 'form-control' %>
+          <%= form.select :rating, options_for_select(['1','2','3','4','5']) %>
+        </div>
 
+        <%= form.submit 'Rate', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <% end %>
+  </article>
+  <article>
+    <div class="table-striped">
+      <table class="table">
+
+          <td><b>RATINGS</b></td>
+          <% @product.reviews.reverse_each do |review| %>
+        <tr>
+            <td><%= review.user.first_name %> <%= review.user.last_name %></td>
+            <td><%= review.description %></td>
+            <td>Rating: <%= review.rating %></td>
+            <% if review.user == current_user %>
+              <td>
+              <%= link_to 'Delete', product_review_path(review.product_id, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?"} %> </td>
+            <% end %>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </article>
 </section>

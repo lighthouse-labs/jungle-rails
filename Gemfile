@@ -44,6 +44,7 @@ group :development, :test do
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
@@ -55,6 +56,14 @@ group :development do
 end
 
 group :production do
+  gem 'pg'
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+end
+
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
