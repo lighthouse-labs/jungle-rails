@@ -1,0 +1,28 @@
+
+<h1>Moderate Reviews</h1>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Product</th>
+      <th>Rating</th>
+      <th>Content</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.id %></td>
+      <td>N/A</td>
+      <td>
+        <%= link_to review.product.name, product_path(review.product, a: '1') %>
+      </td>
+      <td><%= '*' * review.rating %></td>
+      <td><%= review.body %></td>
+    </tr>
+  <% end %>
+
+</table>
