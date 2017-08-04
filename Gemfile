@@ -35,6 +35,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
