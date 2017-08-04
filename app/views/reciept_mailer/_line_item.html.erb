@@ -1,0 +1,14 @@
+  <tr>
+    <td>
+      <%= line_item.product.name %>
+    </td>
+    <td>
+      <%= number_to_currency(line_item.product.price) %>
+    </td>
+    <td>
+      <%= line_item.quantity %>
+    </td>
+    <td>
+    <%= number_to_currency(line_item.total_price_cents.to_f/100) %>
+    </td>
+  </tr>
