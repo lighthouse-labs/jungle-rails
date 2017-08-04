@@ -4,6 +4,6 @@ class RecieptMailer < ApplicationMailer
 
   def reciept_email(order)
     @order = order
-    mail to: "dennyhollick@gmail.com", subject: "Your Order at Jungle - # #{ @order.id }"
+    mail to: ENV['TEST_EMAIL_TO_SEND'], subject: "Your Order at Jungle - # #{ @order.id }"
   end
 end
