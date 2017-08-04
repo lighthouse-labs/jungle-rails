@@ -1,13 +1,40 @@
 <section class="orders-show">
 
   <header class="page-header">
+    <span class ="float-right"> <%= @order.email %></span>
     <h1>Order #<%= @order.id %></h1>
   </header>
+    
+  <div class="panel panel-default items">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2">Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.line_items.each do | line_item | %>
+        <%= render 'line_item', line_item: line_item %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4">
+          TOTAL:
+        </th>
+        <th>
+          <%= number_to_currency(@order.total_cents.to_f/100) %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
-
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
+<div>
+  <span class="float-right">  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %> </span>
+  <h4>Thank you for your order!</h4>
+</div>
 </section>
