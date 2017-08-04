@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <style>
+    table {text-align: left; border-collapse: collapse; border: 1px solid black; width: 100%;%}
+    tr {padding: 5px; border: 1px solid black;}
+    td {padding: 5px; border: 1px solid black;}
+    th {padding: 5px; border: 1px solid black;}
+    </style>
+    <h1>Thanks for your order <%= @order.email %></h1>
+    <table>
+        <tr>
+          <th>Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <% @order.line_items.each do | line_item | %>
+          <%= render 'line_item', line_item: line_item %>
+        <% end %>
+        <tr>
+          <th colspan=2>
+          </th>
+          <th>
+            TOTAL:
+          </th>
+          <th>
+            <%= number_to_currency(@order.total_cents.to_f/100) %>
+          </th>
+        </tr>
+    </table>
+  </body>
+</html>
