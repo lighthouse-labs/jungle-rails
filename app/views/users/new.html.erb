@@ -10,7 +10,7 @@
 
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1">
-      <%= form_for @user, url: register_path  do |form| %>
+      <%= form_for @user, url: users_path  do |form| %>
 
         <% if form.object.errors.any? %>
           <div class="alert alert-danger">
