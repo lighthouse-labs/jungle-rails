@@ -1,6 +1,8 @@
 <article class="product">
   <header>
-    <span class="soldout">sold out!</span>
+    <% if product.quantity == 0 %>
+      <span class="soldout">sold out!</span>
+    <% end %>
     <%= link_to product do %>
 
       <%= image_tag product.image.thumb, alt: product.name %>
