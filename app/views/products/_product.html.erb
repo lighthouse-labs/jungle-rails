@@ -17,7 +17,12 @@
     <% end %>
   </footer>
 
+  <aside class="availability">
+    <%= product_sold_out?(product[:id]) %>
+  </aside>
+
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
+
   </aside>
 </article>
