@@ -20,7 +20,7 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <% Category.all.each do |category| %>
+            <% Category.order(:name).all.each do |category| %>
               <li><%= link_to category.name, category %></li>
             <% end %>
           </ul>
@@ -36,6 +36,7 @@
           <ul class="dropdown-menu">
             <li><%= link_to 'Dashboard', [:admin, :root] %></li>
             <li><%= link_to 'Products',  [:admin, :products] %></li>
+            <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
         <li>
