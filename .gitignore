@@ -8,6 +8,8 @@
 /log/*
 !/log/.keep
 /tmp
+.env
+.env.example
 
 # Ignore carrier wave uploads for development
 /public/uploads
