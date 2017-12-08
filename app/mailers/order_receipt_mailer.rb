@@ -1,8 +1,8 @@
-class OrderReceipt < ApplicationMailer
+class OrderReceiptMailer < ApplicationMailer
   default from: 'no-reply@jungle.com'
 
-  def order_receipt(order)
-    @order = user
+  def confirm_order(order)
+    @order = order
     mail(to: @order.email, subject: "Order confirmation ##{@order.id}")
   end
 end
