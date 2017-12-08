@@ -1,0 +1,10 @@
+Thank you for your order, <%= @order.email %>!
+Product    Unit      Price       Quantity      Price
+
+<% @order.line_items.each do |line_item| %>
+<%= render 'order', line_item: line_item%>
+<% end %>
+
+TOTAL: <%= @order.total %>
+
+We hope to see you again soon!

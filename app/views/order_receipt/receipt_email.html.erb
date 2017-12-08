@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div class="order-summary jumbotron">
+      <h4>Thank you for your order, <%= @order.email %>!</h4>
+    </div>
+
+    <div class="panel panel-default items">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.line_items.each do |line_item| %>
+            <%= render 'order', line_item: line_item%>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">
+              TOTAL:
+            </th>
+            <th>
+              <%= @order.total %>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <p>We hope to see you again soon!</p>
+  </body>
+</html>
