@@ -22,9 +22,7 @@
     <tbody>
       <% @order.line_items.each do |item| %>
       <tr>
-        <td>
-          <%= image_tag item.product.image.tiny %>
-        </td>
+
         <td>
           <h4><%= item.product.name %></h4>
           <br>
