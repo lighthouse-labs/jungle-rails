@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to :home, notice: 'Created new account!'
+      redirect_to '/', notice: 'Created new account!'
     else
       flash[:error] = 'Oops...something went wrong. Try again.'
       render 'new'
