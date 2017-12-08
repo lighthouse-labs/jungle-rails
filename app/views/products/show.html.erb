@@ -24,6 +24,17 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
+      <div class="row reviews">
+        <h2>Reviews</h2>
+          <% reviews = Review.where(product_id: @product.id) %>
+          <% reviews.reverse_each do |review| %>
+            <article>
+              <%= render 'review', id: review.id %>
+            </article>
+          <% end %>
+      </div>
+
     </div>
 
   </article>
