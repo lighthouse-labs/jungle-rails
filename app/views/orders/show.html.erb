@@ -10,4 +10,28 @@
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
+  <div class="panel panel-default items">
+       <table class="table table-bordered">
+        <thead>
+           <tr>
+            <th >Orders</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Quantity</th>
+            <th>Email Used</th>
+            <th>Total Amount</th>
+          </tr>
+         </thead> 
+        <tbody>
+          <% @order.line_items.each do |item| %>
+          <td><%= image_tag item.product.image.tiny %></td>
+          <td><%= item.product.name %></td>
+          <td><%= item.product.description %></td>
+          <td><%= item.quantity %></td>
+          <td><%= @order.email %></td>
+          <td><%= @order.total_cents %></td>
+      <% end %>
+    </tbody>
+  </div>
+
 </section>
