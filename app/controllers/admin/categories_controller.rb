@@ -5,12 +5,7 @@ class Admin::CategoriesController < ApplicationController
     end
 
     def new
-      # new.html.erb
       @category = Category.new
-    end
-
-    def show
-      # automatically render html
     end
 
     def create

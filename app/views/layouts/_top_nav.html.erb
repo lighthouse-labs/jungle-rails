@@ -44,6 +44,14 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
+
+        <% if current_user != nil %>
+          <p class="navbar-brand"><%= current_user.first_name %></p>
+            <%= link_to 'Logout', :session, method: :delete, class: "navbar-brand" %>
+          <% else %>
+            <%= link_to 'Signup', new_user_path, class: "navbar-brand" %>
+            <%= link_to 'login', new_session_path, class: "navbar-brand" %>
+        <% end %>
       </ul>
     </div>
   </div>
