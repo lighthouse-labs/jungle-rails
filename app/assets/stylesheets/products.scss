@@ -91,8 +91,25 @@ main section.products-show {
 li.logout span{
   float:left;
   line-height:48px;
+  font-style:italic;
 }
 
 li.logout a{
   float:right;
+}
+
+.empty_cart{
+  border: 3px solid tomato;
+  background: tomato;
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+  border-radius: 3px;
+  width: 80%;
+}
+
+.empty_cart_button{
+  font-size:18px!important;
+  margin-top: 10px!important;
 }
