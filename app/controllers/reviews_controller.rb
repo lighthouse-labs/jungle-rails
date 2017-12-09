@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+  before_action :current_user
 
   def create
 

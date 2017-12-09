@@ -113,3 +113,27 @@ li.logout a{
   font-size:18px!important;
   margin-top: 10px!important;
 }
+
+.trashcan_button, .rating_box{
+  text-align:center!important;
+}
+
+.rating_box{
+  font-weight: bold;
+}
+
+.review_box_div{
+  border:1px solid #ccc;
+  margin:20px 18px;
+  padding:20px;
+}
+
+.review_box_div h3{
+  margin-top:0!important;
+  border-bottom:1px solid #ccc;
+  padding-bottom:10px;
+}
+
+.table-bordered{
+  margin-top: 20px;
+}
