@@ -26,6 +26,59 @@
       </div>
     </div>
 
+
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <% if @current_user %>
+      <%= form_for [@product, Review.new] do |form| %>
+
+
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :rating, text: 'Rating' %>
+          <%= form.select :rating, options_for_select(1..5) %>
+        </div>
+
+        <%= form.submit 'Add Review', class: 'btn btn-primary' %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <h2>Reviews</h2>
+    <% @product.reviews.order(created_at: :desc).each do |review| %>
+    <p><%= review.user.first_name %></p>
+  <p>
+    <strong>Reviews:</strong>
+    <%= review.description %>
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    <%= review.rating %>
+  </p>
+  <% if @current_user.id == review.user_id %>
+    <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
+    <% end %>
+<% end %>
+
   </article>
 
 </section>
