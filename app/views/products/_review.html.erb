@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><h3>Reviews</h3></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product.reviews.order(created_at: :desc).each do |review| %>
+      <tr>
+        <td>
+          <h5><strong><%= review.user.first_name %> <%= review.user.last_name %></strong></h5>
+          <p><%= review.description %></p>
+        </td>
+        <td>
+          <h5><strong></strong></h5>
+          <p class="rating_box"><%= review.rating %> stars</p>
+        </td>
+        <td class="trashcan_button">
+          <% if session[:user_id] == review.user_id %>
+          <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

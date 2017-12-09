@@ -5,9 +5,7 @@
   </header>
 
   <article class="product-detail">
-
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -26,75 +24,10 @@
       </div>
     </div>
 
-
-
-<div class="row">
-   <% if session[:user_id] %>
-    <div class="col-sm-6 review_box_div">
-      <h3>Add a Review</h3>
-
-      <%= form_for [@product, Review.new] do |form| %>
-
-
-        <% if form.object.errors.any? %>
-          <div class="alert alert-danger">
-            <strong>The following errors prevented saving:</strong>
-            <ul>
-              <% form.object.errors.full_messages.each do |error| %>
-                <li><%= error %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-
-        <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :rating, text: 'Rating' %>
-          <%= form.select :rating, options_for_select(1..5) %>
-        </div>
-
-        <%= form.submit 'Add Review', class: 'btn btn-primary' %>
-      <% end %>
-      <% end %>
+    <div class="row">
+      <%= render 'review_form' %>
     </div>
-  </div>
 
-
-
-<table class="table table-bordered">
-      <thead>
-        <tr>
-          <th><h3>Reviews</h3></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @product.reviews.order(created_at: :desc).each do |review| %>
-          <tr>
-            <td>
-              <h5><strong><%= review.user.first_name %> <%= review.user.last_name %></strong></h5>
-              <p><%= review.description %></p>
-            </td>
-            <td>
-              <h5><strong></strong></h5>
-              <p class="rating_box"><%= review.rating %> stars</p>
-            </td>
-            <td class="trashcan_button">
-              <% if session[:user_id] == review.user_id %>
-              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
-              <% end %>
-            </td>
-          </tr>
-
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'review' %>
   </article>
-
 </section>
