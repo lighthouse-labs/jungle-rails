@@ -25,17 +25,9 @@
         </dl>
       </div>
 
-      <div class="row reviews">
-        <h2>Reviews</h2>
+      <div class="col-sm-8">
+        <h2>Submit a review</h2>
 
-
-          <% reviews = Review.where(product_id: @product.id) %>
-          <% reviews.reverse_each do |review| %>
-            <article>
-              <%= render 'review', id: review.id %>
-            </article>
-          <% end %>
-      </div>
       <%= form_for([@product, @review]) do |f| %>
         <% if @review.errors.any? %>
           <div id="error_explanation">
@@ -50,7 +42,7 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :description %><br>
+          <%= f.label :"Your thoughts" %><br>
           <%= f.text_area :description %>
         </div>
         <div class="field">
@@ -62,6 +54,16 @@
         </div>
       <% end %>
     </div>
+
+    <div>
+      <h2>Reviews</h2>
+        <% @product.reviews.reverse_each do |review| %>
+          <article>
+            <%= render review %>
+          </article>
+        <% end %>
+    </div>
+
 
   </article>
 
