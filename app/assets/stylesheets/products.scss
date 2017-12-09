@@ -25,6 +25,21 @@ main section.categories-show {
         max-height: 140px;
         margin: auto;
         display: block;
+
+      }
+
+      .soldout{
+        text-transform: uppercase;
+        color:#fff;
+        font-size:1em;
+        background:tomato;
+        opacity:.85;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
       }
 
       footer {
@@ -73,4 +88,52 @@ main section.products-show {
   }
 }
 
+li.logout span{
+  float:left;
+  line-height:48px;
+  font-style:italic;
+}
 
+li.logout a{
+  float:right;
+}
+
+.empty_cart{
+  border: 3px solid tomato;
+  background: tomato;
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+  border-radius: 3px;
+  width: 80%;
+}
+
+.empty_cart_button{
+  font-size:18px!important;
+  margin-top: 10px!important;
+}
+
+.trashcan_button, .rating_box{
+  text-align:center!important;
+}
+
+.rating_box{
+  font-weight: bold;
+}
+
+.review_box_div{
+  border:1px solid #ccc;
+  margin:20px 18px;
+  padding:20px;
+}
+
+.review_box_div h3{
+  margin-top:0!important;
+  border-bottom:1px solid #ccc;
+  padding-bottom:10px;
+}
+
+.table-bordered{
+  margin-top: 20px;
+}

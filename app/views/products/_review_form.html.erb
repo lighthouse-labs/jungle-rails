@@ -1,0 +1,29 @@
+<% if session[:user_id] %>
+  <div class="col-sm-6 review_box_div">
+    <h3>Add a Review</h3>
+    <%= form_for [@product, Review.new] do |form| %>
+      <% if form.object.errors.any? %>
+        <div class="alert alert-danger">
+          <strong>The following errors prevented saving:</strong>
+          <ul>
+            <% form.object.errors.full_messages.each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :rating, text: 'Rating' %>
+        <%= form.select :rating, options_for_select(1..5) %>
+      </div>
+
+      <%= form.submit 'Add Review', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<% end %>

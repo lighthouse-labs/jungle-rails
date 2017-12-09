@@ -5,9 +5,7 @@
   </header>
 
   <article class="product-detail">
-
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -26,6 +24,10 @@
       </div>
     </div>
 
-  </article>
+    <div class="row">
+      <%= render 'review_form' %>
+    </div>
 
+    <%= render 'review' %>
+  </article>
 </section>
