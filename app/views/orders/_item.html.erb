@@ -1,0 +1,24 @@
+<% if item = Product.find_by(id: item.product_id) %>
+  <% item_total = item.price * quantity %>
+  <% @order_total += item_total %>
+
+  <tr>
+    <td>
+      <%= image_tag item.image.tiny %>
+    </td>
+    <td>
+      <h4><%= item.name %></h4>
+      <br>
+      <p><%= item.description %></p>
+    </td>
+    <td>
+      <%= item.price %>
+    </td>
+    <td>
+      <%= quantity %>
+    </td>
+    <td>
+      <%= item_total %>
+    </td>
+  </tr>
+<% end %>

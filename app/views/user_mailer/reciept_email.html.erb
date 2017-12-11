@@ -1,21 +1,17 @@
-<section class="orders-show">
-
-  <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
-
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
-
-  <div class="panel panel-default items">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+<h1>You did it you ordered this....</h1>
+<div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2">Product</th>
-          <th>Unit Price</th>
+          <th>Product</th>
           <th>Quantity</th>
-          <th>Price</th>
+          <th>Total Price</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +22,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="4">
+          <th colspan="3">
             TOTAL:
           </th>
           <th>
@@ -36,7 +32,5 @@
       </tfoot>
     </table>
   </div>
-
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
-</section>
+  </body>
+</html>

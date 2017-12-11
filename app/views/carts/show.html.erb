@@ -3,7 +3,7 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
+ <% if cart.any? %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -51,3 +51,11 @@
   </div>
 
 </section>
+<% else %>
+<section>
+
+  <h2>Hey you know there is nothing in your cart? </h2>
+  <%= link_to "Take me back home" ,root_path %>
+
+<% end %>
+
