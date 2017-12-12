@@ -24,7 +24,46 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
+      <div class="col-sm-8">
+        <h2>Submit a review</h2>
+
+      <%= form_for([@product, @review]) do |f| %>
+        <% if @review.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+            <ul>
+            <% @review.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :"Your thoughts" %><br>
+          <%= f.text_area :description %>
+        </div>
+        <div class="field">
+          <%= f.label :rating %><br>
+          <%= f.select :rating, [1, 2, 3, 4, 5] %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Submit review'%>
+        </div>
+      <% end %>
     </div>
+
+    <div>
+      <h2>Reviews</h2>
+        <% @product.reviews.reverse_each do |review| %>
+          <article>
+            <%= render review %>
+          </article>
+        <% end %>
+    </div>
+
 
   </article>
 
