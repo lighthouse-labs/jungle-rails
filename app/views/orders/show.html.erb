@@ -2,6 +2,7 @@
 
   <header class="page-header">
     <h1>Order: <%= @order.id %></h1>
+    <h2>Confirmation sent To: <%= @order.email %></h1>
 
   </header>
 
@@ -14,9 +15,11 @@
         <th>Description</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Total</th>
       </tr>
     </thead>
-    <%= render partial: "line_item", locals: {products: @products, line_items: @line_items} %>
+    <%= render partial: "line_item", locals: {products: @products} %>
+
   </table>
 
 
