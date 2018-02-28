@@ -1,10 +1,25 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order: <%= @order.id %></h1>
+
   </header>
 
   <div class="order-summary jumbotron">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <%= render partial: "line_item", locals: {products: @products, line_items: @line_items} %>
+  </table>
+
+
     <h4>Thank you for your order!</h4>
   </div>
 
