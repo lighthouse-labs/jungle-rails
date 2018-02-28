@@ -1,9 +1,13 @@
 <article class="product">
   <header>
+    <% if product.quantity == 0 %>
+      <div class="sold_out" type="box"> SOLD OUT </div>
+    <% end %>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+      
   </header>
   <p class="description">
     <%= product.description %>
@@ -15,6 +19,13 @@
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;
     <% end %>
+   
+<% if product.quantity == 0 %>
+<div class="sold_out"></div>
+<% end %>
+
+
+
   </footer>
 
   <aside class="price">
