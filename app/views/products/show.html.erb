@@ -24,6 +24,59 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
+    <% if current_user %>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <h2> POST REVIEW </h2>
+          <%= form_for [@product, Review.new] do |form| %>
+            <% if form.object.errors.any? %>
+              <div class="alert alert-danger">
+                <strong>The following errors prevented saving:</strong>
+                <ul>
+                  <% form.object.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.select :rating, [1,2,3,4,5] %>
+              <%= form.text_field :description, class: 'form-control' %>
+            </div>
+
+            <%= form.submit 'Post Review', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div> 
+      
+    <% end %> 
+
+    <h2> REVIEWS </h2>
+
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <% @product.reviews.reverse_order.each do |prod| %>
+            <dt>Rating</dt>
+            <dd>
+              <% prod.rating.times do  %> 
+                <span class="glyphicon glyphicon-star"></span> 
+              <% end %>
+            </dd>            
+            <dt>Comment</dt>
+            <dd><%= prod.description %></dd>
+              <dd>
+              <% if current_user.id == prod.user_id %>
+                 <%= link_to fa_icon('trash'), [@product, prod], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+              </dd>
+            <dt>--------------</dt>
+            <dd>-----------------------------------------------------------------------------------------</dd>
+          <% end %>
+        </dl>
+      </div>
     </div>
 
   </article>

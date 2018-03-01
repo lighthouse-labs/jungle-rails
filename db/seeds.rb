@@ -132,5 +132,43 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# REVIEWS
+
+user = User.create({
+  first_name: 'Zushi',
+  last_name: 'San',
+  email: 'zushi@san.com',
+  password: '12'
+})
+
+prod1 = Product.find_by! name: 'Red Bookshelf'
+prod2 = Product.find_by! name: 'Electric Chair'
+prod3 = Product.find_by! name: 'Optimal Sleeping Bed'
+
+prod1.reviews.create!({
+  user: user,
+  description: 'Awesome product from seeded review',
+  rating: 5
+})
+
+prod1.reviews.create!({
+  user: user,
+  description: 'Not so awesome product from seeded review',
+  rating: 2
+})
+
+prod2.reviews.create!({
+  user: user,
+  description: 'Nealry awesome product from seeded review',
+  rating: 4
+})
+
+prod3.reviews.create!({
+  user: user,
+  description: 'Almost awesome product from seeded review',
+  rating: 3
+})
+
+
 
 puts "DONE!"
