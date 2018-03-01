@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your order, <%= @user.first_name %></h1>
+<div class="panel panel-default items">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_total = 0 %>
+          <% @order.line_items.each do |line_id| %>
+           <% product_id = line_id.product_id %>
+            <% quantity = line_id.quantity %>
+            <% if product = Product.find_by(id: product_id) %>
+              <% line_item_total = product.price * quantity %>
+              <% @order_total += line_item_total %>
+
+              <tr>
+                <td>
+                  <%= image_tag product.image.tiny %>
+                </td>
+                <td>
+                  <h4><%= product.name %></h4>
+                  <br>
+                  <p><%= product.description %></p>
+                </td>
+                <td>
+                  <%= product.price %>
+                </td>
+                <td>
+                  <%= quantity %>
+                </td>
+                <td>
+                  <%= line_item_total %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">
+              TOTAL:
+            </th>
+            <th>
+              <%= @order_total %>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>
