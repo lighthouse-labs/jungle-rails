@@ -28,16 +28,22 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
-      <% puts current_user.id %>
+
+      <% if user_signed_in?  %>
       <li>
-        Signed in as <%= current_user.first_name %> | <%= link_to "Logout",session_path(:id => current_user.id), method: :delete %>
+        Signed in as <%= current_user.first_name %>
       </li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li>
-          <%= link_to 'Register', [:new, :user] %> | <%= link_to 'Login', [:new, :session] %>
+          <%= link_to 'Register', [:new_user_registration] %>
+        </li>
+        <li>
+          <%= link_to 'Login', [:new_user_session] %>
         </li>
       <% end %>
+      <% if user_signed_in? %>
+      <% if current_user.admin %>
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
@@ -50,6 +56,8 @@
             <li><%= link_to 'Categories', [:admin, :categories] %></li>
           </ul>
         </li>
+        <% end %>
+        <% end %>
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)

@@ -1,7 +1,8 @@
-class Admin::DashboardController < ApplicationController
-before_filter :restrict_user_by_role
+class Admin::BaseAdminController < ApplicationController
+  before_filter :restrict_user_by_role
 
-protected
+  protected
+
     def restrict_user_by_role
       if current_user.admin == false
         redirect_to '/'

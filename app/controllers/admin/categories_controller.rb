@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_filter :restrict_user_by_role
   def index
     @categories = Category.order(id: :desc).all
     puts @categories
@@ -22,4 +23,10 @@ class Admin::CategoriesController < ApplicationController
       :name
       )
   end
+
+  def restrict_user_by_role
+      if current_user.admin == false
+        redirect_to '/'
+      end
+    end
 end
