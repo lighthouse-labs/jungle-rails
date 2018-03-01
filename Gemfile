@@ -36,7 +36,7 @@ gem 'rmagick'
 gem 'stripe'
 gem 'faker'
 gem 'rest-client'
-gem 'mailgun-ruby'
+gem 'mailgun-ruby', require: 'mailgun'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

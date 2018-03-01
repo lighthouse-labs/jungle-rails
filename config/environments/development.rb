@@ -40,14 +40,18 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.web_console.whitelisted_ips = ['10.0.2.0/24']
+  #Mailgun.configure do |config|
+   # config.api_key = ENV['MAILGUN_KEY']
+  #end
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
+    #api_key: ENV['MAILGUN_KEY'],
+    :port => 587,
     :authentication => :plain,
     :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "ENV['MAILGUN_DOMIAN']",
-    :user_name => "ENV['MAILGUN_USERNAME']",
-    :password => "ENV['MAILGUN_PASSWORD']"
-}
+    :domain => ENV['MAILGUN_DOMAIN'],
+    :user_name => ENV['MAILGUN_USERNAME'],
+    :password => ENV['MAILGUN_PASSWORD'],
+  }
 end

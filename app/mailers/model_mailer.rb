@@ -6,8 +6,11 @@ class ModelMailer < ApplicationMailer
   #   en.model_mailer.order_success.subject
   #
   def order_success
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    mg_client = Mailgun::Client.new ENV['MAILGUN_KEY']
+    message_params = {:from => ENV['MAILGUN_USERNAME'],
+                      :to => 'thulsmans.2994@me.com',
+                      :subject => 'hello',
+                      :text => 'stuffhere'}
+    mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
   end
 end
