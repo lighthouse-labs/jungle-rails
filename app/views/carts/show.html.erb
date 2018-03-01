@@ -3,7 +3,9 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
+  <% if cart.size == 0 %>
+    <%= render :partial => "layouts/no_items" %>
+  <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -49,5 +51,5 @@
       <% end %>
     </div>
   </div>
-
+<%end%>
 </section>
