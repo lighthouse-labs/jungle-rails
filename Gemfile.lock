@@ -54,6 +54,12 @@ GEM
       mime-types (>= 1.16)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    devise (4.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.2)
+      responders
+      warden (~> 1.2.3)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (1.0.2)
@@ -104,6 +110,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     puma (3.5.2)
@@ -144,6 +151,9 @@ GEM
     rake (11.2.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -182,6 +192,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -196,6 +208,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave
+  devise
   dotenv-rails
   faker
   font-awesome-rails

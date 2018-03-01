@@ -37,6 +37,7 @@ gem 'stripe'
 gem 'faker'
 gem 'rest-client'
 gem 'mailgun-ruby', require: 'mailgun'
+gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

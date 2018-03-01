@@ -31,11 +31,15 @@
       <% if current_user %>
       <% puts current_user.id %>
       <li>
-        Signed in as <%= current_user.first_name %> | <%= link_to "Logout",session_path(:id => current_user.id), method: :delete %>
+        Signed in as <%= current_user.first_name %>
       </li>
+        <li><%= link_to "Logout",session_path(:id => current_user.id), method: :delete %></li>
         <% else %>
         <li>
-          <%= link_to 'Register', [:new, :user] %> | <%= link_to 'Login', [:new, :session] %>
+          <%= link_to 'Register', [:new_user_registration] %>
+        </li>
+        <li>
+          <%= link_to 'Login', [:new_user_session] %>
         </li>
       <% end %>
        <li class="dropdown">

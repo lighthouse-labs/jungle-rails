@@ -43,7 +43,7 @@ Rails.application.configure do
   #Mailgun.configure do |config|
    # config.api_key = ENV['MAILGUN_KEY']
   #end
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     #api_key: ENV['MAILGUN_KEY'],
