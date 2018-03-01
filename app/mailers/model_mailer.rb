@@ -5,7 +5,11 @@ class ModelMailer < ApplicationMailer
   #
   #   en.model_mailer.order_success.subject
   #
-  def order_success(order)
+  def order_success(order, line_items)
+    @order = order
+    @line_items = line_items
+    puts 'ad;lkfjad;lkfjas;ldfkja;dslkfja;ldfkja;dlfj'
+    puts @line_items
     mg_client = Mailgun::Client.new ENV['MAILGUN_KEY']
     message_params = {:from => ENV['MAILGUN_USERNAME'],
                       :to => 'thulsmans.2994@me.com',
