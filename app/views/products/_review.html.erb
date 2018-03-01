@@ -1,0 +1,18 @@
+<%= @reviews %>
+
+<table class=table table-bordered>
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.rating %></td>
+      <td><%= review.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
