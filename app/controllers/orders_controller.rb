@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    # @products = 
   end
 
   def create
@@ -67,4 +68,13 @@ class OrdersController < ApplicationController
     total
   end
 
+  # def order_id
+  #   @order.line_items.pluck.each do |line_items|
+  #     return line_items[2]
+  # end
+
+  # def order_description
+  #   @order.line_items.pluck.each do |line_items|
+  #     return line_items[4]
+  #   end
 end

@@ -2,12 +2,43 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+    <h3>Thank you for your order!</h4>
+    <h4>You bought the following products:</h4>
   </header>
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
+    <% itens = [] %>
+    <% @order.line_items.pluck.each do |line_item| %>
+    <% itens.push(line_item[2, 4]) %>
+    <% end %>
+    <% product = Product.find_by(id: itens[0]) %>
+    <% itens %>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% itens.each do |product_id, details| %>
+          <%= render 'item', product_id: product_id, details: details %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL: <%= number_to_currency(@order.total_cents / 100) %>
+          </th>
+          <th>
+            <%= @cart_total %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 
 </section>

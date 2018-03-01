@@ -7,4 +7,15 @@ class Order < ActiveRecord::Base
 
   validates :stripe_charge_id, presence: true
 
+  def name
+    product.name
+  end
+
+  def image
+    product.image
+  end
+  
+  def description
+    product.description
+  end
 end
