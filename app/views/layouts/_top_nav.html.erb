@@ -28,12 +28,13 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
-      <% puts current_user.id %>
+      <% puts 'alfkd;falkdfj;aldkfja;fdlkadfa' %>
+      <% puts user_signed_in? %>
+      <% if user_signed_in?  %>
       <li>
         Signed in as <%= current_user.first_name %>
       </li>
-        <li><%= link_to "Logout",session_path(:id => current_user.id), method: :delete %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li>
           <%= link_to 'Register', [:new_user_registration] %>
