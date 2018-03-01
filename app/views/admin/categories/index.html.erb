@@ -1,12 +1,14 @@
-<section class="admin-products-index">
+<section class="admin-categories-index">
 
   <header class="page-header">
-    <h1>Admin &raquo; All Products</h1>
+    <h1>Admin &raquo; All Categories</h1>
   </header>
 
   <div class="well">
     <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
    <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+     <%= link_to 'All Products', [:admin, :products], class: 'btn btn-info' %>
+
   </div>
 
   <div class="panel panel-default products">
@@ -14,15 +16,12 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2">Product</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Qty Remaining</th>
+          <th colspan="2">Category</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <%= render @products %>
+        <%= render @categories %>
       </tbody>
     </table>
 
