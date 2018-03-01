@@ -12,7 +12,9 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      
+      @user = User.find_by(id: session[:user_id])
+      puts "THIS IS @USER: #{order}"
+      UserMailer.welcome_email(@user, order).deliver_now
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
