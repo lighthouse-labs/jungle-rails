@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-    ModelMailer.order_success.deliver_now
+    puts order
+    ModelMailer.order_success(order).deliver_now
 
     if order.valid?
       empty_cart!
