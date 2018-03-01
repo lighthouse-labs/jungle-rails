@@ -5,13 +5,15 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
-  resources :users, except: [:destroy, :update, :edit]
+  #resources :users, except: [:destroy, :update, :edit]
   #resources :sessions, only: [:new, :create, :destroy]
   resource :cart, only: [:show] do
     put    :add_item
     delete :remove_item
   end
-
+  scope "/products/:id", :as => 'product' do
+    resources :reviews, only: [:create]
+  end
   resources :orders, only: [:create, :show]
 
   namespace :admin do
