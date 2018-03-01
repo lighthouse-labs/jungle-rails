@@ -67,6 +67,11 @@
             </dd>            
             <dt>Comment</dt>
             <dd><%= prod.description %></dd>
+              <dd>
+              <% if current_user.id == prod.user_id %>
+                 <%= link_to fa_icon('trash'), [@product, prod], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+              </dd>
             <dt>--------------</dt>
             <dd>-----------------------------------------------------------------------------------------</dd>
           <% end %>

@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
 
+  before_filter :check_login
+
   def create
-    
-    before_filter check_login
 
     product = Product.find(params[:product_id])
 
@@ -14,17 +14,33 @@ class ReviewsController < ApplicationController
       description: review[:description]
     })
 
-    new_review.save
+    if new_review.save
+      redirect_to product, notice: 'Review Posted!'
+    else
+      redirect_to product, notice: 'Review not posted, Error!'
+    end
+  end
 
-    redirect_to product, notice: 'Review Posted!'
+  def destroy
+    product = Product.find(params[:product_id])
+    @review = Review.find params[:id]
 
+    if current_user.id == @review.user_id
+      @review.destroy
+      redirect_to product, notice: 'Review Deleted!'
+    else
+      redirect_to product, notice: 'You are not allowed to delete other users reviews'
+    end
   end
 
   private
 
   def check_login
-    if !current_user?
-      render :new
+    if current_user
+      true     
+    else
+      redirect_to :root, notice: 'Incorrect Action, please login!'
+      false
     end
   end 
 
