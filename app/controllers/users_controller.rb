@@ -1,16 +1,24 @@
 class UsersController < ApplicationController
-    def index
-        @users = User.all_in_alphabetical_order
-    end
+  
+  def new
+  end
 
-    def new
-    end
+  def create
+    @user = User.new(user_params)
 
-    def create
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'Account created successfully'
+    else
+      flash[:error] = 'An error occured!'
+      render 'new'
     end
+  end
 
-    def show
-    end
+  private
 
-    def update
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
+
+end

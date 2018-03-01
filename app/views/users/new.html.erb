@@ -1,4 +1,10 @@
-<h1> Add New User</h1>
-<%= form_tag users_path do %>
-    <div>
-        <label for >
+<h1>Signup!</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+  Name: <%= f.text_field :name %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "Submit" %>
+
+<% end %>
