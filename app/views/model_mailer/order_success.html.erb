@@ -1,0 +1,35 @@
+<h1>ModelMailer#order_success</h1>
+
+<table>
+<thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+<tbody>
+<% @line_items.each do |line_item| %>
+  <% product_id = line_item.product_id %>
+  <tr>
+    <td>
+      <%= Product.find(line_item.product_id).name %>
+    </td>
+    <td>
+      <%= Product.find(line_item.product_id).price %>
+    </td>
+    <td>
+      <%= line_item.quantity %>
+    </td>
+    <td>
+      <%= line_item.total_price_cents / 100 %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<h2>Total <%= "$#{@order.total_cents / 100}" %></h2>
+
+

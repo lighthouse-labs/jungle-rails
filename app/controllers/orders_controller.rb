@@ -18,6 +18,8 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    line_items = LineItem.where(order_id: order.id)
+    ModelMailer.order_success(order, line_items).deliver_now
 
     if order.valid?
       empty_cart!
@@ -28,6 +30,10 @@ class OrdersController < ApplicationController
 
   rescue Stripe::CardError => e
     redirect_to cart_path, flash: { error: e.message }
+  end
+
+  def after_create
+    puts 'lkdfja;dslkfja;ldkfsj;ak'
   end
 
   private
