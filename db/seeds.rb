@@ -134,7 +134,7 @@ cat3.products.create!({
 
 # REVIEWS
 
-User.create({
+user = User.create({
   first_name: 'Zushi',
   last_name: 'San',
   email: 'zushi@san.com',
@@ -144,8 +144,6 @@ User.create({
 prod1 = Product.find_by! name: 'Red Bookshelf'
 prod2 = Product.find_by! name: 'Electric Chair'
 prod3 = Product.find_by! name: 'Optimal Sleeping Bed'
-
-user = User.find(1)
 
 prod1.reviews.create!({
   user: user,
