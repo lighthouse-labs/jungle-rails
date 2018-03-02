@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     put    :add_item
     delete :remove_item
   end
-  scope "/products/:id", :as => 'product' do
+  scope "/products/:product_id", :as => 'product' do
     resources :reviews, only: [:create]
   end
   resources :orders, only: [:create, :show]
