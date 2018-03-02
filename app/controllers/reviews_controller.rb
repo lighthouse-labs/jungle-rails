@@ -7,7 +7,7 @@ before_filter :has_user
     puts @review.user
 
     if @review.save!
-      redirect_to [:products], notice: 'review added'
+      redirect_to :back
     else
       raise ':('
     end
