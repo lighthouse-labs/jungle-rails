@@ -29,8 +29,8 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
 
-!["Screenshot of Main page"]()
+!["Screenshot of Main page"](https://github.com/Zushisan/jungle-rails/blob/master/docs/main_page.jpg?raw=true)
 
-!['Chatting"]()
+!['Order summary"](https://github.com/Zushisan/jungle-rails/blob/master/docs/order_summary.png?raw=true)
 
-!["Screenshot of Bot chat room"]()
+!["Product summary"](https://github.com/Zushisan/jungle-rails/blob/master/docs/product_summary.png?raw=true)
