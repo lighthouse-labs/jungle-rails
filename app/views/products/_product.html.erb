@@ -2,7 +2,17 @@
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
-      <h4><%= product.name %></h4>
+      <% sum = [] %>
+      <%  Review.where(product_id: product.id).each do |review| %>
+        <% sum.push(review.rating) %>
+      <% end %>
+      <% if sum.length > 0 %>
+        <% average = sum.inject(:+) / sum.length %>
+        <h4><%= product.name %></h4>
+        <p>Rating: <%= average %><p>
+      <% else %>
+        <h4><%= product.name %></h4>
+      <% end %>
     <% end %>
   </header>
   <p class="description">
