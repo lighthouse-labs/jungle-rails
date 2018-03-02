@@ -8,6 +8,7 @@
 /log/*
 !/log/.keep
 /tmp
+/config/environments/mailgun.rb
 
 # Ignore carrier wave uploads for development
 /public/uploads

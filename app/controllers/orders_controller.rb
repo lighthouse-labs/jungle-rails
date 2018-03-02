@@ -2,17 +2,18 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    # @products = 
   end
 
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
 
-    if order.valid?
+  if order.valid?
+      OrderMailer.order_email(order).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
+      
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
 
@@ -68,13 +69,4 @@ class OrdersController < ApplicationController
     total
   end
 
-  # def order_id
-  #   @order.line_items.pluck.each do |line_items|
-  #     return line_items[2]
-  # end
-
-  # def order_description
-  #   @order.line_items.pluck.each do |line_items|
-  #     return line_items[4]
-  #   end
 end
