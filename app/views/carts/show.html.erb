@@ -1,9 +1,20 @@
 <section class="cart-show">
 
+  <% console %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+  <% if @cart == {} %>
+    <thead>
+    <th colspan="2">
+      You don't have products in your cart.
+    </th>
+    <p>
+    <a href="http://localhost:3000/"><button>Main Page</button></a>
+    </p>
 
+  </thead>
+  <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -33,6 +44,7 @@
     </table>
   </div>
 
+
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -49,5 +61,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>

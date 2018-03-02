@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   def show
+    @cart = cart
   end
 
   def add_item
@@ -25,5 +26,4 @@ class CartsController < ApplicationController
 
     redirect_to :back
   end
-
 end
