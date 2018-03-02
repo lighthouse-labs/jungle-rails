@@ -134,33 +134,42 @@ cat3.products.create!({
 
 
 ## REVIEWS
+User.create!({
+  name: "Thiago Jansen",
+  email: "tjbeirao@gmail.com",
+  password: "1234"
+})
 
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+50.times do 
 Review.create!({
-  product_id: 2,
+  product_id: arr.sample,
   user_id: 1,
   description: "Really nice productss!!",
   rating: 10,
 })
 
 Review.create!({
-  product_id: 2,
+  product_id: arr.sample,
   user_id: 1,
   description: "CRAP",
   rating: 6,
 })
 
 Review.create!({
-  product_id: 2,
+  product_id: arr.sample,
   user_id: 1,
   description: "NICE",
   rating: 7,
 })
 
 Review.create!({
-  product_id: 2,
+  product_id: arr.sample,
   user_id: 1,
   description: "Blah",
   rating: 8,
 })
+end
 
 puts "DONE!"
