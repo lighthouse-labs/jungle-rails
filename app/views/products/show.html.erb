@@ -27,7 +27,8 @@
     </div>
 
   </article>
-  <div>
+    <% if user_signed_in? %>
+   <div>
     <%= form_for [@product, @new_review] do |form| %>
     <div class="form-group">
       <%= form.label :rating %>
@@ -42,6 +43,7 @@
         <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
     <% end %>
   </div>
+  <% end %>
   <div class= 'reviews'>
     <%= render partial: 'review' %>
   </div>

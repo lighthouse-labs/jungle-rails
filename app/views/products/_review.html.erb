@@ -13,8 +13,10 @@
       <td><%= review.rating %></td>
       <td>
         <%= review.description %>
+        <% if user_signed_in? %>
         <% if review.user_id == current_user.id %>
           <%= link_to 'Delete', "/products/#{review.product_id}/reviews/#{review.id}", method: :delete %>
+          <% end %>
         <% end %>
       </td>
     </tr>
