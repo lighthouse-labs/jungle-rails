@@ -12,7 +12,7 @@ class ModelMailer < ApplicationMailer
     puts @line_items
     mg_client = Mailgun::Client.new ENV['MAILGUN_KEY']
     message_params = {:from => ENV['MAILGUN_USERNAME'],
-                      :to => 'thulsmans.2994@me.com',
+                      :to => ENV['MAILGUN_TARGET_ADDRESS'],
                       :subject => "order id: #{order.id}",
                       :html => (render_to_string(template: "../views/model_mailer/order_success")).to_str}
     mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
