@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+before_filter :has_user
   def create
     @review = Review.create(review_params)
     @review.user = current_user
@@ -13,6 +13,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    Review.find(params[:id]).destroy
+    redirect_to [:products]
+  end
+
   private
 
   def review_params
@@ -21,5 +26,11 @@ class ReviewsController < ApplicationController
       :description,
       :product_id
       )
+  end
+
+  def has_user
+    if !current_user
+      redirect_to [:products]
+    end
   end
 end

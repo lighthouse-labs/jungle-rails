@@ -28,7 +28,7 @@
 
   </article>
   <div>
-    <%= form_for [@product, @new_review] do |form| %>
+    <% form_for [@product, @new_review] do |form| %>
     <div class="form-group">
       <%= form.label :rating %>
       <%= form.select :rating, 1..5, class: 'form-control' %>
@@ -39,7 +39,7 @@
           <%= form.text_field :description,  class: 'form-control' %>
         </div>
 
-        <%= form.submit 'Create Product', class: 'btn btn-primary' %>
+        <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
     <% end %>
   </div>
   <div class= 'reviews'>

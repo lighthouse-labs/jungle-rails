@@ -1,17 +1,22 @@
-<%= @reviews %>
 
 <table class=table table-bordered>
   <thead>
     <tr>
       <th>Rating</th>
       <th>Description</th>
+
     </tr>
   </thead>
   <tbody>
-    <% @reviews.each do |review| %>
+    <% @reviews.reverse.each do |review| %>
     <tr>
       <td><%= review.rating %></td>
-      <td><%= review.description %></td>
+      <td>
+        <%= review.description %>
+        <% if review.user_id == current_user.id %>
+          <%= link_to 'Delete', "/products/#{review.product_id}/reviews/#{review.id}", method: :delete %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
