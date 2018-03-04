@@ -1,0 +1,27 @@
+<%= form_for [product, product.reviews.build] do |form| %>
+<div class="form_for">    
+<d1 class="dl-horizontal">
+        <dt>
+            <%= form.label :rating %>
+        </dt>
+        <dd>
+        <div>
+            <%= form.select :rating, ['1','2','3','4','5'], :prompt => 'Select Rating' %>
+        </div>
+        </dd>
+        <dt>
+            <%= form.label :description %>
+        </dt>
+        <dd>
+        <div>
+            <%= form.text_area :description %>
+        </div>
+        </dd>
+        <dd>
+        <div>
+            <%= form.submit %>
+        </div>
+        </dd>
+    </d1>
+</div>
+<% end %>

@@ -140,35 +140,70 @@ User.create!({
   password: "1234"
 })
 
+User.create!({
+  name: "Brad Pitt",
+  email: "littleBrad@gmail.com",
+  password: "1234"
+})
+
+User.create!({
+  name: "Angelina Jolia",
+  email: "sexyandiknowit@gmail.com",
+  password: "1234"
+})
+
+User.create!({
+  name: "Guilherme Del Toro",
+  email: "torito@gmail.com",
+  password: "1234"
+})
+
+User.create!({
+  name: "Ellen",
+  email: "ellen@gmail.com",
+  password: "1234"
+})
+
+User.create!({
+  name: "Drake",
+  email: "upinsmoke@gmail.com",
+  password: "1234"
+})
+
+
+
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+rate = [1, 2 ,3 ,4 ,5]
+description = ["Nice", "Good", "Not what I want", "Perfect", "Yeah!", "Could be better", "Sweet!"]
+user = [1, 2, 3, 4, 5, 6]
 
-50.times do 
+30.times do 
 Review.create!({
   product_id: arr.sample,
-  user_id: 1,
-  description: "Really nice productss!!",
-  rating: 10,
+  user_id: user.sample,
+  description: description.sample,
+  rating: rate.sample,
 })
 
 Review.create!({
   product_id: arr.sample,
-  user_id: 1,
-  description: "CRAP",
-  rating: 6,
+  user_id: user.sample,
+  description:description.sample,
+  rating: rate.sample,
 })
 
 Review.create!({
   product_id: arr.sample,
-  user_id: 1,
-  description: "NICE",
-  rating: 7,
+  user_id: user.sample,
+  description: description.sample,
+  rating: rate.sample,
 })
 
 Review.create!({
   product_id: arr.sample,
-  user_id: 1,
-  description: "Blah",
-  rating: 8,
+  user_id: user.sample,
+  description: description.sample,
+  rating: rate.sample,
 })
 end
 

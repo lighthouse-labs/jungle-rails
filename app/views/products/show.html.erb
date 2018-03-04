@@ -1,50 +1,71 @@
 <section class="products-show">
 
   <header class="page-header">
-    <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <h1>
+      <%= link_to @product.category.name, @product.category %> &raquo;
+        <%= @product.name %>
+    </h1>
   </header>
 
   <article class="product-detail">
-
     <div class="row">
-<% console %>
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
       <div class="col-sm-8">
         <dl class="dl-horizontal">
-          <div class="column">
           <dt>Name</dt>
-          <dd><%= @product.name %></dd>
+          <dd>
+            <%= @product.name %>
+          </dd>
           <dt>Description</dt>
-          <dd><%= @product.description %></dd>
+          <dd>
+            <%= @product.description %>
+          </dd>
           <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
+          <dd>
+            <%= @product.quantity %>
+          </dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
-          <div class="column2">
-            <%= render @product.reviews %>
-         </div>
-          </div>
+          <dd>
+            <%= @product.price %>
+          </dd>
         </dl>
       </div>
-  </article>
-   <% if current_user %>
-      <div>
-      <%= form_for ([ @product, @product.reviews.build ]) do |form| %>
-      <p>
-        <%= form.label :rating %><br>
-        <%= form.select :rating, [ '1','2','3','4','5' ], :prompt => 'Select Rating' %>s
-      </p>
-      <p>
-        <%= form.label :description %><br>
-        <%= form.text_area :description %>
-      </p>
-      <p>
-        <%= form.submit %>  
-      </p>
-      <% end %>
-    <% end %>
-  </div>
 
+      <div class="col-sm-8">
+        <hr class="split_div"></hr>
+        <% @product.reviews.sort_by{:created_at}.reverse.each do |l|%>
+          <dl class="dl-horizontal">
+            <dt>Rating</dt>
+            <dd>
+              <div>
+                <%= l.rating%>
+                  <% (1..l.rating).each do %>
+                    <span class="fa fa-star checked"></span>
+                  <% end %>
+                  <% (1..5-l.rating).each do %>
+                    <span class="fa fa-star"></span>
+                  <% end %>
+              </div>
+            <dt>Description</dt>
+            <dd>
+                <%= l.description %>
+            </dd>
+            <dt>By:</dt>
+            <dd>
+              <%= User.find_by(id: l.user_id).name %>
+            </dd>
+          </dl>
+        <% end %>
+        
+          <hr class="split_div"></hr>
+          <div>
+            <% if current_user %>
+              <%= render 'review', product: @product %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </article>
 </section>
