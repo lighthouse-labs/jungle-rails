@@ -2,14 +2,27 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @line_items = LineItem.where(order_id: params[:id])
+    @products = []
+    @line_items.each do |line_item|
+      iter = 0
+      while iter < line_item.quantity do
+        product_identifier = line_item.product_id
+        product = Product.find(product_identifier)
+        @products.push(product)
+        iter += 1
+      end
+    end
   end
 
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    new_line_items = LineItem.where(order_id: order.id)
 
     if order.valid?
       empty_cart!
+      ModelMailer.order_success(order, new_line_items).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }

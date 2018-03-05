@@ -1,20 +1,25 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
-
+  #resources :users, except: [:destroy, :update, :edit]
+  #resources :sessions, only: [:new, :create, :destroy]
   resource :cart, only: [:show] do
     put    :add_item
     delete :remove_item
   end
-
+  scope "/products/:product_id", :as => 'product' do
+    resources :reviews, only: [:create, :destroy]
+  end
   resources :orders, only: [:create, :show]
 
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, except: [:destroy, :update, :edit, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

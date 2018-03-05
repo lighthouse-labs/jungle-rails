@@ -12,8 +12,11 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 5. Run `bin/rake db:reset` to create, load and seed db
 6. Create .env file based on .env.example
 7. Sign up for a Stripe account
-8. Put Stripe (test) keys into appropriate .env vars
-9. Run `bin/rails s -b 0.0.0.0` to start the server
+8. Sign up for a Mailgun account
+9. Put Stripe (test) keys into appropriate .env vars
+10. Put Mailgun Domain keys into approprait .env vars
+ - free mailgun requires to verify the target email address
+11. Run `bin/rails s -b 0.0.0.0` to start the server
 
 ## Stripe Testing
 
@@ -26,3 +29,14 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+* Mailgun
+* Devise
+
+## Screenshots
+![](/screenshots/1.jpg)
+![](/screenshots/2.jpg)
+![](/screenshots/3.jpg)
+![](/screenshots/5.png)
+![](/screenshots/6.jpg)
+
+

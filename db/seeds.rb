@@ -128,9 +128,28 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,
   price: 2_483.75
 })
 
+## User
+puts 'creating sample user'
+user = User.create! :first_name => 'Jungle',
+:last_name => 'Book',
+:email => 'Jungle@Book.com',
+:password => 'topsecret',
+:password_confirmation => 'topsecret',
+:admin => true
+user.save!
+
+## Reviews
+puts 'Creating some Sample Reviews'
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4
+  })
 
 puts "DONE!"
