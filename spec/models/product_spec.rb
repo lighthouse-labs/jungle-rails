@@ -6,7 +6,8 @@ RSpec.describe Product, type: :model do
 
     it "Product with all four fields will save successfully" do
       @category = Category.new(name: "Men's Apparel")
-      @product = Product.new(name: "Red Shoe",
+      @product = Product.new(
+        name: "Red Shoe",
         price: 30,
         quantity: 5,
         category: @category)
@@ -21,7 +22,8 @@ RSpec.describe Product, type: :model do
 
     it "Name should be nil and return an error" do
       @category = Category.new(name: "Men's Apparel")
-      @product = Product.new(name: nil,
+      @product = Product.new(
+        name: nil,
         price: 30,
         quantity: 5,
         category: @category)
@@ -32,7 +34,8 @@ RSpec.describe Product, type: :model do
 
     it "Name should be nil and return an error" do
       @category = Category.new(name: "Men's Apparel")
-      @product = Product.new(name: "just a shoe",
+      @product = Product.new(
+        name: "just a shoe",
         price: nil,
         quantity: 5,
         category: @category)
@@ -43,7 +46,8 @@ RSpec.describe Product, type: :model do
 
     it "Name should be nil and return an error" do
       @category = Category.new(name: "Men's Apparel")
-      @product = Product.new(name: "just a shoe",
+      @product = Product.new(
+        name: "just a shoe",
         price: 30,
         quantity: nil,
         category: @category)
@@ -54,7 +58,8 @@ RSpec.describe Product, type: :model do
 
     it "Name should be nil and return an error" do
       @category = Category.new(name: "Men's Apparel")
-      @product = Product.new(name: "just a shoe",
+      @product = Product.new(
+        name: "just a shoe",
         price: 30,
         quantity: 5,
         category: nil)
