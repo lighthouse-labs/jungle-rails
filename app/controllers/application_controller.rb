@@ -10,7 +10,13 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
-
+  
+  Rails.application.configure do
+    ...
+    config.secret_key_base = ENV["SECRET_KEY_BASE"]
+    ...
+  end
+  
   private
 
   def cart
@@ -26,5 +32,6 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
+
 
 end
