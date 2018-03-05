@@ -9,6 +9,7 @@
 !/log/.keep
 /tmp
 /config/environments/mailgun.rb
+config/application.yml
 
 # Ignore carrier wave uploads for development
 /public/uploads
@@ -56,3 +57,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml
