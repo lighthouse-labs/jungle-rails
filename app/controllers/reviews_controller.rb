@@ -9,7 +9,8 @@ before_filter :has_user
     if @review.save!
       redirect_to :back
     else
-      raise ':('
+      flash.now[:error] = 'Your review failed to be posed, Sorry!'
+      redirect_to :back
     end
   end
 
