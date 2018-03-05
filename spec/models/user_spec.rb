@@ -13,14 +13,43 @@ RSpec.describe User, type: :model do
         first_name: 'Zushi',
         last_name: 'San',
         email: 'zushi@san.com',
-        password: '12',
-        password_confirmation: '13'
+        password: '123456',
+        password_confirmation: '134567'
       })
 
      expect(user).to_not be_valid
     end
 
     it "should fail if email already exist regardless of case" do
+      user1 = User.create({
+        first_name: 'Zushi',
+        last_name: 'San',
+        email: 'zushi@san.com',
+        password: '123456',
+        password_confirmation: '123456'
+      })
+
+      user2 = User.create({
+        first_name: 'Zushi',
+        last_name: 'San',
+        email: 'zushi@san.com',
+        password: '123456',
+        password_confirmation: '123456'
+      })
+
+      user3 = User.create({
+        first_name: 'Zushi',
+        last_name: 'San',
+        email: 'ZUSHI@SAN.COM',
+        password: '123456',
+        password_confirmation: '123456'
+      })
+
+     expect(user2).to_not be_valid
+     expect(user3).to_not be_valid
+    end
+
+    it "should fail if password is to short or too long" do
       user1 = User.create({
         first_name: 'Zushi',
         last_name: 'San',
@@ -32,21 +61,13 @@ RSpec.describe User, type: :model do
       user2 = User.create({
         first_name: 'Zushi',
         last_name: 'San',
-        email: 'zushi@san.com',
-        password: '12',
-        password_confirmation: '12'
+        email: 'zushi@sano2.com',
+        password: '12345678901234567890123456789012345678901',
+        password_confirmation: '12345678901234567890123456789012345678901'
       })
 
-      user3 = User.create({
-        first_name: 'Zushi',
-        last_name: 'San',
-        email: 'ZUSHI@SAN.COM',
-        password: '12',
-        password_confirmation: '12'
-      })
-
-     expect(user2).to_not be_valid
-     expect(user3).to_not be_valid
+      expect(user1).to_not be_valid
+      expect(user2).to_not be_valid
     end
   end
 
