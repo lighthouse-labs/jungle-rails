@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  before_save :downcase_fields
+
   has_secure_password
   has_many :reviews
 
@@ -10,5 +12,18 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   validates :email, :uniqueness => {:case_sensitive => false}
+
+  def authenticate_with_credentials(email, password)
+    user = User.find_by_email(email.strip.downcase)
+    # If the user exists AND the password entered is correct.
+    if user && user.authenticate(password)
+      return user
+    end
+    nil
+  end
+  
+  def downcase_fields
+    self.email.downcase!
+  end
 
 end
