@@ -1,0 +1,36 @@
+<tbody>
+<% duplicates = [] %>
+<% uniques = [] %>
+<% price = 0 %>
+<% products.each do |product| %>
+  <% price += product.price %>
+  <% if !duplicates.include? product %>
+    <% uniques.push(product) %>
+    <% end %>
+  <% duplicates.push(product) %>
+<% end %>
+<% puts duplicates %>
+<% uniques.each do |product| %>
+      <tr>
+        <td>
+          <%= image_tag product.image.tiny %>
+        </td>
+        <td>
+          <h4><%= product.name %></h4>
+        </td>
+        <td>
+          <p><%= product.description %></p>
+        </td>
+        <td>
+          <%= product.price %>
+        </td>
+        <td>
+          <p><%= duplicates.count(product) %></p>
+        </td>
+        <td>
+          <%= duplicates.count(product) * product.price %>
+        </td>
+      </tr>
+<% end %>
+</tbody>
+<h2>Total <%= price %></h2>

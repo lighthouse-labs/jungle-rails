@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  before_filter :restrict_user_by_role
 
   def index
     @products = Product.order(id: :desc).all
@@ -36,5 +37,11 @@ class Admin::ProductsController < ApplicationController
       :price
     )
   end
+
+  def restrict_user_by_role
+      if current_user.admin == false
+        redirect_to '/'
+      end
+    end
 
 end
