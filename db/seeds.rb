@@ -137,37 +137,43 @@ cat3.products.create!({
 User.create!({
   name: "Thiago Jansen",
   email: "tjbeirao@gmail.com",
-  password: "1234"
+  password: "123456789",
+  password_confirmation: "123456789"
 })
 
 User.create!({
   name: "Brad Pitt",
   email: "littleBrad@gmail.com",
-  password: "1234"
+  password: "123456789",
+  password_confirmation: "123456789"
 })
 
 User.create!({
   name: "Angelina Jolia",
   email: "sexyandiknowit@gmail.com",
-  password: "1234"
+  password: "123456789",
+  password_confirmation: "123456789"
 })
 
 User.create!({
   name: "Guilherme Del Toro",
   email: "torito@gmail.com",
-  password: "1234"
+  password: "123456789",
+  password_confirmation: "123456789"
 })
 
 User.create!({
   name: "Ellen",
   email: "ellen@gmail.com",
-  password: "1234"
+  password: "123456789",
+  password_confirmation: "123456789"
 })
 
 User.create!({
   name: "Drake",
   email: "upinsmoke@gmail.com",
-  password: "1234"
+  password: "123456789",
+  password_confirmation: "123456789"
 })
 
 

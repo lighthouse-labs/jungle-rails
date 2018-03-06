@@ -4,7 +4,7 @@ ruby "~> 2.3.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', "~> 0.18"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,7 +38,7 @@ gem 'faker'
 gem "figaro"
 gem "paperclip"
 gem 'aws-sdk', '~> 2.3'
-gem "shrine"
+gem 'cloudinary'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,6 +48,10 @@ group :development, :test do
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -62,15 +66,4 @@ end
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
-  # ...
-end
-
-group :test do
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'database_cleaner'
 end
