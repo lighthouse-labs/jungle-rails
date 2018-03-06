@@ -171,7 +171,6 @@ User.create!({
 })
 
 
-
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 rate = [1, 2 ,3 ,4 ,5]
 description = ["Nice", "Good", "Not what I want", "Perfect", "Yeah!", "Could be better", "Sweet!"]

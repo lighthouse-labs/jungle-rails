@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
   
-  # Rails.application.configure do
-  #   ...
-  #   config.secret_key_base = ENV["SECRET_KEY_BASE"]
-  #   ...
-  # end
-  
   private
 
   def cart

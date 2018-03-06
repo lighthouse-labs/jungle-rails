@@ -36,6 +36,10 @@ gem 'rmagick'
 gem 'stripe'
 gem 'faker'
 gem "figaro"
+gem "paperclip"
+gem 'aws-sdk', '~> 2.3'
+gem 'cloudinary'
+gem 'carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
