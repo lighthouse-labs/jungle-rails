@@ -38,8 +38,7 @@ gem 'faker'
 gem "figaro"
 gem "paperclip"
 gem 'aws-sdk', '~> 2.3'
-gem 'cloudinary'
-gem 'carrierwave'
+gem "shrine"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -68,4 +67,10 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   # ...
+end
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
