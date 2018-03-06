@@ -79,7 +79,7 @@ cat1.products.create!({
   name:  'Human Feet Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
-  quantity: 82,
+  quantity: 0,
   price: 224.50
 })
 
@@ -169,7 +169,6 @@ User.create!({
   email: "upinsmoke@gmail.com",
   password: "1234"
 })
-
 
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
