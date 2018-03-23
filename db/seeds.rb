@@ -14,10 +14,10 @@ def open_asset(file_name)
 end
 
 # Only run on development (local) instances not on production, etc.
-unless Rails.env.development?
-  puts "Development seeds only (for now)!"
-  exit 0
-end
+# unless Rails.env.development?
+#   puts "Development seeds only (for now)!"
+#   exit 0
+# end
 
 # Let's do this ...
 
@@ -79,7 +79,7 @@ cat1.products.create!({
   name:  'Human Feet Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
-  quantity: 82,
+  quantity: 0,
   price: 224.50
 })
 
@@ -128,9 +128,88 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,
   price: 2_483.75
 })
 
+
+## REVIEWS
+User.create!({
+  name: "Thiago Jansen",
+  email: "tjbeirao@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789"
+})
+
+User.create!({
+  name: "Brad Pitt",
+  email: "littleBrad@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789"
+})
+
+User.create!({
+  name: "Angelina Jolia",
+  email: "sexyandiknowit@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789"
+})
+
+User.create!({
+  name: "Guilherme Del Toro",
+  email: "torito@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789"
+})
+
+User.create!({
+  name: "Ellen",
+  email: "ellen@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789"
+})
+
+User.create!({
+  name: "Drake",
+  email: "upinsmoke@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789"
+})
+
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+rate = [1, 2 ,3 ,4 ,5]
+description = ["Nice", "Good", "Not what I want", "Perfect", "Yeah!", "Could be better", "Sweet!"]
+user = [1, 2, 3, 4, 5, 6]
+
+30.times do 
+Review.create!({
+  product_id: arr.sample,
+  user_id: user.sample,
+  description: description.sample,
+  rating: rate.sample,
+})
+
+Review.create!({
+  product_id: arr.sample,
+  user_id: user.sample,
+  description:description.sample,
+  rating: rate.sample,
+})
+
+Review.create!({
+  product_id: arr.sample,
+  user_id: user.sample,
+  description: description.sample,
+  rating: rate.sample,
+})
+
+Review.create!({
+  product_id: arr.sample,
+  user_id: user.sample,
+  description: description.sample,
+  rating: rate.sample,
+})
+end
 
 puts "DONE!"

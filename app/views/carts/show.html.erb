@@ -3,7 +3,18 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+  <% if @cart == {} %>
+    <thead>
+    <th colspan="2">
+    <h3>You don't have products in your cart.</h3>
+    </th>
+    <p>
+      <h4>You can go back to our product page and pick some of our awesome products</h4>
+      <a href="http://localhost:3000/"><button>Main Page</button></a>
+    </p>
 
+  </thead>
+  <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -32,22 +43,27 @@
       </tfoot>
     </table>
   </div>
-
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
-        <script
+      <% if current_user %>
+          <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-amount="<%= @cart_total * 100 %>"
           data-name="Jungle"
-          data-description="Khurram Virani's Jungle Order"
+          data-description="<%= current_user.name %>"
           data-locale="auto"
-          data-email="kvirani@gmail.com"
+          data-email="<%= current_user.email %>"
           data-currency="cad">
         </script>
-      <% end %>
+          <% end %>
+          <% end %>
+          <% if !current_user %>
+          <h2><a href="http://localhost:3000/login">Sign-in</a> or <a href="http://localhost:3000/signup">Register</a></h2>
+          <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>

@@ -8,6 +8,8 @@
 /log/*
 !/log/.keep
 /tmp
+/config/environments/mailgun.rb
+config/application.yml
 
 # Ignore carrier wave uploads for development
 /public/uploads
@@ -29,7 +31,7 @@ pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
-config/secrets.yml
+# config/secrets.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
@@ -55,3 +57,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml
