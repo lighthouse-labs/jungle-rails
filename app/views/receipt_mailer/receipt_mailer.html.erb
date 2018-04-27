@@ -4,9 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @order.id %></h1>
+    <h1>Order ID: <%= @order.id %></h1>
     <p>
-      Sample mail sent using smtp.
+      <tbody>
+        <% @order.line_items.each do |line_item| %>
+          <%= render 'item', product: line_item.product, quantity: line_item.quantity, total_price: line_item.total_price %>
+        <% end %>
+      </tbody>
+      <p>Order total: <%= @order.total %></p>
     </p>
   </body>
 </html>
