@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to [:products], notice: "Registered"
     else
       render :new
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
       :firstname,
       :lastname,
       :email,
-      :password_digest
+      :password
     )
   end
 end
