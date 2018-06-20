@@ -1,0 +1,17 @@
+</div>
+    <h1 value="Login"/>
+      <%= form_tag '/login' do %>
+
+        <div class="form-group">
+          <%= form.label :"Email" %>
+          <%= text_field_tag :email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :"Password" %>
+          <%= password_field_tag :password, class: 'form-control' %>
+        </div>
+
+        <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+      <% end %>
+</div>

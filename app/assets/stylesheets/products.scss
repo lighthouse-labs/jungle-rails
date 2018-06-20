@@ -53,9 +53,10 @@ main section.categories-show {
 
       aside.soldout {
                 position: absolute;
-                top: 0;
+                top: 0px;
+                left: 0px;
                 right: 64%;
-                padding: 10px 10px 0px 9px;
+                padding: 10px 0px 0px 9px;
                 border-top-left-radius: 4px;
                 border-bottom-right-radius: 20px;
                 font-size: 1em;
