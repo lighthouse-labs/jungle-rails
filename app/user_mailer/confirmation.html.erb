@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi, <%= @user %> </h1>
+    <p>
+      Order details:
+      <% @order.line_items.each do |line_item| %>
+        <%= render 'item', product_id: line_item.product_id, line_total: line_item.total_price %>
+      <% end %>
+      Total: <%= @order.total %>
+    </p>
+    <p>Thanks for use Jungle Web Site!</p>
+    <br/>
+    <p>Login again: <%= @url %></p>
+  </body>
+</html>
