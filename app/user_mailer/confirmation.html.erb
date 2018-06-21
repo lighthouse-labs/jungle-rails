@@ -6,11 +6,7 @@
   <body>
     <h1>Hi, <%= @user %> </h1>
     <p>
-      Order details:
-      <% @order.line_items.each do |line_item| %>
-        <%= render 'item', product_id: line_item.product_id, line_total: line_item.total_price %>
-      <% end %>
-      Total: <%= @order.total %>
+      This is a email to confirm your order from Jungle. 
     </p>
     <p>Thanks for use Jungle Web Site!</p>
     <br/>
