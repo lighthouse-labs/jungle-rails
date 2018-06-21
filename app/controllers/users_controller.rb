@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user_id
+    user = User.new(user_params)
+    if user.save
+      session[:user_id] = user.id
       redirect_to '/'
     else
-      render 'new'
+      redirect_to '/signup'
     end
-  end 
+  end
   
   private
 
