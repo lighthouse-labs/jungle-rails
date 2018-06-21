@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       redirect_to '/signin'
+    end
   end
 
   def user_params
@@ -20,4 +21,5 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation
     )
+  end
 end
