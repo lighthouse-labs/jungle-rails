@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20180620205900) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "stripe_charge_id"
-    t.string   "email",
+    t.string   "email"
     t.integer  "user_id"
   end
 
