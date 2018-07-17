@@ -29,6 +29,16 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+# USERS
+
+usr1 = User.create({
+  name: 'jBones'
+})
+
+usr2 = User.create({
+  name: 'd-daddy'
+})
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
@@ -131,6 +141,8 @@ cat3.products.create!({
   quantity: 0,#23,
   price: 2_483.75
 })
+
+
 
 
 puts "DONE!"
