@@ -1,7 +1,7 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order #<%= @order.id %></h1>    
   </header>
 
   <div class="order-summary jumbotron">
@@ -16,7 +16,7 @@
         <div class="order-item col-sm-2">
           <strong>Item Name:</strong> <%= @thisProd.name %><br>
           <strong>Quantity:</strong> <%= @thisLi.quantity %><br>
-          <strong>Cost:</strong> <%= number_to_currency @thisLi.total_price_cents / 100 %>          
+          <strong>Cost:</strong> <%= number_to_currency @thisLi.total_price_cents / 100 %>
         </div>
         <div clas="col-sm-9">
           <strong>Details:</strong> <%= @thisProd.description %>

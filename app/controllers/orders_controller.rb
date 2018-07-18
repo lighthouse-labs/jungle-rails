@@ -2,13 +2,16 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    puts 'NOT RIGHT HERE!!!! '
   end
 
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
 
+    puts "!!!! MY ORDER: #{order}"
     if order.valid?
+      Emailer.order_email(user: current_user, order: order).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
