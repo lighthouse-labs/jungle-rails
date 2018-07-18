@@ -128,9 +128,25 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,#23,
   price: 2_483.75
 })
+
+# USERS
+
+usr1 = User.create({
+  name: 'jBones'
+})
+
+usr2 = User.create({
+  name: 'd-daddy'
+})
+
+# ORDERS
+
+
+# LINE ITEMS
+
 
 
 puts "DONE!"
