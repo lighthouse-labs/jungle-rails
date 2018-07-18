@@ -6,7 +6,7 @@
 
 
   <div class="well">
-    <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
+    <%= link_to '+ New category', [:new, :admin, :category], class: 'btn btn-info' %>
   </div>
 
   <div class="panel panel-default products">
@@ -14,18 +14,15 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2">Product</th>
           <th>Category</th>
-          <th>Price</th>
-          <th>Qty Remaining</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
-        <%= render @products %>
+        <%= render @category %>
       </tbody>
     </table>
 
   </div>
 
 </section>
+
