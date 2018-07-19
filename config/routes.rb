@@ -10,6 +10,17 @@ Rails.application.routes.draw do
     delete :remove_item
   end
 
+  # resources :login
+  # resources :register
+  # get '/users/new', to: "users#new"
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  resources :users
 
   resources :orders, only: [:create, :show]
 
