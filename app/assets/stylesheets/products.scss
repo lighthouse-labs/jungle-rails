@@ -1,3 +1,7 @@
+logged-in {
+  width: 200px;
+  margin: 25px;
+}
 main section.products-index,
 main section.categories-show {
 
@@ -59,7 +63,7 @@ main section.categories-show {
       	background-color: #de7777;
         color: white;
       	border-top-left-radius: 4px;
-      	border-bottom-right-radius: 20px;      	
+      	border-bottom-right-radius: 20px;
       }
 
       &:hover {

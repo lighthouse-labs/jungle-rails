@@ -142,11 +142,67 @@ usr2 = User.create({
   name: 'd-daddy'
 })
 
-# ORDERS
+usr3 = User.create({
+  name: 'flo-Rida'
+})
 
+# RATINGS
 
-# LINE ITEMS
+Rating.create({
+  product_id: 1,
+  user_id: 1,
+  rating: 3
+})
 
+Rating.create({
+  product_id: 1,
+  user_id: 2,
+  rating: 4
+})
 
+Rating.create({
+  product_id: 1,
+  user_id: 3,
+  rating: 5,
+  description: 'Absolutely love this product'
+})
 
+Rating.create({
+  product_id: 2,
+  user_id: 1,
+  rating: 1
+})
+
+Rating.create({
+  product_id: 2,
+  user_id: 2,
+  rating: 2
+})
+
+Rating.create({
+  product_id: 2,
+  user_id: 3,
+  rating: 1,
+  description: 'This thing is no good.'
+})
+
+Rating.create({
+  product_id: 3,
+  user_id: 1,
+  rating: 3
+})
+
+Rating.create({
+  product_id: 3,
+  user_id: 2,
+  rating: 3,
+  description: 'It\'s pretty good'
+})
+
+Rating.create({
+  product_id: 3,
+  user_id: 3,
+  rating: 4,
+
+})
 puts "DONE!"

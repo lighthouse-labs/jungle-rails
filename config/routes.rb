@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :ratings, only: [:create, :destroy]
+  end
   resources :categories, only: [:show]
-  #resources :users, only: [:index, :create, :signup]  
+  #resources :users, only: [:index, :create, :signup]
 
   resource :cart, only: [:show] do
     put    :add_item
