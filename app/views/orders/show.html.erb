@@ -5,7 +5,56 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order, <%= @order.email %>! Here's an overview of what you just ordered:</h4>
+
+    <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <% product = Product.find_by(id: item.product_id) %>
+          <tr>
+            <td>
+              <%= image_tag product.image.tiny %>
+            </td>
+            <td>
+              <h4><%= product.name %></h4>
+              <br>
+              <p><%= product.description %></p>
+            </td>
+            <td>
+              <%= product.price %>
+            </td>
+            <td>
+              <%= item.quantity %>
+            </td>
+            <td>
+              <%= "#{item.total_price_cents/100}.#{item.total_price_cents%100}" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            <%= "#{@order.total_cents/100}.#{@order.total_cents%100}" %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

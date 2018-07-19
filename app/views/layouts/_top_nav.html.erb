@@ -34,15 +34,43 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Dashboard', [:admin, :root] %></li>
-            <li><%= link_to 'Products',  [:admin, :products] %></li>
+            <li><%= link_to 'Dashboard', admin_root_path %></li>
+            <li><%= link_to 'Products',  admin_products_path %></li>
+            <li><%= link_to 'Categories', [:admin, :categories] %></li>
           </ul>
         </li>
-        <li>
-          <%= link_to cart_path do %>
-            <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
-          <% end %>
-        </li>
+
+        <% if current_user %>
+
+          <li>
+            <%= link_to cart_path do %>
+              <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to "Logout", '/logout' %>
+          </li>
+
+          <li>
+            <div class="signed-in">
+              Hello, <%= current_user.first_name %>
+            </div>
+          </li>
+
+
+          <% else %>
+            <li>
+              <%= link_to login_path do %>
+                 Log in
+              <% end %>
+            </li>
+            <li>
+              <%= link_to signup_path do %>
+               Register
+              <% end %>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>
