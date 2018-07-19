@@ -2,13 +2,21 @@
 <html>
 <head>
   <title>Jungle</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <%= render 'layouts/top_nav' %>
+  <% if current_user %>
+  <div class="alert alert-primary logged-in" style="width:200px;margin:25px;" role="alert" >
+    Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+  </div>
+
+  <% else %>
+    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+  <% end %>
 
   <main class="container">
     <%= yield %>

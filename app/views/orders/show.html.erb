@@ -1,12 +1,33 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order #<%= @order.id %></h1>    
   </header>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    Number of Items: <%= @order.line_items.size %>
+    <ul class="list-group container"  >
+      <% @order.line_items.each do |li| %>
+      <% @thisLi = LineItem.find(li) %>
+      <% @thisProd = Product.find(@thisLi.product_id) %>
+      <li class="list-group-item row" >
+        <img class="col-sm-1" src="<%= @thisProd.image %>" height="50px" width="50px" />
+        <div class="order-item col-sm-2">
+          <strong>Item Name:</strong> <%= @thisProd.name %><br>
+          <strong>Quantity:</strong> <%= @thisLi.quantity %><br>
+          <strong>Cost:</strong> <%= number_to_currency @thisLi.total_price_cents / 100 %>
+        </div>
+        <div clas="col-sm-9">
+          <strong>Details:</strong> <%= @thisProd.description %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    Total Cost: <%= number_to_currency @order.total_cents / 100 %> <br>
+    Email: <%= @order.email %>
   </div>
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 

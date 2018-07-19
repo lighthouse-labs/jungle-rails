@@ -1,3 +1,7 @@
+logged-in {
+  width: 200px;
+  margin: 25px;
+}
 main section.products-index,
 main section.categories-show {
 
@@ -51,6 +55,17 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      aside.sold-out {
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	padding: 10px;
+      	background-color: #de7777;
+        color: white;
+      	border-top-left-radius: 4px;
+      	border-bottom-right-radius: 20px;
+      }
+
       &:hover {
 
         border-color: #999;
@@ -72,5 +87,3 @@ main section.products-show {
     }
   }
 }
-
-

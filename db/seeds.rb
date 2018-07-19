@@ -128,9 +128,81 @@ cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
-  quantity: 23,
+  quantity: 0,#23,
   price: 2_483.75
 })
 
+# USERS
 
+usr1 = User.create({
+  name: 'jBones'
+})
+
+usr2 = User.create({
+  name: 'd-daddy'
+})
+
+usr3 = User.create({
+  name: 'flo-Rida'
+})
+
+# RATINGS
+
+Rating.create({
+  product_id: 1,
+  user_id: 1,
+  rating: 3
+})
+
+Rating.create({
+  product_id: 1,
+  user_id: 2,
+  rating: 4
+})
+
+Rating.create({
+  product_id: 1,
+  user_id: 3,
+  rating: 5,
+  description: 'Absolutely love this product'
+})
+
+Rating.create({
+  product_id: 2,
+  user_id: 1,
+  rating: 1
+})
+
+Rating.create({
+  product_id: 2,
+  user_id: 2,
+  rating: 2
+})
+
+Rating.create({
+  product_id: 2,
+  user_id: 3,
+  rating: 1,
+  description: 'This thing is no good.'
+})
+
+Rating.create({
+  product_id: 3,
+  user_id: 1,
+  rating: 3
+})
+
+Rating.create({
+  product_id: 3,
+  user_id: 2,
+  rating: 3,
+  description: 'It\'s pretty good'
+})
+
+Rating.create({
+  product_id: 3,
+  user_id: 3,
+  rating: 4,
+
+})
 puts "DONE!"
