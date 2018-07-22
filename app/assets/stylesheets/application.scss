@@ -6,6 +6,10 @@
 // App
 @import "products";
 
+.line-item-quantity form.button_to {
+  display: inline;
+}
+
 // Global
 body {
   padding-top: 70px;
