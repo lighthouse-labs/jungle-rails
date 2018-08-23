@@ -1,28 +1,21 @@
-<% quantity = details['quantity'].to_i %>
-
-<% if product = Product.find_by(id: product_id) %>
-  <% item_total = product.price * quantity %>
-  <% @cart_total += item_total %>
-
-  <tr>
-    <td>
-      <%= image_tag product.image.tiny %>
-    </td>
-    <td>
-      <h4><%= product.name %></h4>
-      <br>
-      <p><%= product.description %></p>
-    </td>
-    <td>
-      <%= product.price %>
-    </td>
-    <td class="line-item-quantity">
-      <%= button_to remove_item_cart_path(product_id: product_id), class: 'btn btn-xs btn-danger' do %> - <% end %>
-      <%= quantity %>
-      <%= button_to add_item_cart_path(product_id: product_id), class: 'btn btn-xs btn-success' do %> + <% end %>
-    </td>
-    <td>
-      <%= item_total %>
-    </td>
-  </tr>
-<% end %>
+<tr>
+  <td>
+    <%= image_tag product.image.tiny %>
+  </td>
+  <td>
+    <h4><%= product.name %></h4>
+    <br>
+    <p><%= product.description %></p>
+  </td>
+  <td>
+    <%= product.price %>
+  </td>
+  <td>
+    <%= button_to remove_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-danger' do %> - <% end %>
+    <%= quantity %>
+    <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-success' do %> + <% end %>
+  </td>
+  <td>
+    <%= product.price * quantity %>
+  </td>
+</tr>
