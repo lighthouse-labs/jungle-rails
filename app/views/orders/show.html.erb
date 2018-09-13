@@ -5,6 +5,42 @@
   </header>
 
   <div class="order-summary jumbotron">
+    <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total Price </th>
+        </tr>
+      </thead>
+      <tbody>
+      <%# <h2>Products <%=@line_items.product %> </h2>
+          <% @line_items.each do |item| %>
+          <%# <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
+          <td><%= image_tag item.product.image.tiny %>
+          <td><%= item.product.name %></td>
+          <td><%= item.product.description %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.product.price %></td>
+          <td><%= item.product.price * item.quantity %>
+          <tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="5">
+            TOTAL:
+          </th>
+          <th>
+            <%= @order.total_cents / 100.0 %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
     <h4>Thank you for your order!</h4>
   </div>
 
