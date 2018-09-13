@@ -9,4 +9,9 @@ class ProductsController < ApplicationController
     @reviews = Review.where("product_id": params[:id])
   end
 
+  def user_info variable
+    User.find(variable.user_id)
+  end
+  helper_method :user_info
+
 end

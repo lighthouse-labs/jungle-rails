@@ -28,8 +28,8 @@
       <h2>Reviews</h2>
         <dl class="dl-horizontal">
           <% @reviews.each do |review| %>
-          <dt>Name</dt>
-          <dd>USERNAME</dd>
+          <dt>User</dt>
+          <dd><%= user_info(review).first_name %></dd>
           <dt>Description</dt>
           <dd><%= review.description %></dd>
           <dt>Rating</dt>
