@@ -137,7 +137,7 @@ Review.create!({
   product_id: 1,
   user_id: 1,
   description: 'This is good',
-  rating: 8
+  rating: 4
 })
 
 Review.create!({
@@ -151,7 +151,7 @@ Review.create!({
   product_id: 3,
   user_id: 1,
   description: 'This is okay',
-  rating: 6
+  rating: 1
 })
 
 Review.create!({
@@ -161,5 +161,48 @@ Review.create!({
   rating: 2
 })
 
+Review.create!({
+  product_id: 5,
+  user_id: 1,
+  description: 'This is a description',
+  rating: 3
+})
+
+Review.create!({
+  product_id: 6,
+  user_id: 1,
+  description: 'This is a description',
+  rating: 3
+})
+
+# USERS
+
+User.create!({
+  first_name: 'Test',
+  last_name: 'McTest',
+  email: 'test1@gmail.com',
+  password_digest: '$2a$10$p9ZCs39bB8gf.mlWyWO8jua5drroNCRfvk8meX.vjVUlczYuY1zBG'
+})
+
+User.create!({
+  first_name: 'Test2',
+  last_name: 'McTest2',
+  email: 'test2@gmail.com',
+  password_digest: '$2a$10$p9ZCs39bB8gf.mlWyWO8jua5drroNCRfvk8meX.vjVUlczYuY1zBG'
+})
+
+User.create!({
+  first_name: 'Test3',
+  last_name: 'McTest3',
+  email: 'test3@gmail.com',
+  password_digest: '$2a$10$p9ZCs39bB8gf.mlWyWO8jua5drroNCRfvk8meX.vjVUlczYuY1zBG'
+})
+
+User.create!({
+  first_name: 'Test4',
+  last_name: 'McTest4',
+  email: 'test4@gmail.com',
+  password_digest: '$2a$10$p9ZCs39bB8gf.mlWyWO8jua5drroNCRfvk8meX.vjVUlczYuY1zBG'
+})
 
 puts "DONE!"
