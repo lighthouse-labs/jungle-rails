@@ -13,10 +13,12 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    line_items = LineItem.where("order_id" => order.id)
 
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+      UserMailer.welcome_email(order, order.line_items).deliver_now
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -47,7 +49,6 @@ class OrdersController < ApplicationController
       total_cents: cart_subtotal_cents,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
-
     enhanced_cart.each do |entry|
       product = entry[:product]
       quantity = entry[:quantity]

@@ -1,9 +1,14 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'no-reply@jungle.com'
  
-  def welcome_email
-    @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  def welcome_email(order, line_items)
+    @order = order
+    @line_items = line_items
+    mail(to: @order.email, subject: "Order ##{@order.id}")
   end
+
+  def product_info variable
+    Product.find(variable.product_id)
+  end
+  helper_method :product_info
 end
