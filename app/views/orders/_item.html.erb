@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= image_tag product.image.tiny %>
+  </td>
+  <td>
+    <h4><%= product.name %></h4>
+    <br>
+    <p><%= product.description %></p>
+  </td>
+  <td>
+    $<%= item.item_price_cents / 100 %>
+  </td>
+  <td>
+    <%= item.quantity %>
+  </td>
+  <td>
+    $<%= item.item_price_cents * item.quantity / 100 %>
+  </td>
+</tr>
