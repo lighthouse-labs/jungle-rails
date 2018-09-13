@@ -6,4 +6,6 @@ class Review < ActiveRecord::Base
   validates :user_id, presence: true
   validates :description, presence: true
   validates :rating, presence: true
+
+  validates_numericality_of :rating, :in => 1..5
 end
