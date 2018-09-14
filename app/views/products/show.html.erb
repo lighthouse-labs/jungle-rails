@@ -26,6 +26,11 @@
 
       <div class="col-sm-8">
       <h2>Reviews</h2>
+      <% if @average %>
+      <h3>Average Rating: <%= @average.to_i.floor %>/5</h3>
+      <% else %>
+      <h3>No ratings yet </h3>
+      <% end %>
         <dl class="dl-horizontal">
           <% @reviews.reverse.each do |review| %>
         <div>
@@ -34,7 +39,7 @@
           <dt class='product-review-table'>Description</dt>
           <dd class='product-review-table'><%= review.description %></dd>
           <dt class='product-review-table'>Rating</dt>
-          <dd class='product-review-table'><%= review.rating %></dd>
+          <dd class='product-review-table'><%= review.rating %>/5</dd>
         <% if current_user && current_user.id == user_info(review).id %>
           <dt class='product-review-table'>Delete</dt>
           <dd class='delete-button-table'><%= link_to fa_icon('trash'), review, class: 'delete-button btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
