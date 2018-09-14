@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :require_login
+
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
@@ -6,7 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to :back, notice: 'Review created!'
     else
-      redirect_to :back, notice: 'NOOOO'
+      redirect_to :back, notice: 'Review not saved'
     end
   end
 
@@ -15,6 +17,20 @@ class ReviewsController < ApplicationController
       :description,
       :rating
     )
+  end
+
+  def destroy
+    @review = Review.find params[:id]
+    @review.destroy
+    redirect_to :back, notice: 'Review deleted!'
+  end
+
+  private
+  def require_login
+    unless current_user
+      flash[:error] = 'You must be logged in to leave a review'
+      redirect_to '/login'
+    end
   end
 end
 
