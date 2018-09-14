@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :show]
 
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users, only: [:new, :create]
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
@@ -75,18 +79,27 @@ Rails.application.routes.draw do
 end
 
 # Routes
-#            Prefix Verb   URI Pattern                   Controller#Action
-#              root GET    /                             products#index
-#          products GET    /products(.:format)           products#index
-#           product GET    /products/:id(.:format)       products#show
-#          category GET    /categories/:id(.:format)     categories#show
-#     add_item_cart POST   /cart/add_item(.:format)      carts#add_item
-#  remove_item_cart POST   /cart/remove_item(.:format)   carts#remove_item
-#              cart GET    /cart(.:format)               carts#show
-#            orders POST   /orders(.:format)             orders#create
-#             order GET    /orders/:id(.:format)         orders#show
-#        admin_root GET    /admin(.:format)              admin/dashboard#show
-#    admin_products GET    /admin/products(.:format)     admin/products#index
-#                   POST   /admin/products(.:format)     admin/products#create
-# new_admin_product GET    /admin/products/new(.:format) admin/products#new
-#     admin_product DELETE /admin/products/:id(.:format) admin/products#destroy
+# Prefix Verb   URI Pattern                     Controller#Action
+#               root GET    /                               products#index
+#           products GET    /products(.:format)             products#index
+#            product GET    /products/:id(.:format)         products#show
+#           category GET    /categories/:id(.:format)       categories#show
+#      add_item_cart POST   /cart/add_item(.:format)        carts#add_item
+#   remove_item_cart POST   /cart/remove_item(.:format)     carts#remove_item
+#               cart GET    /cart(.:format)                 carts#show
+#             orders POST   /orders(.:format)               orders#create
+#              order GET    /orders/:id(.:format)           orders#show
+#           sessions POST   /sessions(.:format)             sessions#create
+#        new_session GET    /sessions/new(.:format)         sessions#new
+#            session DELETE /sessions/:id(.:format)         sessions#destroy
+#              users POST   /users(.:format)                users#create
+#           new_user GET    /users/new(.:format)            users#new
+#         admin_root GET    /admin(.:format)                admin/dashboard#show
+#     admin_products GET    /admin/products(.:format)       admin/products#index
+#                    POST   /admin/products(.:format)       admin/products#create
+#  new_admin_product GET    /admin/products/new(.:format)   admin/products#new
+#      admin_product DELETE /admin/products/:id(.:format)   admin/products#destroy
+#   admin_categories GET    /admin/categories(.:format)     admin/categories#index
+#                    POST   /admin/categories(.:format)     admin/categories#create
+# new_admin_category GET    /admin/categories/new(.:format) admin/categories#new
+
