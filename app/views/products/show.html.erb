@@ -27,7 +27,7 @@
       <div class="col-sm-8">
       <h2>Reviews</h2>
         <dl class="dl-horizontal">
-          <% @reviews.each do |review| %>
+          <% @reviews.reverse.each do |review| %>
           <dt>User</dt>
           <dd><%= user_info(review).first_name %></dd>
           <dt>Description</dt>
@@ -37,6 +37,32 @@
         <% end %>
         </dl>
     </div>
+    
+  <div>
+  <%= form_for [@product, @review] do |form| %>
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_field :description, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :rating %>
+          <%= form.number_field :rating, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Add review', class: 'btn btn-primary' %>
+      <% end %>
+</div>
 
   </article>
 
