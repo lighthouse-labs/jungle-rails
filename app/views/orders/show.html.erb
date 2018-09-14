@@ -17,9 +17,7 @@
         </tr>
       </thead>
       <tbody>
-      <%# <h2>Products <%=@line_items.product %> </h2>
           <% @line_items.each do |item| %>
-          <%# <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
           <td><%= image_tag item.product.image.tiny %>
           <td><%= item.product.name %></td>
           <td><%= item.product.description %></td>
