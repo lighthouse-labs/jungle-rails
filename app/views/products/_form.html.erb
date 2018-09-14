@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <%= form.label :rating %>
-          <%= form.number_field :rating, class: 'form-control' %>
+          <%= form.select :rating, options_for_select(1..5), class: 'form-control' %>
         </div>
 
         <%= form.submit 'Add review', class: 'btn btn-primary' %>
