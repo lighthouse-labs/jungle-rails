@@ -37,7 +37,7 @@
           <dd><%= review.rating %></dd>
         </div>
         <% if current_user.id == user_info(review).id %>
-        <div> heelloo </div>
+         <%= link_to fa_icon('trash'), review, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
         <% end %>
         </dl>
