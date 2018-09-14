@@ -29,16 +29,18 @@
         <dl class="dl-horizontal">
           <% @reviews.reverse.each do |review| %>
         <div>
-          <dt>User</dt>
-          <dd><%= user_info(review).first_name %></dd>
-          <dt>Description</dt>
-          <dd><%= review.description %></dd>
-          <dt>Rating</dt>
-          <dd><%= review.rating %></dd>
-        </div>
-        <% if current_user.id == user_info(review).id %>
-         <%= link_to fa_icon('trash'), review, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+          <dt class='product-review-table'>User</dt>
+          <dd class='product-review-table'><%= user_info(review).first_name %></dd>
+          <dt class='product-review-table'>Description</dt>
+          <dd class='product-review-table'><%= review.description %></dd>
+          <dt class='product-review-table'>Rating</dt>
+          <dd class='product-review-table'><%= review.rating %></dd>
+        <% if current_user && current_user.id == user_info(review).id %>
+          <dt class='product-review-table'>Delete</dt>
+          <dd class='delete-button-table'><%= link_to fa_icon('trash'), review, class: 'delete-button btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
+         
         <% end %>
+        </div>
         <% end %>
         </dl>
     </div>

@@ -77,6 +77,20 @@ main section.categories-show {
     }
   }
 }
+
+p.delete-button-container {
+  text-align: center;
+}
+.delete-button {
+  width: 20%;
+}
+.delete-button-table {
+  text-align: center;
+}
+dt.product-review-table {
+  text-align: left; 
+  width:100px;
+}
 .order-image {
   width: 100px;
   height: 100px;
