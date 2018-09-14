@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <h1>Thanks for shopping with Jungle! %> </h1>
+  <h2>Order #<%= @order.id %> </h2>
+  
+  <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total Price </th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @line_items.each do |item| %>
+          <td><%= image_tag item.product.image.tiny %>
+          <td><%= item.product.name %></td>
+          <td><%= item.product.description %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.product.price %></td>
+          <td><%= item.product.price * item.quantity %>
+          <tr>
+        <% end %>
+      </tbody>
+    
+  </body>
+</html>
