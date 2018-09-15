@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
 
   def show
+    # if cart.size == 0
+    #   render action: 'cart'
+    # end
   end
 
   def add_item
