@@ -123,5 +123,92 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+User.create!({
+  first_name:  'Peter',
+  last_name: 'Piper',
+  email: 'peter@piper.com',
+  password_digest: 'peter'
+})
+
+User.create!({
+  first_name:  'Tom',
+  last_name: 'Thumb',
+  email: 'tom@thumb.com',
+  password_digest: 'tom'
+})
+
+User.create!({
+  first_name:  'Jack',
+  last_name: 'Horner',
+  email: 'jack@horner.com',
+  password_digest: 'jack'
+})
+
+## REVIEWS
+
+puts "Finding Users ..."
+
+usr1 = User.find_by first_name: 'Peter'
+usr2 = User.find_by first_name: 'Tom'
+usr3 = User.find_by first_name: 'Jack'
+
+
+puts "Finding Products ..."
+
+prd1 = Product.find_by name: 'Red Bookshelf'
+prd2 = Product.find_by name: 'Optimal Sleeping Bed'
+prd3 = Product.find_by name: 'Hotdog Slicer'
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+usr1.reviews.create!({
+  description: Faker::Hipster.paragraph(5),
+  rating: 4,
+  product_id: prd1.id
+})
+
+usr1.reviews.create!({
+  description: Faker::Hipster.paragraph(5),
+  rating: 5,
+  product_id: prd2.id
+})
+
+usr2.reviews.create!({
+  description: Faker::Hipster.paragraph(6),
+  rating: 5,
+  product_id: prd1.id
+})
+
+usr2.reviews.create!({
+  description: Faker::Hipster.paragraph(6),
+  rating: 4,
+  product_id: prd3.id
+})
+
+usr3.reviews.create!({
+  description: Faker::Hipster.paragraph(7),
+  rating: 5,
+  product_id: prd3.id
+})
+
+usr3.reviews.create!({
+  description: Faker::Hipster.paragraph(7),
+  rating: 3,
+  product_id: prd2.id
+})
+
+usr3.reviews.create!({
+  description: Faker::Hipster.paragraph(7),
+  rating: 5,
+  product_id: prd1.id
+})
 
 puts "DONE!"
