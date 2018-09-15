@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  resources :reviews, only: [:new, :create, :destroy]
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
