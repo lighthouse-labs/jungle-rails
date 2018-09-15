@@ -172,43 +172,50 @@ Review.destroy_all
 usr1.reviews.create!({
   description: Faker::Hipster.paragraph(5),
   rating: 4,
-  product_id: prd1.id
+  product_id: prd1.id,
+  created_at: '2018-06-27 14:09:36 +0800'
 })
 
 usr1.reviews.create!({
   description: Faker::Hipster.paragraph(5),
   rating: 5,
-  product_id: prd2.id
+  product_id: prd2.id,
+  created_at: '2018-04-11 14:09:36 +0800'
 })
 
 usr2.reviews.create!({
   description: Faker::Hipster.paragraph(6),
   rating: 5,
-  product_id: prd1.id
+  product_id: prd1.id,
+  created_at: '2018-07-27 14:09:36 +0200'
 })
 
 usr2.reviews.create!({
   description: Faker::Hipster.paragraph(6),
   rating: 4,
-  product_id: prd3.id
+  product_id: prd3.id,
+  created_at: '2018-08-27 14:09:36 +0200'
 })
 
 usr3.reviews.create!({
   description: Faker::Hipster.paragraph(7),
   rating: 5,
-  product_id: prd3.id
+  product_id: prd3.id,
+  created_at: '2017-08-31 14:09:36 UTC'
 })
 
 usr3.reviews.create!({
   description: Faker::Hipster.paragraph(7),
   rating: 3,
-  product_id: prd2.id
+  product_id: prd2.id,
+  created_at: '2016-08-27 14:09:36 UTC'
 })
 
 usr3.reviews.create!({
   description: Faker::Hipster.paragraph(7),
   rating: 5,
-  product_id: prd1.id
+  product_id: prd1.id,
+  created_at: '2017-03-27 23:53:38 UTC'
 })
 
 puts "DONE!"

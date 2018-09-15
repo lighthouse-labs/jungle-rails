@@ -1,0 +1,10 @@
+
+<article class="review">
+  <dl class="dl-horizontal">
+    <dt><%= review.user_id %>
+    <br>Rating: <%= review.rating %>/5
+    <br><%= time_ago_in_words(review.created_at) %> ago
+    </dt>
+    <dd><%= review.description %></dd>
+  </dl>
+</article>
