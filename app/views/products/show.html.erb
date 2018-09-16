@@ -7,11 +7,9 @@
   <article class="product-detail">
 
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
-
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
@@ -24,6 +22,27 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+    </div>
+    <% if current_user %>
+    <h4>Rate the product and write a review:</h4>
+    <div class="form-group">
+      <%= form_for [@product, @review] do |f| %>
+        <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.select :rating, options_for_select([1, 2, 3, 4, 5]), class: 'form-control' %>
+        <%= f.submit "Post Review" %>
+      <% end %>
+    </div>
+    <% end %>
+    <h4>Customer reviews:</h4>
+    <% if (@reviews.length == 0) %>
+      <div class="row"> This product hasn't been reviewed yet. </div>
+    <% end %>
+    <div class="row">
+      <% @reviews.each do |review| %>
+        <%= render 'products/review', review: review %>
+      <% end %>
     </div>
 
   </article>
