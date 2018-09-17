@@ -110,31 +110,31 @@ RSpec.describe User, type: :model do
       @user = User.create(
         first_name:'John',
         last_name:'Smith',
-        email:'johnsmith@gmail.com',
+        email:'JohnSmith@gmail.com',
         password:'hunter2',
         password_confirmation:'hunter2')
     end
 
     it 'should return user with valid credentials input' do
-      user_auth = User.authenticate_with_credentials('johnsmith@gmail.com', 'hunter2')
+      user_auth = User.authenticate_with_credentials('JohnSmith@gmail.com', 'hunter2')
       user_auth.should be_truthy
       user_auth.should eq(@user)
     end
 
     it 'should return nil with invalid password' do
-      user_auth = User.authenticate_with_credentials('johnsmith@gmail.com', 'hunter1')
+      user_auth = User.authenticate_with_credentials('JohnSmith@gmail.com', 'hunter1')
       user_auth.should_not be_truthy
       user_auth.should_not eq(@user)
     end
 
     it 'should return nil with invalid email' do
-      user_auth = User.authenticate_with_credentials('johnsmith@gm.com', 'hunter2')
+      user_auth = User.authenticate_with_credentials('JohnSmith@gm.com', 'hunter2')
       user_auth.should_not be_truthy
       user_auth.should_not eq(@user)
     end
 
     it 'should return nil with invalid email & password' do
-      user_auth = User.authenticate_with_credentials('johnsmith@gl.com', 'hunter1')
+      user_auth = User.authenticate_with_credentials('JohnSmith@gl.com', 'hunter1')
       user_auth.should_not be_truthy
       user_auth.should_not eq(@user)
     end
