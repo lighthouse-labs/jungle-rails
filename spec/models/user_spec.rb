@@ -48,8 +48,8 @@ RSpec.describe User, type: :model do
         first_name:'Joe',
         last_name:'Bloggs',
         email:'testingemail@gmail.com',
-        password:'test',
-        password_confirmation:'test')
+        password:'testpassword',
+        password_confirmation:'testpassword')
         
       @second_user = User.new(
         first_name:'John',
@@ -57,8 +57,16 @@ RSpec.describe User, type: :model do
         email:'testingemail@gmail.com',
         password:'hunter2',
         password_confirmation:'hunter2')
+
+      @third_user = User.new(
+        first_name:'John',
+        last_name:'Smith',
+        email:'TESTINGemail@gmail.com',
+        password:'hunter2',
+        password_confirmation:'hunter2')
       expect(@first_user).to be_valid
       expect(@second_user).to_not be_valid
+      expect(@third_user).to_not be_valid
     end
 
     it 'is not valid without a first name' do
@@ -78,6 +86,16 @@ RSpec.describe User, type: :model do
         password_confirmation:'hunter2')
       expect(@user).to_not be_valid
     end
+
+    it 'is not valid with a password shorter than 8' do
+      @user = User.new(
+        first_name:'John',
+        email:'test1@gmail.com',
+        password:'',
+        password_confirmation:'test')
+        expect(@user).to_not be_valid
+    end
+
   end
 
 end
