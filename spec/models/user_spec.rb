@@ -125,7 +125,6 @@ RSpec.describe User, type: :model do
       user_auth = User.authenticate_with_credentials('johnsmith@gmail.com', 'hunter1')
       user_auth.should_not be_truthy
       user_auth.should_not eq(@user)
-
     end
 
     it 'should return nil with invalid email' do
@@ -138,6 +137,18 @@ RSpec.describe User, type: :model do
       user_auth = User.authenticate_with_credentials('johnsmith@gl.com', 'hunter1')
       user_auth.should_not be_truthy
       user_auth.should_not eq(@user)
+    end
+
+    it 'should authenticate successfully if user inputs spaces alongside correct email address' do
+      user_auth = User.authenticate_with_credentials('  johnsmith@gmail.com  ', 'hunter2')
+      user_auth.should be_truthy
+      user_auth.should eq(@user)
+    end
+
+    it 'should authenticate successfully if user inputs the wrong case for their email' do
+      user_auth = User.authenticate_with_credentials('JoHnSMITH@gmail.com', 'hunter2')
+      user_auth.should be_truthy
+      user_auth.should eq(@user)
     end
 
   end
