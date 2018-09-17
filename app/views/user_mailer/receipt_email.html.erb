@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, <%= @order.email %></h1>
+    <p>
+      You have successfully placed your order with Jungle.com.<br>
+    </p>
+    <p>
+      <div class="order-summary jumbotron">
+        <h4>Thank you for your order!</h4>
+        <p> <%= @order.email %> </p> 
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th colspan="2">Product</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.line_items.each do |item| %>
+              <%= render 'item', product: item.product, quantity: item.quantity.to_i %>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4">
+                TOTAL:
+              </th>
+              <th>
+                <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </p>
+    <p>Thank you for shopping with us. Your order is on its way. Have a great day!</p>
+  </body>
+</html>

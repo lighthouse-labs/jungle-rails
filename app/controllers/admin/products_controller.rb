@@ -1,4 +1,7 @@
 class Admin::ProductsController < ApplicationController
+  http_basic_authenticate_with  name: Rails.configuration.admin[:admin_username], 
+                                password: Rails.configuration.admin[:admin_password]
+  before_filter :authorize
 
   def index
     @products = Product.order(id: :desc).all
@@ -25,16 +28,15 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
-
-  def product_params
-    params.require(:product).permit(
-      :name,
-      :description,
-      :category_id,
-      :quantity,
-      :image,
-      :price
-    )
-  end
+    def product_params
+      params.require(:product).permit(
+        :name,
+        :description,
+        :category_id,
+        :quantity,
+        :image,
+        :price
+      )
+    end
 
 end
