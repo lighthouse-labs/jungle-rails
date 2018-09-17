@@ -9,7 +9,7 @@ RSpec.describe Product, type: :model do
 
   describe 'Validations' do
     it "is valid with valid attributes" do
-      @product_params = Product.new(name:'name', description: 'description', category:@category, quantity:5, image:'url', price:100)
+      @product_params = Product.new(name:'name', category:@category, quantity:5, price:100)
       expect(@product_params).to be_valid
     end
 
