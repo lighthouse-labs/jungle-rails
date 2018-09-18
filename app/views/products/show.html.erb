@@ -3,7 +3,6 @@
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
   </header>
-
   <article class="product-detail">
 
     <div class="row">
@@ -23,8 +22,37 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-      </div>
     </div>
+
+      <div class="col-sm-8">
+      <h2>Reviews</h2>
+      <% if @average %>
+      <h3>Average Rating: <%= @average.to_i.floor %>/5</h3>
+      <% else %>
+      <h3>No ratings yet </h3>
+      <% end %>
+        <dl class="dl-horizontal">
+          <% @reviews.reverse.each do |review| %>
+        <div>
+          <dt class='product-review-table'>User</dt>
+          <dd class='product-review-table'><%= user_info(review).first_name %></dd>
+          <dt class='product-review-table'>Description</dt>
+          <dd class='product-review-table'><%= review.description %></dd>
+          <dt class='product-review-table'>Rating</dt>
+          <dd class='product-review-table'><%= review.rating %>/5</dd>
+        <% if current_user && current_user.id == user_info(review).id %>
+          <dt class='product-review-table'>Delete</dt>
+          <dd class='delete-button-table'><%= link_to fa_icon('trash'), review, class: 'delete-button btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
+         
+        <% end %>
+        </div>
+        <% end %>
+        </dl>
+    </div>
+  <% if current_user %>
+  <%= render 'form' %>
+  <% end %> 
+  
 
   </article>
 

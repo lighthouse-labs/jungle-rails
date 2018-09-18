@@ -3,6 +3,21 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+    username == ENV["ADMIN_NAME"] && password == ENV["ADMIN_PASSWORD"]
+    end
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
+
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
   private
 
   def cart

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for ordering!</h1>
+    <h2>Your order:</h2>
+    <ul>
+    <% @line_items.each do |item| %>
+    <li><%= item.quantity %>x <%= (product_info item).name %></li>
+    <% end %>
+    </ul>
+    <p>Total: $<%= @order.total_cents / 100%></p>
+  </body>
+</html>

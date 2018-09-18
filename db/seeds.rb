@@ -39,7 +39,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0,
   price: 64.99
 })
 
@@ -132,5 +132,95 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# REVIEWS
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: 'This is good',
+  rating: 4
+})
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: 'This is bad',
+  rating: 4
+})
+Review.create!({
+  product_id: 1,
+  user_id: 3,
+  description: 'This is okay',
+  rating: 5
+})
+Review.create!({
+  product_id: 1,
+  user_id: 4,
+  description: 'This is blsadasd',
+  rating: 2
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: 'This is bad',
+  rating: 4
+})
+
+Review.create!({
+  product_id: 3,
+  user_id: 1,
+  description: 'This is okay',
+  rating: 1
+})
+
+Review.create!({
+  product_id: 4,
+  user_id: 1,
+  description: 'This is terrible',
+  rating: 2
+})
+
+Review.create!({
+  product_id: 5,
+  user_id: 1,
+  description: 'This is a description',
+  rating: 3
+})
+
+Review.create!({
+  product_id: 6,
+  user_id: 1,
+  description: 'This is a description',
+  rating: 3
+})
+
+# USERS
+
+User.create!({
+  first_name: 'Test',
+  last_name: 'McTest',
+  email: 'test1@gmail.com',
+  password_digest: '$2a$10$N7Iun7IZd5vea6wCXRTfX.z67INmEsyM3DEEy2RJ2NvQXjW8mspB6'
+})
+
+User.create!({
+  first_name: 'Test2',
+  last_name: 'McTest2',
+  email: 'test2@gmail.com',
+  password_digest: '$2a$10$N7Iun7IZd5vea6wCXRTfX.z67INmEsyM3DEEy2RJ2NvQXjW8mspB6'
+})
+
+User.create!({
+  first_name: 'Test3',
+  last_name: 'McTest3',
+  email: 'test3@gmail.com',
+  password_digest: '$2a$10$N7Iun7IZd5vea6wCXRTfX.z67INmEsyM3DEEy2RJ2NvQXjW8mspB6'
+})
+
+User.create!({
+  first_name: 'Test4',
+  last_name: 'McTest4',
+  email: 'test4@gmail.com',
+  password_digest: '$2a$10$N7Iun7IZd5vea6wCXRTfX.z67INmEsyM3DEEy2RJ2NvQXjW8mspB6'
+})
 
 puts "DONE!"
