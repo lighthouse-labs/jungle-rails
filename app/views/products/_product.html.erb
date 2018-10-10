@@ -1,8 +1,10 @@
 <article class="product">
 
-  <aside class="soldout">
-  <%= "SOLD OUT!" %>
-  </aside>
+  <% if product.quantity == 0 %>
+    <aside class="soldout">
+      SOLD OUT! 
+    </aside>
+  <% end %>
 
   <header>
     <%= link_to product do %>
