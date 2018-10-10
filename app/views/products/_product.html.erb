@@ -1,4 +1,9 @@
 <article class="product">
+
+  <aside class="soldout">
+  <%= "SOLD OUT!" %>
+  </aside>
+
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
