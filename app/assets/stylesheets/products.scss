@@ -7,6 +7,18 @@ main section.categories-show {
     flex-wrap:       wrap;
     justify-content: space-around;
 
+    .sold-out{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: #eee;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 1em;
+        color: white;
+        background-color:red;
+    }
     .product {
       // flex:      1;
       max-width: 260px;
