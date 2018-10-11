@@ -1,5 +1,8 @@
 <section class="cart-show">
-
+  <% if cart.empty? %>
+  <h1>Shopping cart is empty.</h1>
+  <a href = "/">Back to Homepage</a>
+  <% else  %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -48,5 +51,5 @@
       <% end %>
     </div>
   </div>
-
+  <% end %>
 </section>
