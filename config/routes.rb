@@ -20,10 +20,13 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :create, :new]
   end
 
+  #refactor as new way
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  # resources :signup, only: [:new, :create]
+  # resources :users, only: [:create]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
