@@ -1,41 +1,19 @@
-# <tr>
-#   <td>
-#     <%= image_tag product.image.tiny %>
-#   </td>
-#   <td>
-#     <h4><%= product.name %></h4>
-#     <br>
-#     <p><%= product.description %></p>
-#   </td>
-#   <td>
-#     <%= product.price %>
-#   </td>
-#   <td>
-#     <%= button_to remove_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-danger' do %> - <% end %>
-#     <%= quantity %>
-#     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-success' do %> + <% end %>
-#   </td>
-#   <td>
-#     <%= product.price * quantity %>
-#   </td>
-# </tr>
-
-## left off figuring out how to orders display table and insert items.
-
-
-
-
-#items
- # get all from order_id
-  # name  line_items.product_id.name
-  #image  line_items.product_id.image
-  # description  line_items.product_id.description
-
-  #quanities  line_items.quantity
-  #line item totals   sum(line_items).order_id
-
-
-  
-# <div class="products">
-    #   <%= render @products %>
-    # </div>
+<tr>
+  <td>
+    <%= image_tag product.image.tiny %>
+  </td>
+  <td>
+    <h4><%= product.name %></h4>
+    <br>
+    <p><%= product.description %></p>
+  </td>
+  <td>
+    <%= product.price %>
+  </td>
+  <td>
+    <%= quantity %>
+  <td>
+    <%= product.price * quantity %>
+  </td>
+</tr>
+s

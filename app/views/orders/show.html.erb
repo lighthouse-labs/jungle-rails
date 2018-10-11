@@ -4,7 +4,7 @@
     <h1>Order #<%= @order.id %></h1>
     <h2><%= @order.email %></h2>
   </header>
-
+  
   <div class="order-summary jumbotron">
     <div class="panel panel-default items">
       <table class="table table-bordered">
@@ -17,6 +17,12 @@
           </tr>
         </thead>
         
+        <tbody>
+        
+          <% @order.line_items.each do |item| %>
+            <%= render 'order', product: item.product, quantity: item.quantity.to_i %>
+          <% end %>
+        </tbody>
 
         <tfoot>
           <tr>
