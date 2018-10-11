@@ -27,7 +27,27 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <li class="dropdown">
+
+
+      <% if current_user %>
+        <li><%= link_to "Logout #{current_user.name}", [:logout], {:style=>'color:#a94442;'} %></li>
+      <% else %>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+            <span class="text-mute"><%= 'Visitor' %></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Sign In', [:login] %></li>
+            <li><%= link_to 'Register',  [:signup] %></li>
+          </ul>
+        </li>
+        <% end %>
+
+
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
             <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
