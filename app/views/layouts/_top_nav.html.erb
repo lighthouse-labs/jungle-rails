@@ -30,13 +30,13 @@
 
 
       <% if current_user %>
-        <li><%= link_to '#{current_user.name}', [:logout] %></li>
+        <li><%= link_to "Logout #{current_user.name}", [:logout], {:style=>'color:#a94442;'} %></li>
       <% else %>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
-            <span class="text-danger"><%= 'Visitor' %></span>
+            <span class="text-mute"><%= 'Visitor' %></span>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
