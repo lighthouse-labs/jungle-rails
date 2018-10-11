@@ -16,14 +16,11 @@
             <th>Price</th>
           </tr>
         </thead>
-        
         <tbody>
-        
           <% @order.line_items.each do |item| %>
             <%= render 'order', product: item.product, quantity: item.quantity.to_i %>
           <% end %>
         </tbody>
-
         <tfoot>
           <tr>
             <th colspan="4">
@@ -37,10 +34,6 @@
       </table>
     </div>
   </div>
-
-
-
-
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
