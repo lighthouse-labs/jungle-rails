@@ -53,8 +53,8 @@ class OrdersController < ApplicationController
       )
     end
     order.save!
+    JungleMailer.order_confirmation_email(current_user.email, "Your order: #{order.id}", order).deliver_later
     order
-    UserMailer.with(user: current_user).order_confirmation_email.deliver_later
   end
 
 end
