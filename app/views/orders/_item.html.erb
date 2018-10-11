@@ -8,13 +8,13 @@
     <p><%= product.description %></p>
   </td>
   <td>
-    <%= item.item_price_cents %>
+    <%= product.price %>
   </td>
   <td>
-    <%= item.quantity %>
+    <%= quantity %>
   </td>
   <td>
-    <%= item.total_price_cents/100%>
+    <%= product.price * quantity%>
   </td>
 </tr>
 
