@@ -41,6 +41,7 @@ cat1.products.create!({
   image: open_asset('apparel1.jpg'),
   quantity: 10,
   price: 64.99
+  reviews: [5,4,5]
 })
 
 cat1.products.create!({
@@ -49,6 +50,7 @@ cat1.products.create!({
   image: open_asset('apparel2.jpg'),
   quantity: 18,
   price: 124.99
+  reviews: [1]
 })
 
 cat1.products.create!({
@@ -57,6 +59,7 @@ cat1.products.create!({
   image: open_asset('apparel3.jpg'),
   quantity: 4,
   price: 34.49
+  reviews: [3]
 })
 
 cat1.products.create!({
@@ -65,6 +68,7 @@ cat1.products.create!({
   image: open_asset('apparel4.jpg'),
   quantity: 8,
   price: 25.00
+  reviews: [2,5]
 })
 
 cat1.products.create!({
@@ -73,6 +77,7 @@ cat1.products.create!({
   image: open_asset('apparel5.jpg'),
   quantity: 8,
   price: 1_225.00
+  reviews: [1,3]
 })
 
 cat1.products.create!({
@@ -81,6 +86,7 @@ cat1.products.create!({
   image: open_asset('apparel6.jpg'),
   quantity: 82,
   price: 224.50
+  reviews: [1,4]
 })
 
 
