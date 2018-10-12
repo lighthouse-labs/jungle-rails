@@ -9,7 +9,7 @@
     <hr>
     <ol>
       <% @order.line_items.each do |item| %>
-        <li><%= item.product item.quantity.to_i %></li>
+        <li><%= item.product  %></li>
         <li><%= item.quantity.to_i %></li>
       <% end %>
     </ol>
@@ -20,3 +20,5 @@
     <p>Thanks for your purchase and have a great day!</p>
   </body>
 </html>
+
+
