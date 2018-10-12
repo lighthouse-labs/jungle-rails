@@ -149,6 +149,20 @@ Review.create({
 })
 
 Review.create({
+  product_id: 1,
+  user_id: 2,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+
+Review.create({
+  product_id: 1,
+  user_id: 1,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
   product_id: 2,
   user_id: 1,
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -225,3 +239,6 @@ Review.create({
   rating: 5
 })
 puts "DONE!"
+
+
+
