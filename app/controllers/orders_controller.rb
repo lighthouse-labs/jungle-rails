@@ -8,11 +8,16 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
 
-    if order.valid?
-      empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
-    else
-      redirect_to cart_path, flash: { error: order.errors.full_messages.first }
+    respond_to do |format|
+      if order.valid?
+        OrderMailer.reciept_email(@user).deliver_later
+        empty_cart!
+        format.html {redirect_to order, notice: 'Your Order has been placed.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { redirect_to cart_path, flash: { error: order.errors.full_messages.first }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
 
   rescue Stripe::CardError => e
@@ -54,6 +59,8 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
+
+    
   end
 
 
