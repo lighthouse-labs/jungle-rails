@@ -7,12 +7,31 @@
     <h1><%= @order.email %></h3>
     <h3>Your order was successful</h3>
     <hr>
-    <ol>
-      <% @order.line_items.each do |item| %>
-        <li><%= item.product  %></li>
-        <li><%= item.quantity.to_i %></li>
-      <% end %>
-    </ol>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.line_items.each do |item| %>
+            <%= render 'order', product: item.product, quantity: item.quantity.to_i %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">
+              TOTAL:
+            </th>
+            <th>
+              <%= @order.total_cents / 100.0 %>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
 
     <p>Total: <%= @order.total_cents / 100.0 %></p>
 
