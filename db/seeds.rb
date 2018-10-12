@@ -138,4 +138,7 @@ cat3.products.create!({
 puts "Creating reviews"
 review1 = Review.create!(rating: 5, description: "Good", product_id: 1, user_id: 1)
 review2 = Review.create!(rating: 1, description: "ehh", product_id: 2, user_id: 1)
+review3 = Review.create!(rating: 3, description: "meh", product_id: 2, user_id: 1)
+review4 = Review.create!(rating: 5, description: "nicee", product_id: 2, user_id: 1)
+review5 = Review.create!(rating: 1, description: "ehh", product_id: 1, user_id: 1)
 puts "DONE!"
