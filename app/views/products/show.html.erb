@@ -27,18 +27,11 @@
 
       <div class="col-sm-8">
         <h3>Rate this product</h3>
-        <%= form_tag do %>
-          <form accept-charset="UTF-8" action="/" method="post">
-            <input name="description" type="text_area" placeholder="Description" />
-            <select name="rating">
-              <option value="1">*</option>
-              <option value="2">**</option>
-              <option value="3">***</option>
-              <option value="4">****</option>
-              <option value="5">*****</option>
-            </select>
-          </form>
-        <% end %>
+
+          <%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
+            <%= f.text_area :description, size: "40x5" %>
+            <%= f.select :rating, options_for_select([['1', 1], ['2', 2],['3', 3],['4', 4],['5', 5]])%>
+          <% end %>
       </div>
     </div>
 
@@ -46,9 +39,11 @@
     <div class="col-sm-12">
     <dl class="dl-horizontal">
       <% @product.reviews.each do |item| %>
-        <br>
-        <%= render 'review', review: item %>
-        <br>
+        <% if item.id %>
+          <br>
+            <%= render 'review', review: item %>
+          <br>
+        <% end %>
       <% end %>
     </dl>
   </div>
