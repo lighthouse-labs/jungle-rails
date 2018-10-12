@@ -1,11 +1,9 @@
 class CartsController < ApplicationController
 
   def show
-    if !cart.length
-      #what is cart ^^^^^
+    puts cart
+    if cart.empty?
       render 'empty'
-    # else
-    #   redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
   end
 
