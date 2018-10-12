@@ -41,7 +41,6 @@ cat1.products.create!({
   image: open_asset('apparel1.jpg'),
   quantity: 10,
   price: 64.99
-  reviews: [5,4,5]
 })
 
 cat1.products.create!({
@@ -50,7 +49,6 @@ cat1.products.create!({
   image: open_asset('apparel2.jpg'),
   quantity: 18,
   price: 124.99
-  reviews: [1]
 })
 
 cat1.products.create!({
@@ -59,7 +57,6 @@ cat1.products.create!({
   image: open_asset('apparel3.jpg'),
   quantity: 4,
   price: 34.49
-  reviews: [3]
 })
 
 cat1.products.create!({
@@ -68,7 +65,6 @@ cat1.products.create!({
   image: open_asset('apparel4.jpg'),
   quantity: 8,
   price: 25.00
-  reviews: [2,5]
 })
 
 cat1.products.create!({
@@ -77,7 +73,6 @@ cat1.products.create!({
   image: open_asset('apparel5.jpg'),
   quantity: 8,
   price: 1_225.00
-  reviews: [1,3]
 })
 
 cat1.products.create!({
@@ -86,7 +81,6 @@ cat1.products.create!({
   image: open_asset('apparel6.jpg'),
   quantity: 82,
   price: 224.50
-  reviews: [1,4]
 })
 
 
@@ -139,4 +133,95 @@ cat3.products.create!({
 })
 
 
+puts "DONE!"
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create({
+  product_id: 1,
+  user_id: 1,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+
+Review.create({
+  product_id: 2,
+  user_id: 1,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 4
+})
+
+Review.create({
+  product_id: 3,
+  user_id: 2,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 1
+})
+
+Review.create({
+  product_id: 4,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 5,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 3
+})
+
+Review.create({
+  product_id: 6,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+
+Review.create({
+  product_id: 7,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 1
+})
+
+Review.create({
+  product_id: 8,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 9,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 3
+})
+
+Review.create({
+  product_id: 10,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 11,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 4
+})
+
+Review.create({
+  product_id: 12,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
 puts "DONE!"
