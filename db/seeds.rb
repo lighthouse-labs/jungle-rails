@@ -28,12 +28,12 @@ puts "Finding or Creating Categories ..."
 cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
-
 ## PRODUCTS
 
 puts "Re-creating Products ..."
 
 Product.destroy_all
+Review.destroy_all
 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
@@ -101,6 +101,7 @@ cat2.products.create!({
 })
 
 cat2.products.create!({
+  id: 2,
   name:  'World\'s Largest Smartwatch',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics3.jpg'),
@@ -109,6 +110,7 @@ cat2.products.create!({
 })
 
 cat3.products.create!({
+  id: 1,
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
@@ -131,6 +133,9 @@ cat3.products.create!({
   quantity: 0,
   price: 2_483.75
 })
-
-
+#REVIEWS
+#Recreating reviews
+puts "Creating reviews"
+review1 = Review.create!(rating: 5, description: "Good", product_id: 1, user_id: 1)
+review2 = Review.create!(rating: 1, description: "ehh", product_id: 2, user_id: 1)
 puts "DONE!"
