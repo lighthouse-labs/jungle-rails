@@ -8,18 +8,15 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
 
-    respond_to do |format|
-      if order.valid?
-        OrderMailer.reciept_email(@user).deliver_later
-        empty_cart!
-        format.html {redirect_to order, notice: 'Your Order has been placed.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { redirect_to cart_path, flash: { error: order.errors.full_messages.first }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if order.valid?
+      OrderMailer.receipt_email(order).deliver_later
+      empty_cart!
+      redirect_to order
+    else
+      redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
-
+    
+  
   rescue Stripe::CardError => e
     redirect_to cart_path, flash: { error: e.message }
   end
