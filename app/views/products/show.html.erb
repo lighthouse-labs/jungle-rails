@@ -44,7 +44,9 @@
         <% @product.reviews.reverse_each do |review| %>
           <p>Rating (Out of 5): <%= review.rating %> </p>
           <p> Description :  <%=review.description %> </p>
+          <% if review.user == current_user %>
           <%= link_to 'Delete', product_review_path(product_id: @product.id, id: review.id) , :method=> :delete%>
+          <% end %>
         <% end %>
       </div>
     </div>
