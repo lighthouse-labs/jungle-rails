@@ -31,12 +31,9 @@
         <dl class="dl-horizontal">
           <% @product.reviews.reverse_each do |item| %>
             <% if item.id %>
-              <br>
-                <%= render 'review', review: item %>
-              <br>
-              <% if @current_user.id == item.user_id %>
-              <%= link_to "Delete", review_path(item.id, item.product_id), :method => "delete", class: 'btn btn-xs btn-danger' %>
-              <% end %>
+              
+                <%= render 'review', review: item, current_user: @current_user %>
+            
             <% end %>
           <% end %>
         </dl>

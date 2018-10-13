@@ -1,15 +1,37 @@
-<dt>ID</dt>
-<dd><%= review.user_id %></dd>
-<dt>Review Date</dt>
-<dd><%= review.created_at %></dd>
-<dt>Description</dt>
-<dd><%= review.description %></dd>
-<dt>Rating</dt>
-<dd>
 
-  <%= review.rating.to_i.times do %>
-    <span class=”glyphicon glyphicon-star”></span>
-  <% end %>
-</dd>
+    <div class="col-sm-12">
+        
+          <table class="table table-bordered">
+          <tr>
+            <td class="col-sm-2">
+              <h4><%= review.user_id %></h4>
+              <p><%= review.created_at  %></p>
+            </td>
+            <td class="col-sm-8">
+              <%= review.description %>
+            </td>
+            
+            <td class="col-sm-1">
+              <%=4 %>
+            </td>
+            <td class="col-sm-1">
+              <%= review.rating.to_i.times do %>
+                <span class=”glyphicon glyphicon-star”></span>
+              <% end %>
+            </td>
+            <td>
+              <% if @current_user != nil && @current_user.id == review.user_id %>
+                <%= link_to "Delete", review_path(review.id, review.product_id), :method => "delete", class: 'btn btn-xs btn-danger' %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      
+        
+    </div>
+
+
+
+
 
 
