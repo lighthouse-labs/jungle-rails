@@ -1,11 +1,27 @@
-<h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
 
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
 
-<% end %>
+<section class="register">
+  
+  <div class="register-summary jumbotron">
+    <div class="panel panel-default items">
+    
+    <h2 class="login-header">Register</h2>
+
+    <%= form_for :user, url: '/users' do |f| %>
+    
+      Name: <%= f.text_field :name %>
+      Email: <%= f.text_field :email %>
+      Password: <%= f.password_field :password %>
+      Password Confirmation: <%= f.password_field :password_confirmation %>
+      <%= f.submit "Submit" %>
+    
+    <% end %>
+    
+    </div>
+  </div>
+  
+
+</section>
+
+
