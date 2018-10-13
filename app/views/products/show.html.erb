@@ -6,7 +6,7 @@
 
   <article class="product-detail">
 
-    <div class="row">
+    <div class="row product-info">
 
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
@@ -25,7 +25,7 @@
         </dl>
         
         <% if @current_user %>
-          <dl class="dl-horizontal">
+          <dl class="dl-horizontal review-form">
             <dt>Rate this product</dt>
     
             <dd><%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
@@ -41,7 +41,7 @@
       
     </div>
 
-    <div class="row">
+    <div class="row reviews-container">
     
       <% @product.reviews.reverse_each do |item| %>
         <% if item.id %> 
