@@ -50,6 +50,24 @@ body {
   }
 }
 
+.review-submit {
+  padding: 7px;
+  font-size: 15px;
+  position: relative;
+  bottom: 30px;
+}
+
+#review_rating {
+  padding:10px;
+  background-color: #F0E68C;
+  border-radius: 5px; 
+  width: 64px;
+  margin:5px;
+  position: relative;
+  bottom: 30px;
+}
+
+
 
 // Bootstrap adjustments
 form.button_to {

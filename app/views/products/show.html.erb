@@ -23,34 +23,33 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        
+        <% if @current_user %>
+          <dl class="dl-horizontal">
+            <dt>Rate this product</dt>
+    
+            <dd><%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
+              <%= f.text_area :description, size: "50x3" %>
+              <%= f.select :rating, options_for_select([['1', 1], ['2', 2],['3', 3],['4', 4],['5', 5]])%>
+              <%= f.submit "Submit", class: 'btn btn-xs btn-info review-submit' %>
+            <% end %></dd>
+          </dl>
+        
+        <% end %>
+
       </div>
+      
     </div>
 
     <div class="row">
-      <div class="col-sm-12">
-        <dl class="dl-horizontal">
-          <% @product.reviews.reverse_each do |item| %>
-            <% if item.id %>
-              
-                <%= render 'review', review: item, current_user: @current_user %>
-            
-            <% end %>
-          <% end %>
-        </dl>
-      </div>  
+    
+      <% @product.reviews.reverse_each do |item| %>
+        <% if item.id %> 
+          <%= render 'review', review: item, current_user: @current_user %>
+        <% end %>
+      <% end %>
     </div>
 
-    <% if @current_user %>
-      <div class="col-sm-12">
-        <h3>Rate this product</h3>
-
-        <%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
-          <%= f.text_area :description, size: "40x5" %>
-          <%= f.select :rating, options_for_select([['1', 1], ['2', 2],['3', 3],['4', 4],['5', 5]])%>
-          <%= f.submit "Submit" %>
-        <% end %>
-      </div>
-      <% end %>
   </div>
 
   </article>
