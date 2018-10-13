@@ -3,19 +3,19 @@
 
 <section class="register">
   
-  <div class="register-summary jumbotron">
+  <div class="summary jumbotron" id="register">
     <div class="panel panel-default items">
     
-    <h2 class="login-header">Register</h2>
+    <h2 class="register-header">Register</h2>
 
     <%= form_for :user, url: '/users' do |f| %>
     
-      Name: <%= f.text_field :name %>
+      Name: <%= f.text_field :name %> 
       Email: <%= f.text_field :email %>
       Password: <%= f.password_field :password %>
       Password Confirmation: <%= f.password_field :password_confirmation %>
-      <%= f.submit "Submit" %>
-    
+      <%= f.submit "Submit", class: 'btn btn-info'%>
+  
     <% end %>
     
     </div>

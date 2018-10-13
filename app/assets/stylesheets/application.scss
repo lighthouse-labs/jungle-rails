@@ -32,16 +32,22 @@ body {
         }
       }
     }
-    .submit-btn {
+    .btn-info {
       margin-left:20px;
     }
     
   }
 }
 
-.register-summary .jumbotron {
+.jumbotron, #register {
   padding-left: 5px;
   padding-right: 5px;
+  
+  .panel-default {
+    .register-header {
+      margin-left:20px;
+    }
+  }
 }
 
 
