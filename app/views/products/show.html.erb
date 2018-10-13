@@ -25,12 +25,26 @@
         </dl>
       </div>
     </div>
-
+    <% if current_user %>
     <div class="row">
       <div class="col-lg-12">
-        <% @product.review.each do |review| %>
+      <%= form_for [@product, @review] do |f| %> 
+        <%= f.label :rating %>
+        <%= f.select :rating, [1,2,3,4,5], :selected => 1 %>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+          <%= f.submit 'Submit Review', class: 'btn btn-primary' %>
+      <% end %>
+      </div>
+    </div>
+    <% end %>
+    <div class="row">
+      <div class="col-lg-12">
+        <% puts "REVIEW LENGTH: " + @product.reviews.empty?.to_s %>
+        <% @product.reviews.reverse_each do |review| %>
           <p>Rating (Out of 5): <%= review.rating %> </p>
           <p> Description :  <%=review.description %> </p>
+          <%= link_to 'Delete', product_review_path(product_id: @product.id, id: review.id) , :method=> :delete%>
         <% end %>
       </div>
     </div>
