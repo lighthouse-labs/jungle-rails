@@ -39,16 +39,18 @@
         </dl>
       </div>  
     </div>
-    <div class="col-sm-12">
 
-    <h3>Rate this product</h3>
+    <% if @current_user %>
+      <div class="col-sm-12">
+        <h3>Rate this product</h3>
 
-      <%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
-        <%= f.text_area :description, size: "40x5" %>
-        <%= f.select :rating, options_for_select([['1', 1], ['2', 2],['3', 3],['4', 4],['5', 5]])%>
-        <%= f.submit "Submit" %>
+        <%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
+          <%= f.text_area :description, size: "40x5" %>
+          <%= f.select :rating, options_for_select([['1', 1], ['2', 2],['3', 3],['4', 4],['5', 5]])%>
+          <%= f.submit "Submit" %>
+        <% end %>
+      </div>
       <% end %>
-  </div>
   </div>
 
   </article>
