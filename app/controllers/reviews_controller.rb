@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
 
 
     if @review.save
-      redirect_to "/"
+      redirect_to @review.product
       
     else
       redirect_to @review.product
@@ -22,9 +22,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to '/'
+    Review.find(params[:id]).destroy
+    flash[:success] = "User deleted."
+    puts '_________'
+    puts params[:product_id]
+    redirect_to Product.find params[:format]
   end
-  
-
 end

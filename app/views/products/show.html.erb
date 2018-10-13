@@ -35,8 +35,8 @@
                 <%= render 'review', review: item %>
               <br>
               <% if @current_user.id == item.user_id %>
-                
-                <% end %>
+              <%= link_to "Delete", review_path(item.id, item.product_id), :method => "delete", class: 'btn btn-xs btn-danger' %>
+              <% end %>
             <% end %>
           <% end %>
         </dl>
