@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     
 
   def create
-
+    
     @review = Review.new({
       product_id: params[:product_id],
       description: params[:review][:description],
@@ -24,8 +24,6 @@ class ReviewsController < ApplicationController
   def destroy
     Review.find(params[:id]).destroy
     flash[:success] = "User deleted."
-    puts '_________'
-    puts params[:product_id]
     redirect_to Product.find params[:format]
   end
 end

@@ -11,6 +11,37 @@ body {
   padding-top: 70px;
 }
 
+.login-summary {
+
+  .panel-default {
+    padding-bottom:20px
+  }
+  .login-header {
+    
+    padding-left: 20px;
+  }
+
+  form {
+    padding-left: 20px;
+
+    .login-input {
+      span {
+        input {
+          padding:5px;
+          width: 50px;
+        }
+      }
+    }
+    .submit-btn {
+      margin-left:20px;
+    }
+    
+  }
+}
+
+
+
+
 // Bootstrap adjustments
 form.button_to {
   display: inline;

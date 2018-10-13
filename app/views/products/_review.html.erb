@@ -6,7 +6,8 @@
 <dd><%= review.description %></dd>
 <dt>Rating</dt>
 <dd>
-  <% review.rating.to_i.times do %>
+
+  <%= review.rating.to_i.times do %>
     <span class=”glyphicon glyphicon-star”></span>
   <% end %>
 </dd>
