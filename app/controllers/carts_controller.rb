@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
   def show
-    puts cart
+    @current_user = current_user
     if cart.empty?
       render 'empty'
     end
