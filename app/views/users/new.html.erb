@@ -10,10 +10,10 @@
 
     <%= form_for :user, url: '/users' do |f| %>
     
-      Name: <%= f.text_field :name %> 
-      Email: <%= f.text_field :email %>
-      Password: <%= f.password_field :password %>
-      Password Confirmation: <%= f.password_field :password_confirmation %>
+      <%= f.text_field :name, placeholder: "Name"%> 
+      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
       <%= f.submit "Submit", class: 'btn btn-info'%>
   
     <% end %>

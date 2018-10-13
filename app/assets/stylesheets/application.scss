@@ -26,11 +26,11 @@ body {
     padding-left: 20px;
 
     .login-input {
-      span {
-        input {
-          padding:5px;
-          width: 50px;
-        }
+      #password {
+        font-size: 15px;
+      }
+      #email {
+        font-size: 15px;
       }
     }
     .btn-info {
@@ -48,6 +48,18 @@ body {
     .register-header {
       margin-left:20px;
     }
+  }
+  #user_name {
+    font-size: 15px;
+  }
+  #user_email {
+    font-size: 15px;
+  }
+  #user_password {
+    font-size: 15px;
+  }
+  #user_password_confirmation {
+    font-size: 15px;
   }
 }
 
@@ -101,6 +113,11 @@ body {
       }
     }
   }
+}
+
+.glyphicon-star {
+  color: goldenrod;
+  font-size: 15px;
 }
 
 // Bootstrap adjustments

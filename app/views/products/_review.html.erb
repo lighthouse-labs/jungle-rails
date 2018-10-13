@@ -11,10 +11,10 @@
               <%= review.description %>
             </div>
             <div class="col-sm-1 r-container">
-              <%= review.rating.to_i.times do %>
-                <span class=”glyphicon glyphicon-star”></span>
+            
+              <% review.rating.times do %>
+                <span class="glyphicon glyphicon-star"></span>
               <% end %>
-              
             </div>
             <div class="col-sm-1 r-container">
               <% if @current_user != nil && @current_user.id == review.user_id %>
