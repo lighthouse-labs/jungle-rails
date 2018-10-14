@@ -6,14 +6,13 @@ As well as one nice looking shirt.
 
 ## Final Product
 
-!["Users, can post with or without names"](https://github.com/erik-mackie/ChattyApp/blob/master/Media/Chat.png)
+!["Product Catalog"](https://github.com/erik-mackie/jungle-rails/blob/master/app/assets/images/Product-Catalog.png)
 
-!["New User cannot see chat history"](https://github.com/erik-mackie/ChattyApp/blob/master/Media/NewUser.png)
+!["Order Confirmation"](https://github.com/erik-mackie/jungle-rails/blob/master/app/assets/images/Order-Confirmation.png)
 
-!["User in chat updates "](https://github.com/erik-mackie/ChattyApp/blob/master/Media/ChatWithNewUser.png)
+!["Checkout Cart"](https://github.com/erik-mackie/jungle-rails/blob/master/app/assets/images/Checkout-Cart.png)
 
-
-
+!["Admin Create Category"](https://github.com/erik-mackie/jungle-rails/blob/master/app/assets/images/Admin-Add-Catergory.png)
 
 
 
