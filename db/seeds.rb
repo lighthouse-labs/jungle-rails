@@ -134,3 +134,111 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create({
+  product_id: 1,
+  user_id: 1,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+
+Review.create({
+  product_id: 1,
+  user_id: 2,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+
+Review.create({
+  product_id: 1,
+  user_id: 1,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 2,
+  user_id: 1,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 4
+})
+
+Review.create({
+  product_id: 3,
+  user_id: 2,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 1
+})
+
+Review.create({
+  product_id: 4,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 5,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 3
+})
+
+Review.create({
+  product_id: 6,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+
+Review.create({
+  product_id: 7,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 1
+})
+
+Review.create({
+  product_id: 8,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 9,
+  user_id: 1,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 3
+})
+
+Review.create({
+  product_id: 10,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 2
+})
+
+Review.create({
+  product_id: 11,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 4
+})
+
+Review.create({
+  product_id: 12,
+  user_id: 2,
+  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  rating: 5
+})
+puts "DONE!"
+
+
+

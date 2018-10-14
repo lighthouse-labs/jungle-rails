@@ -6,7 +6,7 @@
 
   <article class="product-detail">
 
-    <div class="row">
+    <div class="row product-info">
 
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
@@ -23,8 +23,34 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        
+        <% if @current_user %>
+          <dl class="dl-horizontal review-form">
+            <dt>Rate this product</dt>
+    
+            <dd><%= form_for [@product, @review], html: {class: "review_form"} do |f| %>
+              <%= f.text_area :description, size: "50x3" %>
+              <%= f.select :rating, options_for_select([['1', 1], ['2', 2],['3', 3],['4', 4],['5', 5]])%>
+              <%= f.submit "Submit", class: 'btn btn-xs btn-info review-submit' %>
+            <% end %></dd>
+          </dl>
+        
+        <% end %>
+
       </div>
+      
     </div>
+
+    <div class="row reviews-container">
+    
+      <% @product.reviews.reverse_each do |item| %>
+        <% if item.id %> 
+          <%= render 'review', review: item, current_user: @current_user %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
 
   </article>
 

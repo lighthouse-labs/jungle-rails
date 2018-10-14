@@ -6,9 +6,118 @@
 // App
 @import "products";
 
+
 // Global
 body {
   padding-top: 70px;
+}
+
+.login-summary {
+
+  .panel-default {
+    padding-bottom:20px
+  }
+  .login-header {
+    
+    padding-left: 20px;
+  }
+
+  form {
+    padding-left: 20px;
+
+    .login-input {
+      #password {
+        font-size: 15px;
+      }
+      #email {
+        font-size: 15px;
+      }
+    }
+    .btn-info {
+      margin-left:20px;
+    }
+    
+  }
+}
+
+.jumbotron, #register {
+  padding-left: 5px;
+  padding-right: 5px;
+  
+  .panel-default {
+    .register-header {
+      margin-left:20px;
+    }
+  }
+  #user_name {
+    font-size: 15px;
+  }
+  #user_email {
+    font-size: 15px;
+  }
+  #user_password {
+    font-size: 15px;
+  }
+  #user_password_confirmation {
+    font-size: 15px;
+  }
+}
+
+.product-info {
+  margin-bottom: 30px;
+}
+
+.review-form {
+  margin-top:50px;
+}
+
+.review-submit {
+  padding: 7px;
+  font-size: 15px;
+  position: relative;
+  bottom: 30px;
+}
+
+#review_rating {
+  padding:10px;
+  background-color: #F0E68C;
+  border-radius: 5px; 
+  width: 64px;
+  margin:5px;
+  position: relative;
+  bottom: 30px;
+}
+
+#review {
+  margin: 40px 0;
+  .r-container {
+    height:90px;
+  }
+
+  .review-desc {
+    font-size: 18px;
+  }
+  .col-sm-12 { 
+    .reviewee {
+      border-right: 1px solid #eeeeee;
+    }
+    .col-sm-1.r-container {
+      border-left: 1px solid #eeeeee;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+        
+      .rev-del {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.glyphicon-star {
+  color: goldenrod;
+  font-size: 15px;
 }
 
 // Bootstrap adjustments

@@ -1,6 +1,7 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of ordering mostly pointless goods.
+As well as one nice looking shirt.
 
 
 ## Setup
@@ -19,7 +20,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
-More information in their docs: <https://stripe.com/docs/testing#cards>
+Any month/year combination in the future is accepted.
 
 ## Dependencies
 

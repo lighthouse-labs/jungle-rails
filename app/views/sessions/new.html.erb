@@ -1,9 +1,22 @@
-<h1>Login</h1>
 
-<%= form_tag '/login' do %>
+<section class="login">
+  
+  <div class="login-summary jumbotron">
+    <div class="panel panel-default items">
+    <h2 class="login-header">Login</h2>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+    <%= form_tag '/login' do %>
+    
+      <span class="login-input">Email: <%= text_field_tag :email %></span>
+      <span class="login-input">Password: <%= password_field_tag :password %></span>
+      <%= submit_tag "Submit", class: 'btn btn-info' %>
+    
+    <% end %>
+    
+    </div>
+  </div>
+  
 
-<% end %>
+</section>
+
+

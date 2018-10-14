@@ -1,0 +1,33 @@
+
+
+    <div class="row" id="review">
+      <div class = "col-sm-12">
+          
+            <div class="col-sm-2 reviewee r-container">
+              <h4><b><%= review.user.name %></b></h4>
+              <p><%= review.created_at  %></p>
+            </div>
+            <div class="col-sm-8 review-desc r-container">
+              <%= review.description %>
+            </div>
+            <div class="col-sm-1 r-container">
+            
+              <% review.rating.times do %>
+                <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+            </div>
+            <div class="col-sm-1 r-container">
+              <% if @current_user != nil && @current_user.id == review.user_id %>
+                <%= link_to "Delete", review_path(review.id, review.product_id), :method => "delete", class: 'btn btn-xs btn-danger rev-del' %>
+              <% end %>
+            </div>
+            
+      
+      </div>
+    </div>
+
+
+
+
+
+
