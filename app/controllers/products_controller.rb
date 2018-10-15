@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    
     @products = Product.all.order(created_at: :desc)
     
     # item_ratings = @products.reviews.rating
