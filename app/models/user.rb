@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  has_secure_password
   before_validation :downcase_email
 
   validates :email, presence: true, uniqueness: true
@@ -7,11 +7,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-
+  validates :password, length: { minimum: 6, maximum: 20 }, on: :create
 
 
   has_many :reviews
-  has_secure_password
 
   private
 
