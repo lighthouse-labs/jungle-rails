@@ -36,9 +36,10 @@ RSpec.describe Product, type: :model do
     it "is not valid without a category" do
       
       @product = Product.new(name: "watch", price: 19.99, quantity: 10)
-      expect(@product).to_not be_valid
+      expect(@product).to_not be_valid 
     end
 
+    
   end
 end
 
