@@ -77,5 +77,3 @@ ActiveRecord::Schema.define(version: 20181012180308) do
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
 end
-
-# add table for reviews
