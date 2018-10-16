@@ -30,7 +30,7 @@
 
 
       <% if current_user %>
-        <li><%= link_to "Logout #{current_user.name}", [:logout], {:style=>'color:#a94442;'} %></li>
+        <li><%= link_to "Logout #{current_user.first_name}", [:logout], {:style=>'color:#a94442;'} %></li>
       <% else %>
 
         <li class="dropdown">

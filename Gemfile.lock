@@ -52,6 +52,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    coderay (1.1.2)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     diff-lcs (1.3)
@@ -83,6 +84,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -105,6 +107,9 @@ GEM
       pkg-config (~> 1.1.7)
     pg (0.18.4)
     pkg-config (1.1.7)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     puma (3.5.2)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
@@ -220,6 +225,7 @@ DEPENDENCIES
   money-rails
   newrelic_rpm
   pg
+  pry
   puma
   quiet_assets
   rails (= 4.2.6)
