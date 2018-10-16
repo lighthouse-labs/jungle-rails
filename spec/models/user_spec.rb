@@ -58,6 +58,19 @@ RSpec.describe User, type: :model do
       user = User.authenticate_with_credentials(user1.email, nil)
       expect(user).to be_nil
     end
+
+    it 'is still valid with leading and trailing white spaces' do
+      user1 = User.create(first_name: "Erik" ,last_name: "mackie", email: "erik.mackie@gmail.com", password: "password")
+      user = User.authenticate_with_credentials("  erik.mackie@gmail.com  ", user1.password)
+      expect(user).to_not be_nil
+    end
+
+    it 'is still valid with leading and trailing white spaces' do
+      user1 = User.create(first_name: "Erik" ,last_name: "mackie", email: "erik.mackie@gmail.com", password: "password")
+      user = User.authenticate_with_credentials("eriK.maCkie@gmail.coM", user1.password)
+      expect(user).to_not be_nil
+    end
+
   end
 
 end

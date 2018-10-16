@@ -19,10 +19,13 @@ class User < ActiveRecord::Base
     self.email = email.downcase if email.present?
   end
 
-  def self.authenticate_with_credentials(email, password)
-    
-    user = User.find_by_email(email)
+ 
 
+  def self.authenticate_with_credentials(email, password)
+    format_email = email.strip
+    format_email2 = format_email.downcase
+    user = User.find_by_email(format_email2)
+    # binding.pry
     if user && user.authenticate(password)
       user
     else
