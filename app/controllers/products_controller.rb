@@ -4,16 +4,12 @@ class ProductsController < ApplicationController
     
     @products = Product.all.order(created_at: :desc)
     
-    # item_ratings = @products.reviews.rating
-    # puts item_ratings
-    # @average = average_rating(item_ratings)
   end
 
   def show
-    @product = Product.find params[:id]
+    @product = Product.find params[:id]\q
     @review = @product.reviews.new
     
-
     @current_user = current_user
   end
 
