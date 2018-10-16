@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   end
 
  
-
   def self.authenticate_with_credentials(email, password)
     format_email = email.strip
     format_email2 = format_email.downcase
