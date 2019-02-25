@@ -2,9 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  http_basic_authenticate_with name: ENV['HTTP_AUTH_USER'], password: ENV['HTTP_AUTH_PASS'], only: [:admin]
-#   http_basic_authenticate_with :name => "user", :password => "password" only: [:admin]
-# end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
