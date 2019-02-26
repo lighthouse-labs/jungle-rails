@@ -132,5 +132,119 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# USERS
+
+puts "Finding or Creating Users..."
+
+User.create!({
+  first_name: 'April',
+  last_name: 'Bob',
+  email: "a523bob52@a524.com",
+  password_digest: "vafbafbgdsngfsnfg"
+})
+
+User.create!({
+  first_name: 'Nelly',
+  last_name: 'Belly',
+  email: "a2455@a.com",
+  password_digest: "vafbafbgtegdsngfsnfg"
+})
+
+User.create!({
+  first_name: 'Sally',
+  last_name: 'Tim',
+  email: "blehbleh2@fdgadfa.com",
+  password_digest: "vafbahfbgdsngfsnfg"
+})
+
+User.create!({
+  first_name: 'Phillip',
+  last_name: 'Samson',
+  email: "ablahblah52@fdgadfa.com",
+  password_digest: "vafbahfbgdsngfsnfg"
+})
+
+User.create!({
+  first_name: 'Sandy',
+  last_name: 'Cheeks',
+  email: "lalala@fd4534fa.com",
+  password_digest: "vafbahfbgdsngfsnfg"
+})
+
+# REVIEWS
+puts "Creating Reviews ..."
+
+# Category.find_or_create_by! name: 'Apparel'
+
+Review.create!({
+  product_id: 1,
+  user_id: 5,
+  description: Faker::Hipster.paragraph(3),
+  rating: 1
+})
+
+Review.create!({
+  product_id: 5,
+  user_id: 3,
+  description: Faker::Hipster.paragraph(3),
+  rating: 1
+})
+
+Review.create!({
+  product_id: 8,
+  user_id: 3,
+  description: Faker::Hipster.paragraph(3),
+  rating: 2
+})
+
+Review.create!({
+  product_id: 11,
+  user_id: 2,
+  description: Faker::Hipster.paragraph(3),
+  rating: 3
+})
+
+Review.create!({
+  product_id: 12,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 5
+})
+
+Review.create!({
+  product_id: 7,
+  user_id: 4,
+  description: Faker::Hipster.paragraph(3),
+  rating: 4
+})
+
+Review.create!({
+  product_id: 4,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 5
+})
+
+Review.create!({
+  product_id: 10,
+  user_id: 5,
+  description: Faker::Hipster.paragraph(3),
+  rating: 4
+})
+
+Review.create!({
+  product_id: 4,
+  user_id: 3,
+  description: Faker::Hipster.paragraph(3),
+  rating: 2
+})
+
+Review.create!({
+  product_id: 6,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 5
+})
+
 
 puts "DONE!"
