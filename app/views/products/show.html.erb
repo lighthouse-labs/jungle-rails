@@ -24,11 +24,13 @@
           <dd><%= @product.price %></dd>
         </dl>
 
-        <%= form_for :review do |f| %>
-          <%= f.text_area :description %><br />
-          <%= f.select :rating, options_for_select(1..5) %>
-          <%= f.submit %>
-        <% end %>
+        <div class="col-sm-8">
+          <%= form_for [@product, @review] do |f| %>
+            <%= f.text_area :description %><br />
+            <%= f.select :rating, options_for_select(1..5) %>
+            <%= f.submit %>
+          <% end %>
+        <div/>
 
         <dl class="dl-horizontal">
         <% @product.reviews.each do |review| %>
