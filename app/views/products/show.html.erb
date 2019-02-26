@@ -23,21 +23,25 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-      </div>
-      </div>
 
-      <div class="col-sm-12">
+        <%= form_for :review do |f| %>
+          <%= f.text_area :description %><br />
+          <%= f.select :rating, options_for_select(1..5) %>
+          <%= f.submit %>
+        <% end %>
+
         <dl class="dl-horizontal">
         <% @product.reviews.each do |review| %>
-          <dt>Rating:</dt>
+          <dt>Rating</dt>
           <dd><%= review.rating %></dd>
           <dt><% user = User.find(review.user_id) %></dt>
           <dt><%= user.first_name %> <%= user.last_name %></dt>
           <dd><%= review.description %></dd>
         <% end %>
-
         </dl>
+        </div>
       </div>
+
 
   </article>
 
