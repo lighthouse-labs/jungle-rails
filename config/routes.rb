@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  #https://guides.rubyonrails.org/routing.html
+
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    #https://guides.rubyonrails.org/routing.html only will just include whats mentioed. Otherwise, all defaults are included 
+    resources :categories , only: [:index, :new, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

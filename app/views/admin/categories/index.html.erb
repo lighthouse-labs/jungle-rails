@@ -1,0 +1,26 @@
+<header class="page-header">
+<h1>Admin &raquo; All Categories</h1>
+</header>
+
+<div class="well">
+<%= link_to 'Back', [:admin, :products], class: 'btn btn-info' %>
+<%= link_to 'New Category', [:admin, :categories], class: 'btn btn-info' %>
+</div>
+
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th colspan="2">Name</th>
+  </tr>
+</thead>
+<tbody>
+
+
+<%#references categories_controller.rb %>
+<%= render @categories %> 
+
+</tbody>
+</table>
+
+
