@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20190321192713) do
     t.integer  "total_cents"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "stripe_charge_id"
+    t.string   "stripe_charge_id" 
     t.string   "email"
   end
 
