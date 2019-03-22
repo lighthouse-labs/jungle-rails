@@ -6,8 +6,21 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-  </div>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+    <h4>Placed at #<%= @order.created_at %> </h4>
+
+    <h4>E-mail used #<%= @order.email %> </h4>
+
+    <h4>Total:  #<%= @order.total_cents %> </h4>
+
+    <%= @order.line_items.each do |item| %>
+      <%= render 'item',item: Product.where(["id = ?", item.product_id]).as_json(only: [:name, :description, :image])[0] %>
+      <% end %>
+
+      # as_json[0]
+  
+    <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+
+  </div>
 
 </section>
