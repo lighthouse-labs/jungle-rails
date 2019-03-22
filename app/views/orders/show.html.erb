@@ -7,17 +7,22 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
 
-    <h4>Placed at #<%= @order.created_at %> </h4>
+    <h4>Placed at: <%= @order.created_at %> </h4>
 
-    <h4>E-mail used #<%= @order.email %> </h4>
+    <h4>E-mail used: <%= @order.email %> </h4>
 
-    <h4>Total:  #<%= @order.total_cents %> </h4>
+    <br>
+    <h4> Here are your items: </h4>
 
     <%= @order.line_items.each do |item| %>
-      <%= render 'item',item: Product.where(["id = ?", item.product_id]).as_json(only: [:name, :description, :image])[0] %>
+      <%= render 'item',
+      name: Product.where(["id = ?", item.product_id])[0].name,
+      desc: Product.where(["id = ?", item.product_id])[0].description,
+      image: Product.where(["id = ?", item.product_id])[0].image,
+      quantity: item[:quantity] %>
       <% end %>
 
-      # as_json[0]
+      <h4>Total: $<%= @order.total_cents/100.0 %> </h4>
   
     <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
