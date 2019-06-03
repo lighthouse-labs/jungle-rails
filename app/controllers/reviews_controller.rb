@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   def create
-    raise "Yay, I'm here!"
+    @product = Product.find params[:id]
+    puts @product
+    
   end
 end
