@@ -20,4 +20,24 @@
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+
+  <% if product.quantity <= 5 %>
+  <aside
+    style='
+      position: absolute;
+      top: 0;
+      padding: 10px;
+      left: 0; 
+      background-color: salmon; 
+      color: white; 
+      text-transform: uppercase; 
+      border-top-left-radius: 4px; 
+      border-bottom-right-radius: 20px;
+      font-size: 0.8em;
+      '>
+    sold out
+  </aside>
+
+  <% end %>
+
 </article>
