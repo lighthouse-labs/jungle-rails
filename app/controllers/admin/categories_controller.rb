@@ -2,11 +2,17 @@ class Admin::CategoriesController < ApplicationController
   
   # Notice the categories plural
   def index
-    @categories = Category.order(id: :desc).all
+    @categories = Category.order(name: :asc).all
   end
 # Notice the singular category
   def new
     @category = Category.new
+  end
+
+  def destroy
+    @category = Category.find params[:id]
+    @category.destroy
+    redirect_to [:admin, :category], notice: 'Category deleted!'
   end
 
   def create
