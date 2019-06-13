@@ -23,10 +23,20 @@ class ApplicationController < ActionController::Base
   end
   helper_method :enhanced_cart
 
+  def line_item
+    @line_item ||= @order.line_items.all.map{|item| { product: item.product, quantity: item.quantity } }
+  end
+  helper_method :line_item
+
   def cart_subtotal_cents
     enhanced_cart.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
   end
   helper_method :cart_subtotal_cents
+
+  def line_item_subtotal
+    line_item.map{|item| item[:product].price_cents * item[:quantity]}.sum
+  end
+  helper_method :line_item_subtotal
 
 
   def update_cart(new_cart)

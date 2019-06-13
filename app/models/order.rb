@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-
+# Belongs to relationship allows for line_item relationship
   belongs_to :user
   has_many :line_items
 
