@@ -10,7 +10,17 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
+  resources :users, only: [:new, :create]
+
   resources :orders, only: [:create, :show]
+
+  resource :session, only: [:new, :create, :destroy]
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  
 
   namespace :admin do
     root to: 'dashboard#show'
