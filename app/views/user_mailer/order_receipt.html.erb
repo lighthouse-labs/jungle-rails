@@ -1,3 +1,7 @@
-<h1>HI</h1>
-<h2>This is your order</h2>
+<h1>Thank you for shopping at Jungle!</h1>
+<h2>This is the list of your ordered items!</h2>
+<% @order.line_items.each do |item| %>
+<li>Product ID:<%= item.product_id %></li>
+<li>Product Total: <%= item.total_price_cents %></li>
+<% end %>
 <h3>Thanks</h3>

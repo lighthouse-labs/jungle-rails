@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
-       UserMailer.order_receipt(current_user, order.id).deliver_now
+       UserMailer.order_receipt(current_user, order).deliver_now
        puts ActionMailer::Base.deliveries.last
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
