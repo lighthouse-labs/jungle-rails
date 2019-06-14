@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @user = current_user
   end
 
   def create
@@ -10,7 +11,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      redirect_to order_path(order), notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -43,6 +44,7 @@ class OrdersController < ApplicationController
     )
 
     enhanced_cart.each do |entry|
+
       product = entry[:product]
       quantity = entry[:quantity]
       order.line_items.new(
