@@ -11,7 +11,12 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order_path(order), notice: 'Your Order has been placed.'
+      respond_to do |format|
+            OrderMailer.order_email(order).deliver_now
+            format.html { redirect_to(order_path(order), notice: 'Your Order has been placed.') }
+            format.json { render json: order, status: :created, location: order }
+      end
+  
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
