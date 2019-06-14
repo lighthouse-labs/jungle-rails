@@ -1,10 +1,15 @@
-<header class="page-header">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
 <h1>Order <%= @order.id %></h1>
 <h3>Thank you for shopping with Jungle!</h3>
 <h4>An email has been sent to <%= @order.email %> with the confirmation of your order..</h4>
-<h4> 
-</header>
+<h4>
 <div class="order-summary jumbotron">
+<h1>Order <%=@order.id %> </h1>
+<h3><%= @order.email %> </h3>
 <h4>Thank you for your order!</h4>
 <table class="table table-bordered">
   <thead>
@@ -16,14 +21,12 @@
     </tr>
   </thead>
   <tbody>
-  <% line_item.each do |item| %>
-    <%= render 'line_item', product: item[:product], quantity: item[:quantity] %>
-  <% end %>
+  
   </tbody>
   <tfoot>
     <tr>
       <th colspan="4">
-        ORDER TOTAL:
+        Price Total:
       </th>
       <th>
       <% order_total = 0 %>
@@ -33,5 +36,5 @@
   </tfoot>
 </table>
 </div>
-
-<%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+</body>
+</html>
