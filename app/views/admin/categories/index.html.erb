@@ -1,0 +1,18 @@
+<section class="products-index">
+
+  <header class="page-header">
+    <h1>Categories</h1>
+  </header>
+
+    <div class="well">
+    <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+  </div>
+
+
+  <div class="products">
+    <table>
+    <%= render @categories %>
+  </table>
+  </div>
+
+</section>
