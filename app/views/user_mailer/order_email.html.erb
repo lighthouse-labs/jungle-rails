@@ -21,7 +21,22 @@
     </tr>
   </thead>
   <tbody>
-  
+  <% line_item.each do |item| %>
+    <tr>
+    <td>
+      <h4><%= item[:product].name %></h4>
+    </td>
+    <td>
+      <%= item[:product].price %>
+    </td>
+    <td>
+      <%= item[:quantity] %>
+    </td>
+    <td>
+      <%= item[:product].price * item[:quantity].to_i %>
+    </td>
+</tr>
+<% end %>
   </tbody>
   <tfoot>
     <tr>
