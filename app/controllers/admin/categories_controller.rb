@@ -11,7 +11,7 @@ end
 def create
   @categories = Category.new(category_params)
 
-  if categories.save
+  if @categories.save
     redirect_to [:admin, :categories], notice: 'Category created!'
   else
     render :new
