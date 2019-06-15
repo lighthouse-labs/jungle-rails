@@ -30,10 +30,11 @@
     </div>
     <div>
 
-    <%= form_tag(@product, method: "post") do %>
-      <%= label_tag(:q, "Write Review:") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Add Review") %>
+    <%= form_for [@product, @review]  do |f| %>
+      <%= f.label (:review) %>
+      <%= f.text_field :description %>
+      <%= f.select :rating, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]] %>
+      <%= f.submit("Add Review") %>
     <% end %>
     <div>
 
