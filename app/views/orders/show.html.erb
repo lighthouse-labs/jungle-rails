@@ -4,27 +4,28 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
-  <h2><%= @order.email %></h2>
+
 
   <table>
 
     <thead>
-      <tr>
-        <th colspan="2">Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
+      <tr style="padding: 30px" >
+        <td colspan="2">Product</td>
+        <td >Quantity</td>
+        <td >Price</td>
       </tr>
     </thead>
 
 
     <tbody>
       <%= render partial: "line_item", locals: {line_item: @order.line_items} %>
-      <td colspan="4"><h1>Total: <%=@order.total %></h1></td>
+      <td style="padding: 30px" colspan="4"><h1>Total: <%=@order.total %></h1></td>
     </tbody>
 
   </table>
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <p><%= @order.email %></9>
+    <h3>Thank you for your order!</h3>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
