@@ -28,6 +28,14 @@
     <div>
       <%= render @reviews %>
     </div>
+    <div>
+
+    <%= form_tag(@product, method: "post") do %>
+      <%= label_tag(:q, "Write Review:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Add Review") %>
+    <% end %>
+    <div>
 
   </article>
 
