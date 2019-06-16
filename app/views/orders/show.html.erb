@@ -18,7 +18,9 @@
 
 
     <tbody>
-      <%= render partial: "line_item", locals: {line_item: @order.line_items} %>
+      <% @order.line_items.each do |item| %>
+        <%= render partial: "line_item", locals: { line_item: item } %>
+      <% end %>
       <td style="padding: 30px" colspan="4"><h1>Total: <%=@order.total %></h1></td>
     </tbody>
 

@@ -1,17 +1,16 @@
-<% line_item.each do |item| %>
+
 <tr>
   <td>
-    <img src=<%= item.product.image %> width="80px" />
+    <img src=<%= line_item.product.image %> width="80px" />
   </td>
   <td>
-    <h5><%=item.product.name %></h5>
-    <p><%=item.product.description %></p>
+    <h5><%=line_item.product.name %></h5>
+    <p><%=line_item.product.description %></p>
   </td>
   <td>
-    <h5><%=item.quantity %></h5>
+    <h5><%=line_item.quantity %></h5>
   </td>
   <td>
-    <h5><%=item.product.price %></h5>
+    <h5><%=line_item.product.price %></h5>
   </td>
-  <% end %>
 </tr>
