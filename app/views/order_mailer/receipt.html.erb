@@ -1,0 +1,25 @@
+<p>Your order details: </p>
+
+<table>
+
+    <thead>
+      <tr style="padding: 30px" >
+        <td colspan="2">Product</td>
+        <td >Quantity</td>
+        <td >Price</td>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @order.line_items.each do |item| %>
+        <%= render partial: "orders/line_item", locals: { line_item: item } %>
+      <% end %>
+      <td style="padding: 30px" colspan="4"><h1>Total: <%=@order.total %></h1></td>
+    </tbody>
+
+  </table>
+  <div class="order-summary jumbotron">
+    <p><%= @order.email %></9>
+    <h3>Thank you for your order!</h3>
+  </div>
