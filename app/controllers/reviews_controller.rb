@@ -1,17 +1,31 @@
 class ReviewsController < ApplicationController
-    def index
-    end
-    def show
-    end
+    before_filter :authorize_user
     def create
-        @review = Review.new
+        puts "current user", current_user.inspect
+        @review = Review.new params[:review].permit!
+        @review[:user_id] = current_user.id
+        @review[:product_id] = params[:product_id]
+        puts @review.inspect
+  
+        
+        puts "RIGHT HERRRRRRREEEEEEEEEEEEEEEEEEE"
+        puts 
+        if @review.valid?
+            @review.save!
+            puts "It was saved!!!!!!!!!!!!!!"
+            redirect_to :back
+        else
+
+            redirect_to :back, alert: "Review can not be saved, please enter information."
+        end
+            
     end
-    def destroy
+
+    private
+
+    def authorize_user
+      current_user
     end
-    def new
-        @review = Review.new
-    end
-    def edit
-    end
+
 
 end
