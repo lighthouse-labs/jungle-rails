@@ -25,6 +25,19 @@
         </dl>
       </div>
     </div>
+    <div>
+      <%= render @reviews %>
+    </div>
+    <div>
+    <% if current_user %>
+    <%= form_for [@product, @review]  do |f| %>
+      <%= f.label (:review) %>
+      <%= f.text_field :description %>
+      <%= f.select :rating, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]] %>
+      <%= f.submit("Add Review") %>
+    <% end %>
+    <% end %>
+    </div>
 
   </article>
 

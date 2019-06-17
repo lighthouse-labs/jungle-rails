@@ -1,0 +1,8 @@
+<div>
+    <h4>User: <%= review.user_id %></h4>
+    <span>Comments: <%= review.description %></span>
+    <span>Rating: <%= review.rating %></span>
+    <%if review[:user_id] == session[:user_id] %>
+    <%= button_to 'Delete', product_review_path(id: review[:id], product_id: review[:product_id]), method: 'delete'  %>
+    <% end %>
+</div>
