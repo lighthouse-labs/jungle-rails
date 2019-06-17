@@ -6,8 +6,6 @@ class ReviewsController < ApplicationController
         @review[:user_id] = current_user.id
         @review[:product_id] = params[:product_id]
         puts @review.inspect
-  
-        
         puts "RIGHT HERRRRRRREEEEEEEEEEEEEEEEEEE"
         puts 
         if @review.valid?
@@ -19,6 +17,12 @@ class ReviewsController < ApplicationController
             redirect_to :back, alert: "Review can not be saved, please enter information."
         end
             
+    end
+
+    def destroy
+        review = Review.find params[:id]
+        review.destroy
+        redirect_to :back
     end
 
     private
