@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
         user = User.find_by(email: "#{email}")
         user.authenticate(password)
     end
+    
 end
