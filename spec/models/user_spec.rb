@@ -17,4 +17,11 @@ RSpec.describe User, type: :model do
     expect(@user_pass.errors.full_messages).to_not be_nil
   end
 
+
+  describe '.authenticate_with_credentials' do
+    it "user logs in should be authenticated" do
+      expect(User.authenticate_with_credentials("tEst@TEST", "12345667")).to_not be_nil
+    end
+  end
+
 end
