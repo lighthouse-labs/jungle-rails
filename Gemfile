@@ -58,3 +58,8 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
+
+# source 'https://rubygems.org'
+# gem 'nokogiri'
+# gem 'rack', '~>1.1'
+# gem 'rspec', :require => 'spec'
