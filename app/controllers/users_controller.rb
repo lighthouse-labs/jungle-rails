@@ -1,16 +1,18 @@
-class RegisterController < ApplicationController
+class UsersController < ApplicationController
     def new
-        @user = User.new
+        
     end
 
     def create
-        # @user = User.new (
+        # user = User.new (
         #     name: params[:name],
         #     email: params[:email],
         #     password: params[:password],
         #     password_confirmation: params[:password_confirmation]
         # )
         @user = User.new(user_params)
+        puts user_params
+        puts @user
 
         if @user.save
             session[:user_id] = @user.id
@@ -21,7 +23,9 @@ class RegisterController < ApplicationController
         end
     end
 
+    private
+
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 end
