@@ -4,15 +4,13 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
 
-  # these are from the tutorial - wait and see if the route helpers work first
-   # get '/signup' => 'users#new'
-   #  post '/users' => 'users#create'
-  #    get '/login' => 'sessions#new'
-  # post '/login' => 'sessions#create'
-  # get '/logout' => 'sessions#destroy'
+  # user and session handling
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   resource :cart, only: [:show] do
     post   :add_item
