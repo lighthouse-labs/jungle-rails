@@ -1,13 +1,44 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order Summary</h1>
   </header>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-  </div>
+    <p> Your order number is:<%= @order.id %></p>
+    Date Ordered: <%= @order.created_at.to_formatted_s(:long_ordinal) %>
+    <article>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2"><h4>Product</h4></th>
+            <th><h4>Quantity</h4></th>
+            <th><h4>Price</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.line_items.each do |item| %>      
+            <%= render 'line_item', product: item.product, order: item %>
+          <% end %>  
+        </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3">
+            TOTAL:
+          </th>
+          <th>
+            <%= number_to_currency(@order.total_cents / 100.0) %>
+          </th>
+        </tr>
+      </tfoot>        
+      </table>
+    </article>
+  
+    <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+
+
 
 </section>
