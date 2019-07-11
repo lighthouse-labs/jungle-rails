@@ -6,9 +6,19 @@
   <body>
     <h1>Thank you for your order, <%= @order_details.email %></h1>
 
-    <p>
-      To login to the site, just follow this link: .
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    Here are the details of your order:<br><br>
+    <% @line_items = LineItem.where(order_id: @order_details.id) %>
+    <% @line_items.each do |line_item| %>
+      <% @line_product = Product.find_by(id: line_item.product_id) %>
+      <%= @line_product.name %>
+      <%= line_item.quantity %>
+      <%= number_to_currency(line_item.item_price_cents / 100) %>
+      <%= number_to_currency(line_item.total_price_cents / 100) %>
+      <br>
+    <% end %>
+    Total order: <%= number_to_currency(@order_details.total_cents / 100) %>
+      <br>
+
+    <p>Thanks for your order and have a great day!</p>
   </body>
 </html>
