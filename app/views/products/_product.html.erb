@@ -17,8 +17,9 @@
     <% end %>
   </footer>
 
-
-  <aside class="soldout">SOLD OUT!</aside>
+  <%if product.quantity < 1  %>
+    <aside class="soldout">SOLD OUT!</aside>
+    <% end %>
 
   
   <aside class="price">
