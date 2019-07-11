@@ -17,9 +17,9 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:success] = "Succesfully registered your email"
-            redirect_to root_path
+            redirect_to '/'
         else 
-            redirect_to '/users'
+            redirect_to '/register'
         end
     end
 

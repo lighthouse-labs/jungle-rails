@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
             redirect_to '/'
         else
             flash.now[:error] = "Invalid username or password"
-            render :new
+            redirect_to '/'
         end
     end
     
     def destroy
         session[:user_id] = nil
         flash[:notice] = "You Logged out successfully"
-        redirect_to root_path
+        redirect_to '/'
     end
     
     private
@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
     def login_user!(user)
         session[:user_id] = user.id
         flash[:notice] = "Welcome, you're now logged in"
-        redirect_to root_path
+        redirect_to '/'
     end
 end

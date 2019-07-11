@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :users, only: [:create] 
   get '/register', to: 'users#new', as: 'register'
   resource :sessions, only: [:new, :create, :destroy]
+  get '/login', to: 'sessions#new', as: 'login'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
