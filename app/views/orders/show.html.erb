@@ -6,7 +6,7 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-    <h4>Email: <%= current_user.email %></h4>
+    <h4>Email: <%= @order.email %></h4>
     <h4>Total order: <%= number_to_currency(@order.total_cents / 100) %></h4>
   </div>
 
