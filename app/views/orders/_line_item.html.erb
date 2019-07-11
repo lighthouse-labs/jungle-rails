@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th colspan="2">Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th class="text-right">Qty</th>
+      <th class="text-right">Price</th>
+      <th class="text-right">Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @line_items.each do |line_item| %>
+    <% @line_product = Product.find_by(id: line_item.product_id) %>
+    <tr>
+      <td colspan="2"><%= image_tag(@line_product.image, size: "50") %></td>
+      <td><%= @line_product.name %></td>
+      <td><%= @line_product.description %></td>
+      <td class="text-right"><%= line_item.quantity %></td>
+      <td class="text-right"><%= number_to_currency(line_item.item_price_cents / 100) %></td>
+      <td class="text-right"><%= number_to_currency(line_item.total_price_cents / 100) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
