@@ -6,6 +6,16 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <h4>Email: <%= current_user.email %></h4>
+    <h4>Total order: <%= number_to_currency(@order.total_cents / 100) %></h4>
+  </div>
+
+  <div class="products">
+
+    <% @line_items = LineItem.where(order_id: @order.id) %>
+
+    <%= render 'line_item' %>
+
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
