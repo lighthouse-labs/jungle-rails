@@ -1,0 +1,19 @@
+<% item_total = line_item.product.price * line_item.quantity %>
+<% @order_total += item_total %>
+
+<tr>
+  <td>
+    <%= image_tag line_item.product.image.tiny %>
+  </td>
+  <td>
+    <h4><%= line_item.product.name %></h4>
+    <br>
+    <p><%= line_item.product.description %></p>
+  </td>
+  <td>
+    <%= line_item.quantity %>
+  </td>
+  <td>
+    <%= item_total %>
+  </td>
+</tr>
