@@ -1,10 +1,14 @@
 <h2> Create Account</h2>
 <%=form_tag '/users' do%>
-        <%= label_tag :first_name%>
+        <%
+=begin%>
+ <%= label_tag :first_name%>
         <%= text_field_tag :first_name%>
 
         <%= label_tag :last_name%>
-        <%= text_field_tag :last_name%>
+        <%= text_field_tag :last_name%> 
+<%
+=end%>
 
         <%= label_tag :email%>
         <%= text_field_tag :email%>
