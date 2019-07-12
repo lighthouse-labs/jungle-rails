@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Receipt</title>
+</head>
+<body>
+
+<h1>Jungle Order Reciept</h1>
+
+<h3>Hi <%= @user.name %>, </h3>
+<p>Your order with Jungle was successfully processed.</p>
+
+<h4>Order Details: <h4>
+
+Your order number is:<%= @order.id %>
+Date Ordered: <%= @order.created_at.to_formatted_s(:long_ordinal) %>
+    <article>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2"><h4>Product</h4></th>
+            <th><h4>Quantity</h4></th>
+            <th><h4>Price</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.line_items.each do |item| %>
+          <% product = Product.find(item.product_id) %>      
+          <tr>
+            <td>
+              <%= product.name %>
+            </td>
+            <td>
+              <%= image_tag product.image.tiny%>
+            </td>
+            <td>
+              <%= item.quantity %>
+            </td>
+            <td>
+              <%= number_to_currency (item.total_price_cents / 100.0 ) %>
+            </td>
+          </tr>           
+          <% end %>  
+        </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3">
+            TOTAL:
+          </th>
+          <th>
+            <%= number_to_currency(@order.total_cents / 100.0) %>
+          </th>
+        </tr>
+      </tfoot>        
+      </table>
+    </article>
+
+<p>Thanks for your order and have a great day!</p>
+
+
+</body>
+</html>

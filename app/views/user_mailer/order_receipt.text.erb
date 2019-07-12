@@ -1,0 +1,20 @@
+Jungle Order Reciept
+=====================
+
+Hi <%= @user.name %>,
+Your order with Jungle was successfully processed.
+
+Order Details:
+
+Your order number is:<%= @order.id %>
+Date Ordered: <%= @order.created_at.to_formatted_s(:long_ordinal) %>
+  <% @order.line_items.each do |item| %>
+    <% product = Product.find(item.product_id) %>      
+    <%= product.name %>
+    <%= image_tag product.image.tiny%>
+    <%= item.quantity %>
+    <%= number_to_currency (item.total_price_cents / 100.0 ) %>
+  <% end %>  
+TOTAL: <%= number_to_currency(@order.total_cents / 100.0) %>
+
+Thanks for your order and have a great day!
