@@ -20,8 +20,11 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+          <% if current_user %>
+            <li><%= link_to 'Logout', '/logout' %></li>          
+          <% else %>          
             <li><%= link_to 'Login', '/login' %></li>
-            <li><%= link_to 'Logout', '/logout' %></li>
+          <% end %>
             <li><%= link_to 'Signup', '/users/new' %></li>
           </ul>
         </li>
