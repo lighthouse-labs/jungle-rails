@@ -25,7 +25,40 @@
         </dl>
       </div>
     </div>
-
+    
   </article>
+
+  <article class="product-detail">
+    <header>
+      <div class="row">
+        <div class="col-sm-8">
+          <h3>Product Reviews:</h3>
+        </div>
+        <div class="col-sm-2">
+          <%= button_to "Add a review", root_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </header>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Review</th>
+            <th>User Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @product.reviews.each do |r| %>
+            <tr>
+              <td><%= User.find(r.user_id).name %></td>
+              <td><%= r.description %></td>
+              <td><i class="fa fa-star"></i> <%= r.rating %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <footer>
+
+    </footer>
 
 </section>
