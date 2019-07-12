@@ -1,5 +1,8 @@
 class Admin::CategoriesController < ApplicationController
 
+  # login required for admin pages
+  http_basic_authenticate_with name: ENV['ADMIN_USER'], password: ENV['ADMIN_PASS']
+
   def index
     @categories = Category.order(id: :desc).all
   end
