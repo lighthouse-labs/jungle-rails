@@ -1,0 +1,16 @@
+Thank you for your order!
+=========================
+
+Here's a quick summary of your purchase:
+
+<% @order.line_items.each do |item| %>
+
+Product: <%= item.product.name %>
+Description: <%= item.product.description %>
+Quantity: <%= item.quantity %>
+Item Price: <%= item.item_price %>
+Line Total: <%= item.total_price %>
+
+<% end %>
+
+Final Total: <%= @order.total %>

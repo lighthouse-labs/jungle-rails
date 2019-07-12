@@ -5,8 +5,19 @@
 </head>
 <body>
   <h1>Thank you for your order!</h1>
-  <p>Here's a summary of your purchase:</p>
-  <!-- Order details here -->
+  <h3>Here's a summary of your purchase:</h3>
+  <% puts @order %>
+  <% @order.line_items.each do |item| %>
+
+  <p>Product: <%= item.product.name %></p>
+  <p>Description: <%= item.product.description %></p>
+  <p>Quantity: <%= item.quantity %></p>
+  <p>Item Price: <%= item.item_price %></p>
+  <p>Line Total: <%= item.total_price %></p>
+
+  <% end %>
+
+  <p>Final Total: <%= @order.total %></p>
 
 </body>
 </html>

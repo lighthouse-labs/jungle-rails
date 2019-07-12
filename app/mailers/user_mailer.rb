@@ -3,7 +3,6 @@ class UserMailer < ApplicationMailer
 
   def order_email(order)
     @order = order
-    @url  = 'localhost:3000/orders/:id'
-    mail(to: @order.email, subject: 'Order ID: #{@order.id}')
+    mail(to: @order.email, subject: "Order ID: #{@order.id}")
   end
 end
