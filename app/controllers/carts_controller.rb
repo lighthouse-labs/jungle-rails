@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
 
   def show
+    if cart.size == 0
+    flash[:error] = "Cart is empty !"
+    redirect_to '/'
+    end  
   end
 
   def add_item

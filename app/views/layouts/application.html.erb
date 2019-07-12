@@ -9,6 +9,10 @@
 <body>
 
   <%= render 'layouts/top_nav' %>
+  
+  <% if flash[:error] %>
+    <div class="empty_cart"><%= flash[:error] %></div>
+  <% end %>
 
   <main class="container">
     <%= yield %>
