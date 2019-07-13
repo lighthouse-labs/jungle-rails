@@ -1,10 +1,10 @@
 class Review < ActiveRecord::Base
 
-    belong_to :product
+    belongs_to :product
     belongs_to :user
 
-    validates
-    validates :product_id
-    validates :description
-    validates :rating
+    validates :user_id, presence: true
+    validates :product_id, presence: true
+    validates :description, presence: true
+    validates :rating, presence: true
 end
