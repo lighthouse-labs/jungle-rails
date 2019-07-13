@@ -6,11 +6,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.all.each do |r| 
-      if r.product_id == @product.id 
-        r
-      end
-    end
+    @product_reviews = @product.reviews
+    @product_id = params[:id]
   end
 
 
