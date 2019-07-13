@@ -139,14 +139,12 @@ puts "Finding and recreating Reviews ..."
 Review.create!({
   rating: 1,
   description: "looks great but crumbles when I put books on it",
-  user_id: 1,
   product_id: 12
 })
 
 Review.create!({
   rating: 5,
   description: "very comfortable on my elbows",
-  user_id: 1,
   product_id: 11
 })
 
