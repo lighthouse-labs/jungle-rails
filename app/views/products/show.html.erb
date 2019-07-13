@@ -64,7 +64,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @product.reviews.each do |r| %>
+          <% @reviews.each do |r| %>
             <tr>
               <td><%= User.find(r.user_id).name %></td>
               <td><%= r.description %></td>

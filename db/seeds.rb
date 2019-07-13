@@ -142,6 +142,8 @@ puts "Finding Products ..."
 rev1 = Product.find_by(name: 'Red Bookshelf')
 rev2 = Product.find_by(name: 'Hotdog Slicer')
 rev3 = Product.find_by(name: 'Hipster Hat')
+rev4 = Product.find_by(name: 'Hipster Hat')
+rev5 = Product.find_by(name: 'Hipster Hat')
 
 puts "Creating Reviews ..."
 
@@ -163,4 +165,16 @@ rev3.reviews.create!({
   user_id: 1,
   description: "I bought this hat thinking it would be super Paleo venmo meggings but alas it was very corporations",
   rating: 3
+})
+
+rev4.reviews.create!({
+  user_id: 2,
+  description: "I am Beyonce so I obviously hate this hat - buy Ivy Park instead duh",
+  rating: 0
+})
+
+rev5.reviews.create!({
+  user_id: 3,
+  description: "This hat is soooo meggings, love it",
+  rating: 5
 })
