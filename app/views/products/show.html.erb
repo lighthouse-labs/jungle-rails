@@ -26,6 +26,23 @@
       </div>
     </div>
 
+    <div class="row">
+      <h3 class="page-header"> Reviews: </h3>
+      <% if @product_reviews.size > 0 %>
+        <% @product_reviews.each do |product_review| %>
+          <div>
+          <% @prod_user_name = User.find product_review.user_id %>
+          <%= @prod_user_name.first_name %> gave it
+          <%= pluralize(product_review.rating, "Star") %><br />
+          <%= product_review.description %>
+          </div>
+          <br />
+        <% end %>
+      <% else %>
+        There are no reviews for this product.
+      <% end %>
+    </div>
+
   </article>
 
 </section>

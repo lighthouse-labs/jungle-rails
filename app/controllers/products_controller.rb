@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+    # get the associated reviews
+    @product_reviews = Review.where(product_id: params[:id])
+      .order(id: :desc)
   end
 
 end
