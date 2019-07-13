@@ -27,3 +27,16 @@ body {
 form.button_to {
   display: inline;
 }
+
+.rating {
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid rgb(253, 251, 251);
+  font-size: 16px;
+  height: 30px;
+  width: 40px;
+  background-color: rgba(99, 21, 21, 0.7);
+}

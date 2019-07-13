@@ -5,13 +5,10 @@
   </header>
 
   <article class="product-detail">
-
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
-
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
@@ -25,7 +22,31 @@
         </dl>
       </div>
     </div>
-
+  </article>
+  <div class="row">
+    <%= render 'review' %>
+  </div>
+  <article>
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Review</th>
+            <th>User Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @product_reviews.each do |r| %>
+            <tr>
+              <td><%= User.find(r.user_id).name %></td>
+              <td><%= r.description %></td>
+              <td><%=  "⭐" * r.rating %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>  
+    </div>
   </article>
 
 </section>

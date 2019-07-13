@@ -134,3 +134,47 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+## Reviews
+
+puts "Finding Products ..."
+
+rev1 = Product.find_by(name: 'Red Bookshelf')
+rev2 = Product.find_by(name: 'Hotdog Slicer')
+rev3 = Product.find_by(name: 'Hipster Hat')
+rev4 = Product.find_by(name: 'Hipster Hat')
+rev5 = Product.find_by(name: 'Hipster Hat')
+
+puts "Creating Reviews ..."
+
+Review.destroy_all
+
+rev1.reviews.create!({
+  user_id: 1,
+  description: "This bookshelf is a SAFETY HAZARD!",
+  rating: 0
+})
+
+rev2.reviews.create!({
+  user_id: 1,
+  description: "I honestly never thought I'd finally find a hotdog slicer. I feel blessed.",
+  rating: 5
+})
+
+rev3.reviews.create!({
+  user_id: 1,
+  description: "I bought this hat thinking it would be super Paleo venmo meggings but alas it was very corporations",
+  rating: 3
+})
+
+rev4.reviews.create!({
+  user_id: 2,
+  description: "I am Beyonce so I obviously hate this hat - buy Ivy Park instead duh",
+  rating: 0
+})
+
+rev5.reviews.create!({
+  user_id: 3,
+  description: "This hat is soooo meggings, love it",
+  rating: 5
+})

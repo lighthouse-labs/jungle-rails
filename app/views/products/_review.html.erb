@@ -1,0 +1,19 @@
+<article>
+    <header>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Product Reviews:</h3>
+        </div>
+        <div class="col-sm-8">
+          <%= form_for([@product, Review.new]) do |f| %>
+          Description: <%= f.text_field :description %>
+              <span class="text-danger"><strong>Rate</strong></span>
+              <%= f.select(:rating, [["⭐", 1],["⭐⭐", 2],["⭐⭐⭐", 3],["⭐⭐⭐⭐",  4],["⭐⭐⭐⭐⭐", 5]]) %>
+              <%= f.submit "Submit", :class => "btn btn-default" %>
+          <% end %>        
+        </div>
+      </div>
+    </header>
+
+</article>
+
