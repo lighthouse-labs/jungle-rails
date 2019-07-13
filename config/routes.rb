@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new', as: 'login'
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do 
+    resource :reviews, only: [ :create, :destroy] 
+  end
+
+
   resources :categories, only: [:show]
 
   resource :cart, only: [:show] do
