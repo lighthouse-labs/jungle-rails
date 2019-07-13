@@ -41,7 +41,7 @@
             <tr>
               <td><%= User.find(r.user_id).name %></td>
               <td><%= r.description %></td>
-              <td><i class="fa fa-star"></i> <%= r.rating %></td>
+              <td><%=  "⭐" * r.rating %></td>
             </tr>
           <% end %>
         </tbody>
