@@ -19,6 +19,14 @@
             Categories
             <span class="caret"></span>
           </a>
+          <% if current_user%>
+            <%= link_to 'Logout', '/logout' %>
+          <% else %>
+          
+            <li><%= link_to 'Login', '/login'%>
+          <% end %>
+
+
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
               <li><%= link_to category.name, category %></li>

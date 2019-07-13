@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             redirect_to '/'
         else
             flash.now[:error] = "Invalid username or password"
-            redirect_to '/'
+            redirect_to '/login'
         end
     end
     
