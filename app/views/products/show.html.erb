@@ -43,6 +43,29 @@
       <% end %>
     </div>
 
+    <div class="row">
+    <% if current_user %>
+      <h4>Write a review</h4>
+      <%= form_for :review, url: "#{@product.id}/reviews" do |frm| %>
+
+        <div class="form-group">
+        <%= frm.label :description %>
+        <%= frm.text_area :description, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+        <%= frm.label :rating %>
+        <%= frm.select :rating, [1, 2, 3, 4, 5], class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+        <%= frm.submit "Submit", class: 'btn btn-primary' %>
+        </div>
+
+      <% end %>
+    <% end %>
+    </div>
+
   </article>
 
 </section>
