@@ -132,5 +132,45 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+# note we won't be able to login with this user, it is just
+# there for the purpose of linking reviews to a user account.
+User.create!({
+  first_name: 'Alice',
+  last_name: 'testuser',
+  email: 'alice@sample.com',
+  password_digest: '$2a$10$OW/qFyvTlKtJOXIKFTsSneBlrCm8g6tDep./zt9ALq4xymFw2j0za' #123
+})
+
+## REVIEWS
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+# add some reviews to the first few products from our test user
+Review.create!({
+  product_id:  1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 1,
+  user_id: 1
+})
+
+Review.create!({
+  product_id:  1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 3,
+  user_id: 1
+})
+
+Review.create!({
+  product_id:  2,
+  description: Faker::Hipster.paragraph(3),
+  rating: 5,
+  user_id: 1
+})
 
 puts "DONE!"
