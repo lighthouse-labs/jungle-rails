@@ -33,25 +33,22 @@
   <article class="product-detail">
     <header>
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-4">
           <h3>Product Reviews:</h3>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-8">
           <%= form_for(@product) do |f| %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="text-danger">Rate <i class="fa fa-star"></i></span>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-              </ul>
-            </li>
-        <% end %>        
+          Description: <%= f.text_field :description  %>
+              <span class="text-danger"><strong>Rate</strong></span>
+              <select class="rating" name="rating">
+                <option value='rating1'> ⭐ </option>
+                <option value='rating2'> ⭐⭐ </option>
+                <option value='rating3'> ⭐⭐⭐ </option>
+                <option value='rating4'> ⭐⭐⭐⭐ </option>
+                <option value='rating5'> ⭐⭐⭐⭐⭐ </option>
+              </select>
+              <%= f.submit "Submit", :class => "btn btn-default" %>
+          <% end %>        
         </div>
       </div>
     </header>
