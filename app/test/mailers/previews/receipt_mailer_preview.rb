@@ -1,5 +1,5 @@
 class ReceiptMailerPreview < ActionMailer::Preview
-    def sample_mail_preview
-      ReceiptMailer.sample_email(User.first)
+    def receipt_mail_preview
+      ReceiptMailer.receipt_email(User.first)
     end
   end
