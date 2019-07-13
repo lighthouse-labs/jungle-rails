@@ -31,9 +31,14 @@
       <% if @product_reviews.size > 0 %>
         <% @product_reviews.each do |product_review| %>
           <div>
-          <% @prod_user_name = User.find product_review.user_id %>
-          <%= @prod_user_name.first_name %> gave it
-          <%= pluralize(product_review.rating, "Star") %><br />
+          <% @prod_user = User.find product_review.user_id %>
+          <%= @prod_user.first_name %> gave it
+          <%= pluralize(product_review.rating, "Star") %>
+          <% if current_user && current_user.id == product_review.user_id %>
+            <%= link_to product_review_path(@product, product_review), class: "fa fa-trash-o", method: :delete do %>
+            <% end %>
+          <% end %>
+          <br />
           <%= product_review.description %>
           </div>
           <br />
