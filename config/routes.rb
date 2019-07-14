@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register'
   resource :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new', as: 'login'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
 
   resources :products, only: [:index, :show] do 
     resource :reviews, only: [ :create, :destroy] 
