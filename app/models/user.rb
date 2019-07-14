@@ -1,7 +1,11 @@
+require 'bcrypt' 
 class User < ActiveRecord::Base
     has_secure_password
 
-    validates :password, length: { minimum: 6 }
+    has_many :reviews
+    
+
+    validates :password, length: { minimum: 4 }
     validates :email, presence: true, length: { maximum: 20 }, uniqueness: true
 
 end
