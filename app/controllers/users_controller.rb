@@ -11,8 +11,7 @@ class UsersController < ApplicationController
         #     password_confirmation: params[:password_confirmation]
         # )
         @user = User.new(user_params)
-        puts user_params
-        puts @user
+
 
         if @user.save
             session[:user_id] = @user.id
