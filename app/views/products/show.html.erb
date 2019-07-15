@@ -25,15 +25,11 @@
 
           <%= form_for [@product, Review.new] do |f| %>
         
-          <%= f.label :description %>
-          <%= f.text_field :description %>
-        
-        
-          <%= f.label :rating %>
-          <%= f.select :rating, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %> 
-        
-        
-          <%= f.submit %>
+          <dt><%= f.label :rating %></dt>
+          <dd><%= f.select :rating, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %> </dd>
+          <dt><%= f.label :description %></dt>
+          <dd><%= f.text_field :description %> <%= f.submit %></dd>
+
           <% end %>
 
 

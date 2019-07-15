@@ -134,17 +134,17 @@ cat3.products.create!({
 
 # USERS
 
-# User.create!({
+User.create!({
 
-#   email: 't@test.com',
-#   password_digest: '1212121212'
-# })
+  email: 't@test.com',
+  password: '1212121212'
+})
 
-# User.create!({
+User.create!({
 
-#   email: 'q@test.com',
-#   password_digest: 'qwqwqwqwqw'
-# })
+  email: 'q@test.com',
+  password: 'qwqwqwqwqw'
+})
 
 
 # REVIEWS
@@ -154,29 +154,30 @@ puts "Finding and recreating Reviews ..."
 Review.create!({
   rating: 1,
   description: "looks great but crumbles when I put books on it",
-  product_id: 12
-  user_id: 1
+  product_id: 12,
+  user_id:1
+
 })
 
 Review.create!({
   rating: 5,
   description: "very comfortable on my elbows",
   product_id: 11,
-  user_id: 1
+  user_id:1
 })
 
-# Review.create!({
-#   rating: 3,
-#   description: "it is awesome",
-#   product_id: 12
+Review.create!({
+  rating: 3,
+  description: "it is awesome",
+  product_id: 12,
+  user_id:2
+})
 
-# })
-
-# Review.create!({
-#   rating: 5,
-#   description: "very comfortable on my elbows",
-#   product_id: 11,
-
-# })
+Review.create!({
+  rating: 5,
+  description: "very comfortable on my elbows",
+  product_id: 11,
+  user_id:2
+})
 
 puts "DONE!"
