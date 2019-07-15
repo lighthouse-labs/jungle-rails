@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
 
     has_many :reviews
     
-
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :email, presence: true, uniqueness: { case_sensitive: false }
     validates :password, length: { minimum: 4 }
-    validates :email, presence: true, length: { maximum: 20 }, uniqueness: true
+    validates :password_digest, presence: true
 
+    
 end

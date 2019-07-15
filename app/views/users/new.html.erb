@@ -1,23 +1,20 @@
 <h2> Create Account</h2>
-<%=form_tag '/users' do%>
-        <%
-=begin%>
- <%= label_tag :first_name%>
-        <%= text_field_tag :first_name%>
+<div class="col-sm-8">
+        <dl class="dl-horizontal">
+        <%=form_tag '/users' do%>
+                <dt><%= label_tag :first_name%></dt>
+                <dd><%= text_field_tag :first_name%></dd>
 
-        <%= label_tag :last_name%>
-        <%= text_field_tag :last_name%> 
-<%
-=end%>
+                <dt><%= label_tag :last_name%></dt>
+                <dd><%= text_field_tag :last_name%> </dd>
 
-        <%= label_tag :email%>
-        <%= text_field_tag :email%>
+                <dt><%= label_tag :email%></dt>
+                <dd><%= text_field_tag :email%></dd>
 
-        <%= label_tag :password%>
-        <%= password_field_tag :password%>
+                <dt><%= label_tag :password%></dt>
+                <dd><%= password_field_tag :password%></dd>
 
-        <%= label_tag :password_confirmation%>
-        <%= password_field_tag :password_confirmation%>
-
-    <%= submit_tag 'Register' %>
-<%end%>
+                <dt><%= label_tag :password_confirmation%></dt>
+                <dd><%= password_field_tag :password_confirmation%></dd>
+        <%= submit_tag 'Register' %>
+        <%end%>

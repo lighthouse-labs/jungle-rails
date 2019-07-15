@@ -135,13 +135,15 @@ cat3.products.create!({
 # USERS
 
 User.create!({
-
+  first_name: "t",
+  last_name: "y",
   email: 't@test.com',
   password: '1212121212'
 })
 
 User.create!({
-
+  first_name: "q",
+  last_name: "a",
   email: 'q@test.com',
   password: 'qwqwqwqwqw'
 })
