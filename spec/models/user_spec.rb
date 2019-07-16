@@ -25,6 +25,7 @@ RSpec.describe User, type: :model do
       @user = User.create password:'astest', password_confirmation:'astest'
       expect(@user.password).to eq(@user.password_confirmation)
     end
-    
+
   end
 end
+
