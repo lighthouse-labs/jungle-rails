@@ -13,7 +13,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 1. Update apt repo `sudo apt-get update -y`
 2. Install ImageMagick `sudo apt-get install -y imagemagick-6.q16`
-3. Install magickCore dependency `sudo apt-get install libmagickwand-dev`
+3. Install magickCore dependency `sudo apt-get install -y libmagickwand-dev`
 
 ## Setup
 
