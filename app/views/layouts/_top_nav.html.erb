@@ -1,49 +1,86 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Jungle</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to 'Home', :root %>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Categories
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <% Category.all.each do |category| %>
-              <li><%= link_to category.name, category %></li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
-            <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
-            <span class="caret"></span>
+<header class="<%= current_page?(root_path) ? "hero" : "hero small" %>">
+  <section class="title">
+    <h3>Welcome to</h3>
+    <h1>The Jungle</h1>
+    <h2>Where you can find any plants!</h2>
+  </section>
+</header>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-nav">
+  <div class="container">
+    <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <%# <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          > %>
+            <%# Categories %>
+          <%# </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown"> %>
+            <% Category.all.each do |category| %>
+            <li class="nav-item">
+              <%= link_to category.name, category, class: "nav-link" %>
+            </li>
+            <% end %>
+          <%# </ul>
+        </li> %>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-danger"
+            href="#"
+            id="navbarDropdownAdmin"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Admin
           </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Dashboard', [:admin, :root] %></li>
-            <li><%= link_to 'Products',  [:admin, :products] %></li>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><%= link_to 'Dashboard', [:admin, :root], class: "nav-link" %></li>
+            <li><%= link_to 'Products', [:admin, :products], class: "nav-link" %></li>
           </ul>
         </li>
-        <li>
-          <%= link_to cart_path do %>
-            <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
-          <% end %>
+        <li class="nav-item end-0">
+          <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
+          My Cart (<%= cart.size %>) <% end %>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<script>
+const gnr = () => {
+  const uptitle = document.querySelector("section.title h3")
+  const subtitle = document.querySelector("section.title h2")
+  const header = document.querySelector("header.hero")
+
+  uptitle.style.fontSize = "5em"
+  uptitle.style.fontWeight = 900
+  uptitle.style.textAlign = "center"
+
+  subtitle.innerHTML = "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>"
+
+  header.style.backgroundImage = "url(https://iloveclassicrock.com/wp-content/uploads/2019/03/gnr5-e1553689451998.jpeg)"
+}
+const title = document.querySelector("section.title")
+title.addEventListener("dblclick", gnr)
+</script>
