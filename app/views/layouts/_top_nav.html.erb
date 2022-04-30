@@ -68,19 +68,21 @@
   </div>
 </nav>
 <script>
+(function(){
 const gnr = () => {
-  const uptitle = document.querySelector("section.title h3")
-  const subtitle = document.querySelector("section.title h2")
-  const header = document.querySelector("header.hero")
+    const uptitle = document.querySelector("section.title h3");
+    const subtitle = document.querySelector("section.title h2");
+    const header = document.querySelector("header.hero");
 
-  uptitle.style.fontSize = "5em"
-  uptitle.style.fontWeight = 900
-  uptitle.style.textAlign = "center"
+    uptitle.style.fontSize = "5em";
+    uptitle.style.fontWeight = 900;
+    uptitle.style.textAlign = "center";
 
-  subtitle.innerHTML = "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>"
-
-  header.style.backgroundImage = "url(https://iloveclassicrock.com/wp-content/uploads/2019/03/gnr5-e1553689451998.jpeg)"
-}
-const title = document.querySelector("section.title")
-title.addEventListener("dblclick", gnr)
-</script>
+    subtitle.innerHTML =
+      "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>";
+  };
+  const title = document.querySelector("header.hero");
+  title.addEventListener("dblclick", gnr);
+  
+})()
+  </script>
