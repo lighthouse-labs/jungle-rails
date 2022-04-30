@@ -1,17 +1,113 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
 // Vendor
-@import "bootstrap-sprockets";
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 
 // App
 @import "products";
 
+// Fonts
 // Global
 body {
-  padding-top: 70px;
+  // padding-top: 70px;
+  font-size: 20px;
+  font-family: "Source Sans Pro", sans-serif;
 }
-
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Montserrat", sans-serif;
+}
 // Bootstrap adjustments
 form.button_to {
   display: inline;
+}
+
+.hero {
+  height: 75vh;
+  background-image: url("/images/hero_header.jpg");
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: 30%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.small {
+    height: 20vh;
+
+    nav {
+      display: none;
+    }
+    .title {
+      display: none;
+    }
+  }
+}
+
+.hero nav {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
+
+.hero .title {
+  margin: auto 0;
+  font-family: "Montserrat";
+  color: white;
+  text-transform: uppercase;
+  width: max-content;
+
+  h1,
+  h2,
+  h3 {
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+  }
+  h1 {
+    line-height: 0.7;
+    font-weight: 900;
+    font-size: 6.5em;
+    font-style: italic;
+  }
+  h2 {
+    margin-top: 0.7em;
+    font-size: 2.2em;
+  }
+  h3 {
+    font-style: italic;
+    text-align: right;
+    font-size: 1.4em;
+  }
+}
+
+.sticky-nav {
+  background: green;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  font-weight: 700;
+
+  .navbar-brand {
+    font-weight: 900;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    font-style: italic;
+  }
+}
+
+.page-header {
+  margin: 3em 0;
+}
+.text-danger {
+  color: #f38792 !important;
 }
