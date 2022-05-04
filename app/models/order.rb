@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
-
-  belongs_to :user
+  
   has_many :line_items
 
   monetize :total_cents, numericality: true
