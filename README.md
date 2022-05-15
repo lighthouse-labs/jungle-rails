@@ -2,6 +2,12 @@
 
 A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
 
+## Additional Steps for WSL2 Users
+
+1. Update apt repo `sudo apt-get update -y`
+2. Install ImageMagick `sudo apt-get install -y imagemagick-6.q16`
+3. Install magickCore dependency `sudo apt-get install -y libmagickwand-dev`
+
 ## Setup
 
 1. Run `bundle install` to install dependencies
